@@ -1,0 +1,474 @@
+[#Form         		: Comprehensive Invoice]
+	Add       		: Option     : RSSI Invoice	: @@IsSales
+	[!Form			: RSSI Invoice]
+		Delete		: Top Part
+		Delete		: Part
+		Delete		: Bottom Part
+		Add			: Part			: RSSI TOP PART, RSSI NAME PART, RSSI CMP NAME, RSSI LED NAME, RSSI TITLE PART, RSSI DETAIL PART
+		Add			: Bottom Part	: RSSI BOTTOM DETAIL
+[Part				: RSSI TOP PART]
+	Line			: RSSI NOTE
+	
+[Line				: RSSI NOTE]
+		Right Field	: RSSI NOTE
+		[Field		: RSSI NOTE]
+			Use		: Name field
+			Set as	: "(Duplicate for Transporter)"
+			Border	: thick bottom 
+			Align	: Right
+			Full Width	: Yes
+			
+[Part				: RSSI NAME PART]
+	Border: THICK LEFT RIGHT
+	Line			: RSSI PH, RSSI CMP, RSSI CMP ADD
+
+[Line				: RSSI PH]
+		Field		: RSSI PH, RSSI PHN
+		Right Field	: RSSI GST, RSSI GSTIN
+		[Field		: RSSI PH]
+			Use		: SHORT PROMPT
+			Set as	: "Phone"
+			Style	: NORMAL
+			
+			
+		[Field		: RSSI PHN]
+			Use		: Short Name Field
+			Set as	: $PhoneNumber
+			Style	: NORMAL
+			
+		[Field		: RSSI GST]
+			Use		: SHORT PROMPT
+			Set as	: "GSTIN"
+			Style	: NORMAL
+			
+		[Field		: RSSI GSTIN]
+			Use		: NAME field
+			Set as	: $GSTRegNumber
+			Style	: NORMAL
+			
+
+	
+[Line				: RSSI CMP]
+		Field		: RSSI CMP
+		[Field		: RSSI CMP]
+			Use		: Name field
+			Set as	: ##SVCURRENTCOMPANY
+			Align	: Center
+			Full Width	: Yes
+			Style	: EXTRA LARGE BOLD
+			
+[Line				: RSSI CMP ADD]
+			Border	: THIN BOTTOM
+		Field		: RSSI CMP ADD
+		[Field		: RSSI CMP ADD]
+			Use		: Name field
+			Set as	: $$FullList:CompanyAddress:$address
+			Align	: Center
+			Full Width	: Yes
+			Style	: NORMAL BOLD
+			
+[Part				: RSSI CMP NAME]
+	Border			: thin bottom
+	Part			: RSSI LEFT CMP NAME, RSSI RIGHT CMP INFO
+	[Part			: RSSI LEFT CMP NAME]
+		Border		: THICK LEFT
+		Line		: RSSI CMP NAME, RSSI CMP ADDRESS, RSSI CMP GSTNO
+		[Line		: RSSI CMP NAME]
+			Field	: RSSI CMPT, RSSI CMP NAME 
+			[Field	: RSSI CMPT]
+				Use	: NAME FIELD
+				Set as	: "Consignor"
+				Border	: THIN BOTTOM
+				Width	: 10
+				
+			[Field	: RSSI CMP NAME]
+				Use	: NAME FIELD
+				Set as	: ##SVCURRENTCOMPANY
+				Full Width: Yes
+				
+		[Line		: RSSI CMP ADDRESS]
+			Field	: RSSI CMP ADD B, RSSI CMP ADDRESS 
+			[Field	: RSSI CMP ADD B]
+				Use	: NAME FIELD
+				Set as	: ""
+				Width	: 10
+				
+			[Field	: RSSI CMP ADDRESS]
+				Use	: NAME FIELD
+				Set as	: $$FullList:CompanyAddress:$address
+				Lines	: 0
+				
+		[Line		: RSSI CMP GSTNO]
+			Field	: RSSI CMP GSTNO, RSSI CMP GSTIN NO
+
+			[Field	: RSSI CMP GSTNO]
+				Use	: SHORT PROMPT
+				Set as	: "GSTIN"
+				Width	: 10
+				
+			[Field	: RSSI CMP GSTIN NO]
+				Use	: NAME FIELD
+				Set as	: $GSTRegNumber
+				
+[Part			: RSSI RIGHT CMP INFO]
+	Border		: thin left RIGHT
+		Line		: RSSI CMP GR, RSSI CMP DELIVERY, RSSI CMP VEHICAL, RSSI CMP DRIVER
+		
+		[Line		: RSSI CMP GR]
+			Border		: THIN BOTTOM
+			Field	: RSSI CMP GR, RSSI CMP GRNO
+			Field	: RSSI CMP DATE,RSSI CMP DATE1
+			
+			[Field	: RSSI CMP GR]
+				Use	: SHORT PROMPT
+				Set as	: "GR NO."
+				
+				
+			[Field	: RSSI CMP GRNO]
+				Use	: NAME FIELD
+				Set as	: $EIGRNUM
+				
+			[Field	: RSSI CMP DATE]
+				Use	: DATE FIELD
+				Set as	: "DATE"
+				Align	: Right
+				
+			[Field	: RSSI CMP DATE1]
+				Use	: DATE FIELD
+				Set as	: $BillofLadingDate
+				
+		[Line		: RSSI CMP DELIVERY]
+			Field	: RSSI CMP DEL, RSSI CMP DEL AT
+			
+			[Field	: RSSI CMP DEL]
+				Use	: SHORT PROMPT
+				Set as	: "Delivery at"
+				
+				[#Field: EI PARTY LEDGER]
+			[Field	: RSSI CMP DEL AT]
+				Use	: NAME FIELD
+				Set as	: $BasicBuyerName+$BasicBuyerAddress
+
+				Lines	: 0
+				
+
+		[Line		: RSSI CMP VEHICAL] 
+			Field	: RSSI CMP VEHICAL, RSSI CMP VEHICALNO
+			
+			[Field	: RSSI CMP VEHICAL]
+				Use	: SHORT PROMPT
+				Set as	: "Vehicle no."
+				
+				
+			[Field	: RSSI CMP VEHICALNO]
+				Use	: NAME FIELD
+				Set as	: $BasicShipVesselNo
+				Lines	: 0
+				
+		[Line		: RSSI CMP DRIVER] 
+			Field	: RSSI CMP DRIVER, RSSI CMP DRIVERname
+			
+			[Field	: RSSI CMP DRIVER]
+				Use	: SHORT PROMPT
+				Set as	: "Driver"
+				
+				
+			[Field	: RSSI CMP DRIVERname]
+				Use	: NAME FIELD
+				Set as	: $
+				Lines	: 0
+				
+[Part				: RSSI LED NAME]
+	Border			: thin bottom
+	Part			: RSSI LEFT LED NAME
+	Right Part		: RSSI RIGHT LED INFO
+	[Part			: RSSI LEFT LED NAME]
+		Border: THICK LEFT 
+		Line		: RSSI LED NAME, RSSI LED ADDRESS, RSSI LED GSTNO
+		[Line		: RSSI LED NAME]
+			Field	: RSSI LEDT, RSSI LED NAME 
+			[Field	: RSSI LEDT]
+				Use	: NAME FIELD
+				Set as	: "Consignee"
+				Border	: THIN BOTTOM
+				Width	: 10
+				
+			[Field	: RSSI LED NAME]
+				Use	: NAME FIELD
+				Set as	: $PartyName
+
+				Full Width: Yes
+				
+		[Line		: RSSI LED ADDRESS]
+			Field	: RSSI LED ADD B, RSSI LED ADDRESS 
+			[Field	: RSSI LED ADD B]
+				Use	: NAME FIELD
+				Set as	: ""
+				Width	: 10
+				
+			[Field	: RSSI LED ADDRESS]
+				Use	: NAME FIELD
+				Set as	: $Address 
+
+				Lines	: 0
+				
+				
+[Line		: RSSI LED GSTNO]
+			Field	: RSSI LED GSTNO, RSSI LED GSTIN NO
+
+			[Field	: RSSI LED GSTNO]
+				Use	: SHORT PROMPT
+				Set as	: "GSTIN"
+				Width: 10
+				
+			[Field	: RSSI LED GSTIN NO]
+				Use	: NAME FIELD
+				Set as	: $$PartyGSTIN
+
+		
+[Part			: RSSI RIGHT LED INFO]
+	Part: RSSI LED LEFT ,RSSI LED RIGHT
+	Border		: thin left RIGHT
+	
+	
+	[Part			: RSSI LED LEFT]
+		Line		: RSSI LED F, RSSI LED ADD TO
+		[Line		: RSSI LED F]
+			Field	: RSSI LED FROM
+			[Field	: RSSI LED FROM]
+				Use	: NAME FIELD
+				Set as	: "FROM"
+				Style: LARGE BOLD
+				Align: Right
+				
+		[Line		: RSSI LED ADD TO]
+			
+			Field	: RSSI LED FROM ADD
+			
+			[Field	: RSSI LED FROM ADD]
+				Use	: NAME FIELD
+				Set as	:  $EICMPINFO
+				Style:  NORMAL
+				Align: Right
+				Lines: 0
+				
+	[Part: RSSI LED RIGHT]
+		Line		: RSSI LED T, RSSI LED ADD
+		[Line		: RSSI LED T]
+			Field	: RSSI LED TO		
+				
+			[Field	: RSSI LED TO ]
+				Use	: NAME FIELD
+				Set as	: "TO"
+				Style: LARGE BOLD
+			    Align: Right
+				
+				
+		
+		[Line		: RSSI LED ADD]
+			Right Field: RSSI LED TO ADD		
+				
+			[Field	: RSSI LED TO ADD]
+				Use	: NAME FIELD
+				Set as	: $BasicFinalDestination
+				Style: NORMAL
+			    Align: Center
+				
+				
+[Part: RSSI TITLE PART]
+	Border			: thick bottom 
+	Line			: RSSI TITLE
+	[Line			: RSSI TITLE]
+		Field	: RSSI Sno, RSSI Itemname
+		Right Field	: RSSI QTY,RSSI UNIT,RSSI RATE,RSSI FR,RSSI REMARKS
+		
+		Local	: Field	: Default	: Style : Small Bold
+		Local	: Field	: Default	: Type	: String
+		Local	: Field	: RSSI Sno		: Set as	: "S No."
+		Local	: Field	: RSSI Itemname	: Set as	: "Item Description"
+		Local	: Field	: RSSI QTY		: Set as	: "Qnty."
+		Local	: Field	: RSSI UNIT		: Set as	: "Unit"
+		Local	: Field	: RSSI RATE		: Set as	: "RATE"
+		Local	: Field	: RSSI FR		: Set as	: "FREIGHT"
+		Local	: Field	: RSSI REMARKS	: Set as	: "REMARK"
+			
+[Part				: RSSI DETAIL PART]
+	Common Border	: Yes	
+	Border			: thick right
+	Scroll			: Vertical
+	Line			:RSSIInventoryItems
+	Repeat			: RSSIInventoryItems : inventoryEntries
+	
+[Line				: RSSIInventoryItems]
+	Field			: RSSI Sno, RSSI Itemname
+	Right Field		: RSSI QTY,RSSI UNIT,RSSI RATE,RSSI FR,RSSI REMARKS
+	
+		[Field		: RSSI Sno]
+	Use				: Name Field
+	Set as		: $$Line	
+	Width		: 4
+	Style		: Small
+	Border		: Thin Left
+[Field			: RSSI Itemname]
+	Use			: Name Field
+	Set as		: $Stockitemname
+	Full Width	: Yes
+	Style		: Small
+	Border		: Thin Left
+[Field			: RSSI QTY]
+	Use			: Qty Primary Field
+	Set as		: $BilledQty
+	
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSSI UNIT]
+	Use	: Qty Primary Field
+	Set as	: $Rate	
+	
+	Style	: Small
+	Border	: Thin Left
+	
+[Field	: RSSI RATE]
+	Use	: AMOUNT Field
+	Set as	: $AMOUNT
+	Style	: Small
+	Border	: Thin Left
+	
+[Field	: RSSI FR]
+	Use	: Qty Primary Field
+	Set as	: $	
+	Style	: Small
+	Border	: Thin Left
+
+	
+[Field	: RSSI REMARKS]
+	Use	: NAME FIELD
+	Set as	: $
+	Style	: Small
+	Border	: Thin Left right
+	
+				
+[Part			: RSSI BOTTOM DETAIL]
+	Border		: thin top bottom
+	Part		: RSSI BD INV, RSSI VALUE PART
+	Right Part	: RSSI RIGHT BD
+	[Part		: RSSI BD INV]
+		SpaceTop   		: If $$InPixelMode then 0.5 Else 0.5
+		Border	: thin left
+		Line	: RSSI INV, RSSI INV b, RSSI INV N
+		[Line	: RSSI INV]
+			Field	: RSSI INV
+			[Field	: RSSI INV]
+				Use	: NAME FIELD
+				Set as	: "Invoice No."
+				Align	: Left
+				Width	: 30
+				
+		[Line			: RSSI INV b]
+			Field		: RSSI INV b
+			[Field		: RSSI INV b]
+				Use		: NAME FIELD
+				Set as	: ""
+				Align	: Right
+				Width	: 30		
+				
+		[Line			: RSSI INV N]
+			Field		: RSSI INV N 
+			[Field		: RSSI INV N]
+				Use		: NAME FIELD
+				Set as	: $VoucherNumber
+				Align	: Center
+				Width	: 30
+				Style	: LARGE BOLD
+				
+	[Part				: RSSI VALUE PART]
+		SpaceTop   		: If $$InPixelMode then 0.5 Else 0.5
+		Border			: thin left
+		Line			: RSSI VALUE, RSSI VALUE b, RSSI VALUE N
+		[Line			: RSSI VALUE]
+			Field		: RSSI VALUE 
+			[Field		: RSSI VALUE]
+				Use		: NAME FIELD
+				Set as	: "VALUE"
+				Align	: Left
+				Width	: 40
+				
+		[Line			: RSSI VALUE b]
+			Field		: RSSI VALUE b
+			[Field		: RSSI VALUE b]
+				Use		: NAME FIELD
+				Set as	: ""
+				Align	: Right
+				Width	: 30		
+		
+			
+		[Line			: RSSI VALUE N]
+			Field		: RSSI VALUE N	
+			[Field		: RSSI VALUE N]
+				Use		: NAME FIELD
+				Set as	: $$CollAmtTotal:InventoryEntries:$Amount
+				Align: Center
+				Width: 40
+				Style: LARGE BOLD
+				
+	[Part				: RSSI RIGHT BD]
+		SpaceTop   		: If $$InPixelMode then 0.5 Else 0.5
+		SpaceBottom 	: If $$InPixelMode then 1 Else 0
+		Border			: thin left right
+		Line			: RSSI SIGN for, RSSI SIGNb, RSSI SIGNbb, RSSI SIGN
+		[Line			: RSSI SIGN for]
+			Field		: RSSI SIGN for
+			[Field		: RSSI SIGN for]
+				Use		: NAME FIELD
+				Set as	: "For"+@@CMPMAILNAME
+				Align	: Left
+				Width	: 40
+				
+[Line				: RSSI SIGNb]
+			Field	: RSSI SIGNb
+			[Field	: RSSI SIGNb]
+				Use	: NAME FIELD
+				Set as	: ""
+				Align	: Right
+				Width	: 30
+				
+[Line: RSSI SIGNbb]
+			Field: RSSI SIGNbb
+			[Field: RSSI SIGNbb]
+				Use: NAME FIELD
+				Set as: ""
+				Align: Right
+				Width: 30
+
+		[Line: RSSI SIGN]
+			Field: RSSI SIGN
+			[Field: RSSI SIGN]
+				Use: NAME FIELD
+				Set as: "Authorized Signatory"
+				Align: Right
+				Width: 30
+				
+				
+
+[#Part           : EI DelNoteInfo]
+	Add: Line: After: EI PreCarriage: EI CMP FROM
+	[Line        : EI CMP FROM]
+		Field    : mediumprompt, EI CMP INFO
+		Local    : field  :mediumprompt  :Set as  :"FROM"
+		[Field   : EI CMP INFO]
+			Use  : name field
+			Storage   : EI CMP INFO
+			
+[System        		:  UDF]
+	    EI CMP INFO : String	: 201 
+			
+				
+				
+	
+			
+
+			
+			
+
+			
+	
