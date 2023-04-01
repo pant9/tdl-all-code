@@ -1,0 +1,961 @@
+[#Form         		: Comprehensive Invoice]
+	Add       		: Option     : RSDFL Invoice	: @@IsSales
+	[!Form			: RSDFL Invoice]
+		Delete		: Top Part
+		Delete		: Part
+		Delete		: Bottom Part
+		Delete		: Page Break
+		Add			: Part			: RSDFL NAME PART, RSDFL GSTIN PART, RSDFL ADDRESS PART, RSDFL TITLE PART, RSDFL DETAIL PART
+		Add			: Bottom Part	: RSDFLAmountTotal,RSDFL NOTE, RSDFL TERM PART
+		
+		
+[Part				: RSDFL NAME PART]
+	Border			: thick bottom 
+	Line			: RSDFL GSTI, RSDFL CN, RSDFL ADD
+	
+
+	[Line			: RSDFL GSTI]
+		Field		: RSDFL GSTI, RSDFL GSTINV
+		Right Field	: RSDFL OI
+		[Field		: RSDFL GSTI]
+			Use		: Name field
+			Set as	: "."
+			Width	: 15
+			
+		[Field		: RSDFL GSTINV]
+			Use		: Name field
+			Set as		: "GST INVOICE"
+			Border		: thin bottom
+			Full Width	:  Yes
+			Align		:  Center
+			Style		:  normal bold italic
+			
+		[Field			: RSDFL OI]
+			Use			: Copy Field
+			Width	: 15
+			Full Width	: No
+			
+	[Line				: RSDFL CN]
+		Field			: RSDFL CN
+		[Field			: RSDFL CN]
+			Use			: Name field
+			Set as		: @@CmpMailName
+			Border		: thin bottom
+			Full Width	:  Yes
+			Align		:  Center
+			Style		: extra large bold
+			
+	[Line				: RSDFL ADD]
+		Field			: RSDFL ADD
+		[Field			: RSDFL ADD]
+			Use			: Name field
+			Set as		: $$FullList:CompanyAddress1:$address
+			Full Width	:  Yes
+			Align	: Center
+	
+[Part					: RSDFL GSTIN PART]
+;	Border				: THIN  BOTTOM
+	Part				: RSDFL GSTIN LEFTPART, RSDFL RC RIGHT PART
+	[Part				: RSDFL GSTIN LEFTPART]
+		Border			: THICK LEFT
+	Line				:  RSDFL GSTIN, RSDFL PAN, RSDFL CIN, RSDFL STATE
+	
+	[Line				: RSDFL GSTIN]
+		Field			: RSDFL GSTIN, RSDFL GSTINO
+		[Field			: RSDFL GSTIN]
+			Use			: SHORT PROMPT
+			Set as		: "GSTIN       :"
+			Width		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL GSTINO]
+			Use			: Name field
+			Set as		: @@VATCMPGSTNumber
+			Full Width	: Yes
+			Style		: NORMAL
+			
+
+
+	[Line				: RSDFL PAN]
+		Field			: RSDFL PAN, RSDFL PANO
+		[Field			: RSDFL PAN]
+			Use			: SHORT PROMPT
+			Set as		: "PAN NO    "
+		    Width		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL PANO]
+			Use			: Name field
+			Set as		: $IncomeTaxNumber:Company:##SvCurrentCompany
+			Full Width	: Yes     
+			Style		: NORMAL
+			
+	[Line				: RSDFL CIN]
+		Field			: RSDFL CIN, RSDFL CINO
+		[Field			: RSDFL CIN]
+			Use			: SHORT PROMPT
+			Set as		: "CIN NO :"   
+			Width		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL CINO]
+			Use			: Name field
+			Set as		: 	$CorporateIdentityNo:Company:##SVCurrentCompany
+			Full Width	: Yes
+			Style		: NORMAL
+			
+	[Line				: RSDFL STATE]
+		Border			: THIN BOTTOM
+		Field			: RSDFL STATE, RSDFL STATEN, RSDFL STATE C, RSDFL STATECO
+		[Field			: RSDFL STATE]
+			Use			: SHORT PROMPT
+			Set as		: "STATE :"
+			Width		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL STATEN]
+			Use			: Name field
+			Set as		: $StateName:Company:##SvCurrentCompany
+			Width		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL STATE C]
+			Use			: SHORT PROMPT
+			Set as		: "STATE CODE :"
+			Style		: NORMAL
+			
+		[Field			: RSDFL STATECO]
+			Use			: Name field
+			Set as		: $$GetGSTStatecode:#RSDFLSTATEN
+			Width		: 10
+			Style		: NORMAL
+			
+	
+			
+[Part					: RSDFL RC RIGHT PART]
+	Border				: THIN LEFT RIGHT
+	Line				:  RSDFL RC, RSDFL INV NO, RSDFL INVD, RSDFL RC BLANK
+
+
+		
+	[Line				: RSDFL RC]
+		Field			: RSDFL RC, RSDFL RC1
+		[Field			: RSDFL RC]
+			Use			: MEDIUM PROMPT
+			Set as		: "REVERSE CHARGES "
+			Width		: 15
+			Style		: NORMAL BOLD
+			
+		[Field			: RSDFL RC1]
+			Use			: NAME FIELD
+			Set as		: "YES/NO "
+			Width		: 15
+			Style		: NORMAL BOLD
+			
+	[Line				: RSDFL INV NO]
+		Field			: RSDFL INV NO, RSDFL INV NUM
+		[Field			: RSDFL INV NO]
+			Use			: MEDIUM PROMPT
+			Set as		: "INVOICE NO. :"
+			Width		: 15
+			Style		: NORMAL BOLD
+			
+
+		[Field			: RSDFL INV NUM]
+			Use			: Name field
+			Set as		: $VoucherNumber
+			Width		: 15
+			Style		: NORMAL BOLD
+			
+	[Line				: RSDFL INVD]
+		Field			: RSDFL INVD, RSDFL INVDATE
+		[Field			: RSDFL INVD]
+			Use			: MEDIUM PROMPT
+			Set as		: "INVOICE DATE : "
+			Width		: 15
+			Style		: NORMAL BOLD
+			
+		[Field			: RSDFL INVDATE]
+			Use			: Name field
+			Set as		: $Date
+			Width		: 15
+			Style		: NORMAL BOLD	
+
+	[Line				: RSDFL RC BLANK]
+		Border			: THIN BOTTOM
+		Field			: RSDFL RC BLANK
+		[Field			: RSDFL RC BLANK]
+			Use			: Name field
+			Set as		: ""
+			
+			Style		: NORMAL
+			
+	
+			
+
+;ADDRESS................................................
+[Part					: RSDFL ADDRESS PART]
+	Border				: THIN  BOTTOM
+	Part				: RSDFL ADD LEFTPART, RSDFL ADD RIGHT PART
+	[Part				: RSDFL ADD LEFTPART]
+		Border			: THICK LEFT
+		Line			: RSDFL BLANK, RSDFL NAME, RSDFL PN, RSDFL SC, RSDFL PAN NO, RSDFL BL, RSDFL GSTNO, RSDFL BL1
+[Line					: RSDFL BLANK]
+		Field			: RSDFL BLANK
+		[Field			: RSDFL BLANK]
+			Use			: Name field
+			Set as		: ""
+			Full Width	: Yes
+			Style		: NORMAL
+			
+	[Line				: RSDFL NAME]
+		Field			: RSDFL NAME, RSDFL NAME1
+		[Field			: RSDFL NAME]
+			Use			: Name field
+			Set as		: "M/s "
+			Width       : 4
+			Style		: NORMAL
+			
+		[Field			: RSDFL NAME1]
+			Use			: Name field
+			Set as		: $MailIngName:Ledger:$PartyLedgerName
+			Full Width  : Yes
+			Style		: NORMAL
+			
+
+			
+	[Line				: RSDFL PN]
+		Field			: RSDFL PN, RSDFL PN1
+		[Field			: RSDFL PN]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4
+			Style		: NORMAL
+			
+		[Field			: RSDFL PN1]
+			Use			: Name field
+			Set as		: $Address
+			Full Width  : Yes
+			Style		: NORMAL
+
+	[Line				: RSDFL SC]
+		Field			: RSDFL SC, RSDFL SC1, RSDFL SCS, RSDFL SC2
+		[Field			: RSDFL SC]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4 
+			Style		: NORMAL
+			
+		[Field			: RSDFL SC1]
+			Use			: SHORT PROMPT
+			Set as		: "State "
+			Width  		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL SCS]
+			Use			: Name field
+			Set as		: $StateName
+			Full Width  : Yes
+			Style		: NORMAL
+			
+		[Field			: RSDFL SC2]
+			Use			: SHORT PROMPT
+			Set as		: " State Code :" + $$GetGSTStateCode:$Statename
+			Full Width  : Yes
+			Style		: NORMAL
+			
+		
+					
+				
+	[Line				: RSDFL PAN NO ]
+		Field			: RSDFL PAN NO , RSDFL PAN NO1,RSDFL PAN NUM
+		[Field			: RSDFL PAN NO ]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4
+			Style		: NORMAL
+			
+		[Field			: RSDFL PAN NO1]
+			Use			: SHORT PROMPT
+			Set as		: "Pan NO. "
+			Width  		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL PAN NUM]
+			Use			: Name field
+			Set as		: $IncomeTaxNumber:Ledger:$PartyLedgerName
+			FULL Width  : Yes
+			Style		: NORMAL
+			
+	[Line				: RSDFL BL]
+		Field			: RSDFL BL
+		[Field			: RSDFL BL]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4
+			Style		: NORMAL
+			
+	
+	[Line				: RSDFL GSTNO ]
+		Field			: RSDFL GSTNO, RSDFL GSTNO1, RSDFL GSTNUM
+		[Field			: RSDFL GSTNO]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4
+			Style		: NORMAL     
+			
+		[Field			: RSDFL GSTNO1]
+			Use			: SHORT PROMPT
+			Set as		: "GST No.   "
+			Width 		: 10
+			Style		: NORMAL
+			
+		[Field			: RSDFL GSTNUM]
+			Use			: Name field
+			Set as		: $PartyGSTIN
+			Full Width  : Yes
+			Style		: NORMAL
+			
+	[Line				: RSDFL BL1]
+		Field			: RSDFL BL1
+		[Field			: RSDFL BL1]
+			Use			: Name field
+			Set as		: " "
+			Width       : 4
+			Style		: NORMAL
+			
+[Part					: RSDFL ADD RIGHT PART]
+	Border				: THIN LEFT RIGHT
+	Line				: RSDFL RC BLANK1, RSDFL TPT, RSDFL VEH, RSDFL DT, RSDFL POS, RSDFL GR, RSDFL GRB,  RSDFL BN  
+
+	[Line				: RSDFL RC BLANK1]
+		Field			: RSDFL RC BLANK1
+		[Field			: RSDFL RC BLANK1]
+			Use			: Name field
+			Set as		: ""
+			
+			Style		: NORMAL
+			
+	[Line				: RSDFL TPT ]
+		Field			: RSDFL TPT, RSDFL TPT1
+		[Field			: RSDFL TPT]
+			Use			: SHORT PROMPT
+			Set as		: "Tpt Mode "
+			Width       : 15
+			Style		: NORMAL
+			
+			
+		[Field			: RSDFL TPT1]
+			Use			: Name field
+			Set as		: $EITPTMODE
+			Style		: NORMAL
+			Width       : 15
+			
+	[Line				: RSDFL VEH ]
+		Field			: RSDFL VEH, RSDFL VEH1
+		[Field			: RSDFL VEH]
+			Use			: SHORT PROMPT
+			Set as		: "Vehicle No "
+			Width       : 15
+			Style		: NORMAL
+			
+		[Field			: RSDFL VEH1]
+			Use			: Name field
+			Set as		: $BasicShipVesselNo
+			Style		: NORMAL
+			Width       : 15
+			
+	[Line				: RSDFL DT ]
+		Field			: RSDFL DT, RSDFL DT1
+		[Field			: RSDFL DT]
+			Use			: SHORT PROMPT
+			Set as		: "Dt. of Supply "
+			Width       : 15
+			Style		: NORMAL BOLD
+			
+		[Field			: RSDFL DT1]
+			Use			: Name field
+			Set as		: $BillofLadingDate
+			Style		: NORMAL
+			Width       : 15
+			
+	[Line				: RSDFL POS ]
+		Field			: RSDFL POS, RSDFL POS1
+		[Field			: RSDFL POS]
+			Use			: SHORT PROMPT
+			Set as		: "Place of Supply "
+			Width       : 15
+			Style		: NORMAL
+			
+		[Field			: RSDFL POS1]
+			Use			: Name field
+			Set as		: $PlaceOfSupply
+			Style		: NORMAL
+			Width       : 15
+			
+	[Line				: RSDFL GR ]
+		Field			: RSDFL GR, RSDFL GR1
+		[Field			: RSDFL GR]
+			Use			: SHORT PROMPT
+			Set as		: "Gr No. "
+			Width       : 15
+			Style		: NORMAL
+			
+		[Field			: RSDFL GR1]
+			Use			: Name field
+			Set as		: $BasicShipDocumentNo
+			Style		: NORMAL
+			Width       : 15
+			
+	[Line				: RSDFL GRB]
+	
+		Field			: RSDFL GRB
+		[Field			: RSDFL GRB]
+			Use			: Name field
+			Set as		: ""
+			
+			Style		: NORMAL
+			
+
+			
+	[Line				: RSDFL BN ]
+		Field			: RSDFL BN, RSDFL BN1
+		[Field			: RSDFL BN]
+			Use			: Name field
+			Set as		: " "
+			Width       : 15
+			Style		: NORMAL
+			
+		[Field			: RSDFL BN1]
+			Use			: Name field
+			Set as		: "" ;"BIND NATH "
+			Style		: NORMAL
+			Width       : 15
+
+[Part				: RSDFL TITLE PART]
+	Border			: thick bottom 
+	Line			: RSDFL TITLE
+	[Line			: RSDFL TITLE]
+		Field	: RSFLSno,RSFLHSN,RSFLShade,RSFLSItemname
+		Right Field	: RSFLBags,RSFLGrossWt,RSFLNetwt,RSFLSnoRate,RSFLAmount
+		Local	: Field	: Default	: Style : Small Bold
+		Local	: Field	: Default	: Type	: String
+		Local	: Field	: RSFLSno		: Set as	: "S No."
+		Local	: Field	: RSFLHSN		: Set as	: "HSN Code"
+		Local	: Field	: RSFLShade		: Set as	: "Shade"
+		Local	: Field	: RSFLSItemname	: Set as	: "Description"
+		Local	: Field	: RSFLBags		: Set as	: "RL/Bags"
+		Local	: Field	: RSFLGrossWt	: Set as	: "Gross. Wt."
+		Local	: Field	: RSFLNetwt		: Set as	: "Net. Wt."
+		Local	: Field	: RSFLSnoRate	: Set as	: "Rate"
+		Local	: Field	: RSFLAmount	: Set as	: "Amount"
+
+			
+[Part: RSDFL DETAIL PART]
+	Common Border: Yes
+;	Border:THICK LEFT RIGHT
+;	Line: RSDFL DETAIL 
+;	Repeat: RSDFL DETAIL : VOUCHER INVENTORY SUMMARY ;;VOUCHER INVENTORY SUMMARY 
+	Scroll: Vertical
+;	[Line: RSDFL DETAIL ]
+;		Field: RSDFL DETAIL 
+;		Explode	: RSDFLInventoryItems
+;		[Field: RSDFL DETAIL]
+;			Use: NAME FIELD
+;			Set as: $RSVchProcess1
+;			Full Width: Yes
+;[Part	: RSDFLInventoryItems]
+	Line:RSDFLInventoryItems
+	Repeat	: RSDFLInventoryItems : inventoryEntries
+	
+[Line	: RSDFLInventoryItems]
+	Field	: RSFLSno,RSFLHSN,RSFLShade,RSFLSItemname
+	Right Field	: RSFLBags,RSFLGrossWt,RSFLNetwt,RSFLSnoRate,RSFLAmount
+
+[Field	: RSFLSno]
+	Use	: Name Field
+	Set as	: $$Line	
+	Width	: 4
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSFLHSN]
+	Use	: Name Field
+	Set as	: $GSTItemHSNCodeEx	
+	Width	: 8
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSFLShade]
+	Use	: Name Field
+	Set as	: $RSVchShade
+	Width	: 10
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSFLSItemname]
+	Use	: Name Field
+	Set as	: $Stockitemname	
+	Full Width	: Yes
+	Style	: Small
+	Border	: Thin Left
+	
+[Field	: RSFLBags]
+	Use	: Number Field
+	Set as	: $RSVchBagsQty
+	Width	: 5
+	Style	: Small
+	Border	: Thin Left
+	
+[Field	: RSFLGrossWt]
+	Use	: Qty Primary Field
+	Set as	: $BilledQty	
+	Width	: 8
+	Style	: Small
+	Border	: Thin Left
+
+	
+[Field	: RSFLNetwt]
+	Use	: Qty Primary Field
+	Set as	: $RSVchNetQty
+	Width	: 8
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSFLSnoRate]
+	Use	: RAte Price Field
+	Set as	: $Rate
+	Width	: 9
+	Style	: Small
+	Border	: Thin Left
+[Field	: RSFLAmount]
+	Use	: Amount Field
+	Set as	: $Amount	
+	Width	: 11
+	Style	: Small
+	Border	: Thin Left Right
+	
+			
+[Part	: RSDFLAmountTotal]
+	Line	: RSDFLAmountTotal
+[Line:RSDFLAmountTotal]
+		Field	: RSFLSno,RSFLHSN,RSFLShade,RSFLSItemname
+		Right Field	: RSFLBags,RSFLGrossWt,RSFLNetwt,RSFLSnoRate,RSFLAmount
+		Local	: Field	: Default	: Style : Small Bold
+		Local	: Field	: RSFLSno		: Set as	: ""
+		Local	: Field	: RSFLHSN		: Set as	: ""
+		Local	: Field	: RSFLShade		: Set as	: ""
+		Local	: Field	: RSFLSItemname	: Set as	: "Total "
+		Local	: Field	: RSFLBags		: Set as	: $$CollNumTotal:InventoryEntries:$RSVchBagsQty
+		Local	: Field	: RSFLGrossWt	: Set as	: $$CollQtyTotal:InventoryEntries:$BilledQty
+		Local	: Field	: RSFLNetwt		: Set as	: $$CollAmtTotal:InventoryEntries:$RSVchNetQty
+		Local	: Field	: RSFLSnoRate	: Set as	: ""
+		Local	: Field	: RSFLAmount	: Set as	: $$CollAmtTotal:InventoryEntries:$Amount
+		Border	: Totals
+		
+[Part					: RSDFL NOTE]
+	Border				: thick bottom
+	Part				: RSDFL NOTE LEFT PART, RSDFL NOTE RIGHT PART
+	[Part				: RSDFL NOTE LEFT PART]
+;		Border				: thick bottom 
+		Line				: RSDFL NOTE, RSDFL NBl, RSDFL BANK, RSDFL AC NO, RSDFL AMT
+		Border				: thick left 
+	
+
+		[Line				: RSDFL NOTE]
+			Field			: RSDFL NOTE
+			[Field			: RSDFL NOTE]
+				Use			: Name field
+				Set as		: "NOTE: If there is any problem in any of our process, please don't send it to any next process,return the goods as it is with your remarks within 2 days to enable us to re-process. However, we shall not be responsible for any defact,if any process is done on the goods after our process."
+				Full Width	: Yes
+				Style		: extra small
+				Lines		: 0
+				
+
+		[Line				: RSDFL NBl]
+			Field			: RSDFL NBl
+			[Field			: RSDFL NBl]
+				Use			: Name field
+				Set as		: ""
+				
+				
+		[Line				: RSDFL BANK]
+			Field			: RSDFL BANK, RSDFL BANKN
+			[Field			: RSDFL BANK]
+				Border		: THIN BOTTOM
+				Use			: Name field
+				Set as		: "BANK DETAILS  :- "
+				Width		: 15
+				
+			[Field			: RSDFL BANKN]
+				Border		: THIN BOTTOM
+				Use			: Name field
+				Set as	    : If NOT $$IsEmpty:@@VchBankMailingName Then @@VchBankMailingName Else ##SABankName
+				Full Width	: Yes
+	
+			
+				
+		[Line				: RSDFL AC NO]   
+			Field			: RSDFL AC NO, RSDFL IFSC
+			[Field			: RSDFL AC NO]
+				Border		: THIN BOTTOM
+				Use			: Name field
+				Set as		: "Account No. : " + $BankDetails:Ledger:@@VchBankName
+				
+				
+			[Field			: RSDFL IFSC]
+				Border		: THIN BOTTOM
+				Use			: Name field
+				Set as		: "IFSC Code : " + $IFSCode:Ledger:@@VchBankName
+				
+				
+		[Line				: RSDFL AMT]
+			Field			: RSDFL AMT,RSDFL AMTW
+			Border	: Thin Top
+			[Field			: RSDFL AMT]
+				Use			: Name field
+				Set as		: "Total amt on invoice (in words) Rs. "
+				Style		: SMALL
+				
+			[Field			: RSDFL AMTW]
+				Use			: Name field
+				Set as		: $$InWords:$Amount + " Only."
+				Style		: SMALL ITALIC
+				Full Width	: Yes
+				
+			
+				
+	[Part					: RSDFL NOTE RIGHT PART]
+		Border				: THIN  LEFT right
+		Line				: RSDFL SGST
+		Bottom Line			: RSDFL GT ;, RSDFL NB3
+		Repeat				: RSDFL SGST : Ledger Entries
+		
+		[Line				: RSDFL SGST]
+			Field			: RSDFL SGST,RSDFL SGSTA
+			Empty	: $ledgerName = $PartyledgerName
+			[Field			: RSDFL SGST]
+				Use			: Name field
+				Set as		: $LedgerNAme
+				Width		: 15
+				
+				
+			[Field			: RSDFL SGSTA]
+				Use			: Amount field
+				Set as		: $AMount
+				Width		: 12
+				Align	: Right
+				
+
+		[Line				: RSDFL GT]
+			Border			: THIN Top BOTTOM
+			Field			: RSDFL GT,RSDFL GTA
+			Space Bottom	: .3
+			Space Top	: .3
+			[Field			: RSDFL GT]
+				Use			: Name field
+				Set as		: "Grand Total"
+				Width		: 15
+				
+				
+			[Field			: RSDFL GTA]
+				Use			: Amount field
+				Set as		: $Amount
+				Width		: 12
+				Align		: Right
+				
+		[Line				: RSDFL NB3]
+			Field			: RSDFL NB3
+			[Field			: RSDFL NB3]
+				Use			: Name field
+				Set as		: ""
+				Width		: 15
+				
+
+[Part						: RSDFL TERM PART]
+	Part					: RSDFL TERM LEFT PART, RSDFL TERM RIGHT PART
+	Border					: thick bottom
+	[Part					: RSDFL TERM LEFT PART]
+		Border				: thick left right
+		Line				:  RSDFL TERMS, RSDFL TERMSL1, RSDFL TERMSL2, RSDFL TERMSL3, RSDFL TERMSL4, RSDFL TERMSL5, RSDFL TERMSL6
+			
+
+		[Line				: RSDFL TERMS]
+			Field			: RSDFL TERMS
+			[Field			: RSDFL TERMS]
+				Border		: THIN BOTTOM
+				Use			: Name field
+				Set as		: "TERMS   :"
+				Width		: 8
+				
+		[Line				: RSDFL TERMSL1]
+			Field			: RSDFL TERMSL1
+			[Field			: RSDFL TERMSL1]
+				Use			: Name field
+				Set as		: "1.Subject to " + @@Jurisdiction + "  Jurisdiction only."
+				Full Width	: Yes
+				Style       : small 
+				
+		[Line				: RSDFL TERMSL2]
+			Field			: RSDFL TERMSL2
+			[Field			: RSDFL TERMSL2]
+				Use			: Name field
+				Set as		: "2.Interest will be charged @24% p.a.if teh bill not paid within 30 days."
+				Full Width	: Yes
+				Style       : small 
+		
+		[Line				: RSDFL TERMSL3]
+			Field			: RSDFL TERMSL3
+			[Field			: RSDFL TERMSL3]
+				Use			: Name field
+				Set as		: "3.Our responsibility casses when goods are delivered to the carriers. "
+				Full Width	: Yes
+				Style       : small 
+				
+		[Line				: RSDFL TERMSL4]
+			Field			: RSDFL TERMSL4
+			[Field			: RSDFL TERMSL4]
+				Use			: Name field
+				Set as		: "4.Claims regarding damage,shortage,rate,must be ledged in writing within 2 days of the data delivery otherwise claim shall not be accepted.  "
+				Full Width	: Yes
+				Style       : small 
+				Lines       : 0
+				
+		[Line				: RSDFL TERMSL5]
+			Field			: RSDFL TERMSL5
+			[Field			: RSDFL TERMSL5]
+				Use			: Name field
+				Set as		: "5.Our responsibility is upto YARN/CLOTHE STAGE only."
+				Full Width	: Yes
+				Style       : small 
+				
+		[Line				: RSDFL TERMSL6]
+			Field			: RSDFL TERMSL6
+			[Field			: RSDFL TERMSL6]
+				Use			: Name field
+				Set as		: "6.PAYMENT MUST BE MADE BY PAYEE'S A/C DRAFTS OR CHEQUES OR RTGS/NEFT/IMPS ONLY."
+				Full Width	: Yes
+				Style       : small 
+				Lines		: 0
+
+
+	[Part					: RSDFL TERM RIGHT PART]
+		Border				: thick right
+		Line				: RSDFL TBS, RSDFL SIGN, RSDFL TBS1, RSDFL TBS2, RSDFL TBS3, RSDFL AUTH, RSDFL TBS4, RSDFL TBS5
+		
+		[Line				: RSDFL TBS]
+			Field			: RSDFL TBS
+			[Field			: RSDFL TBS]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26
+				
+
+		[Line				: RSDFL SIGN]
+			Field			: RSDFL SIGN
+			[Field			: RSDFL SIGN]
+				Use			: Name field
+				Set as		: @@CmpMailName
+				Width		: 26
+				Align		: Center
+				Style		: LARGE BOLD
+				
+				
+				
+		[Line				: RSDFL TBS1]
+			Field			: RSDFL TBS1
+			[Field			: RSDFL TBS1]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26	
+				
+		[Line				: RSDFL TBS2]
+			Field			: RSDFL TBS2
+			[Field			: RSDFL TBS2]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26	
+				
+		[Line				: RSDFL TBS3]
+			Field			: RSDFL TBS3
+			[Field			: RSDFL TBS3]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26
+				
+		[Line				: RSDFL AUTH]
+			Field			: RSDFL AUTH
+			[Field			: RSDFL AUTH]
+				Use			: Name field
+				Set as		: "Auth. Signatory"
+				Width		: 26
+				Align		: Center
+				
+		[Line				: RSDFL TBS4]
+			Field			: RSDFL TBS4
+			[Field			: RSDFL TBS4]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26
+				
+
+		[Line				: RSDFL TBS5]
+			Field			: RSDFL TBS5
+			[Field			: RSDFL TBS5]
+				Use			: Name field
+				Set as		: ""
+				Width		: 26
+				
+[Collection: VOUCHER]
+	Type: VOUCHER
+	Fetch: *.*
+
+[Collection: VOUCHER INVENTORY SUMMARY]
+	Source Collection: ..
+	Walk: INVENTORY ENTRIES
+	By: RSVchProcess1	: $RSVchProcess
+	
+    
+[#Collection: company address]
+	
+[Collection: Company Address1]
+	
+    Type        : Address   : Company
+    Child of    : ##SVCurrentCompany
+	Compute		: IsNumber	  	: No
+	Compute		: FixedDirection: No 
+	
+    Object      : Company State
+	Object      : Company Contacts
+	Object      : Company Email
+	Object		: Company Website
+
+			
+			
+			
+[#Part           : EI DelNoteInfo]
+	Add          : Line  : After  : EI PreCarriage  : EI TPT, EI GR NO
+	[Line        : EI TPT]
+		Field    : mediumprompt, EI TPT MODE
+		Local    : field  :mediumprompt  :Set as  :"TPT Mode"
+		[Field   : EI TPT MODE]
+			Use  : name field
+			Storage   : EI TPT MODE 
+			
+	[Line        : EI GR NO]
+		Field    : mediumprompt, EI GR NUM
+		Local    : field  :mediumprompt  :Set as  :"Gr. No"
+		[Field   : EI GR NUM]
+			Use  : name field
+			Storage   : EI GR NUM 
+			
+			
+[System        		:  UDF]
+	EI TPT MODE     : String	: 501 			
+	EI GR NUM 		: String	: 502
+
+
+;;;;;;;;;;;;;;;;;;;Item Level Changes
+[#Line: EI ColumnOne]	  
+	Add	: Option	: EI ColumnOneOrder : @@ISSales
+[!Line	: EI ColumnOneOrder]
+	Add :Right Field : At Beginning  : VchProcessNameTitle ,VchColorNameTitle
+	Add	: Right Field	: After:VCH QtyTitle : VCNetQtyTitle
+	Add	: Right Field	: Before:VCH QtyTitle : VCQtyBagsTitle
+			
+[Field : VchProcessNameTitle]
+	Use 	: Name Field
+	Set as	: "Process Name"
+	Width	: 15
+	Skip	: Yes
+	Style	: Small
+	
+[Field : VchColorNameTitle]
+	Use 	: Name Field
+	Set as	: "Color Name"
+	Width	: 12
+	Skip	: Yes
+	Style	: Small
+[Field : VCNetQtyTitle]
+	Use 	: Name Field
+	Set as	: "Net Wt."
+	Align	: Right
+	Width	: 10
+	Skip	: Yes
+	Style	: Small
+[Field	: VCQtyBagsTitle]
+	Use : NAmr Field
+	Set as	: "Bags"
+	Width	: 10
+	Style	: Small
+
+[#Line:EI InvInfo]
+	Add	: Option	: EI InvInfoOrder : @@ISSales
+[!Line	: EI InvInfoOrder]
+	Add :Right Field : At Beginning  : VchProcessName ,VchColorName
+	Add	: Right Field	: After:VCH BilledQty : VCNetQty
+	Add	: Right Field	: Before:VCH BilledQty : VCQtyBags
+	Local  : Field: VCNetQty : Set as : if (@@HasBatchWise OR @@HasTrackingNo)	then ($$CollQtyTotal:BatchAllocations:$RSVchNetQty) else $$Value
+	Local  : Field: VCNetQty : Skip : (@@HasBatchWise OR @@HasTrackingNo)
+
+	Local  : Field: VCQtyBags : Set as : if (@@HasBatchWise OR @@HasTrackingNo)	then ($$CollNumTotal:BatchAllocations:$RSVchBagsQty) else $$Value
+	Local  : Field: VCQtyBags : Skip : (@@HasBatchWise OR @@HasTrackingNo)
+	
+[Field : VchProcessName]
+	Use : Name Field
+	Storage: RSVchProcess
+	Width	: 15
+;	Skip	: Yes
+	Style	: Small
+[Field : VchColorName ]
+	Use : Name Field
+	Storage: RSVchShade
+	Width	: 12
+;	Skip	: Yes
+	Style	: Small
+[Field : VCNetQty]
+	Use : Qty Primary Field
+	Set Always	: Yes
+	Storage: RSVchNetQty
+	Width	: 10
+;	Skip	: Yes
+	Style	: Small
+[Field	: VCQtyBags]
+	Use : Number Field
+	Set Always	: Yes
+	Storage: RSVchBagsQty
+	Width	: 10
+	Format	: "NoZero"
+	Style	: Small
+	
+[#Form: STKVCH BatchAllocations]
+	Add	: Option	: StkBatchAllocationOrder : @@IsSales
+[!Form:StkBatchAllocationOrder]
+	Add : Part	: After : ALLOC Title : StkBatchSalerOrder
+[Part	: StkBatchSalerOrder]
+	Line	: StkBatchSalerOrder
+[Line	: StkBatchSalerOrder]
+	Field : VchProcessNameTitle,VchProcessName ,VchColorNameTitle,VchColorName
+	
+[#Line: VCHBATCH ColumnOne]
+	Add	: Option	: VCHBATCH ColumnOneSales : @@IsSales
+[!Line:VCHBATCH ColumnOneSales]
+		Add	: Right Field	: After: VCH QtyTitle : VCNetQtyTitle
+		Add	: Right Field	: Before: VCH QtyTitle : VCQtyBagsTitle 
+[#Line: STKVCH Batch2]
+	Add	: Option	: STKVCH Batch2Sales : @@IsSales
+[!Line:STKVCH Batch2Sales]
+		Add	: Right Field	: Before: VCHBATCH BilledQty : VCQtyBags
+		Add	: Right Field	: After: VCHBATCH BilledQty : VCNetQty
+		
+		
+;[#Field: VCHBATCH NrmlBQty]
+;	Add	: Option	: VCHBATCH NrmlBQtySO : @@IsSalesOrder		
+;[!Field	: VCHBATCH NrmlBQtySO]
+;	Notify	: StockWarn	: $$Value > $$AsQty:#VchAvlblefOdr
+
+;	Add	: Right Field	: After:VCH QtyTitle : VCNetQtyTitle
+	
+[System: UDF]
+	RSVchShade		: String	: 2102
+	RSVchProcess	: String	: 2103
+	RSVchNetQty		: Quantity	: 2104
+	RSVchBagsQty	: Number	: 2105
+
+[#Line: ExpInvInvDetails]

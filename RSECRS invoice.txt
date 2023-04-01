@@ -1,0 +1,1152 @@
+[#Form:Compre Hensive Invoice]
+Add:Option:RSECRS Invoice:@@IsSales
+	
+[!Form:RSECRS Invoice]
+	Delete : Top Parts
+	Delete : Parts
+	Delete : Bottom Parts
+	   add : Part      : RSECRS Cmpny Top Part,RSECRS Customer Information part,RSECRS Customer Items Detail Part
+       Add : Bottom Part: RSECRS Customer Bank Details Part,RSECRS Customer Declaration Part,RSECRS Customer Note Part
+	   
+[Part : RSECRS Cmpny Top Part]
+	
+Line  : RSECRS cmpny line ,RSECRS cmpny Address,RSECRS cmpny Contact,RSECRS cmpny Mail,RSECRS cmpny Inform
+
+[Line : RSECRS cmpny line ]
+Field : RSECRS cmpny Name field
+	
+
+[Field : RSECRS cmpny Name field]
+  Use  : Name Field
+Style  : Extra Large Bold
+Align  :  Center
+Set as : "EXECUTIVE CAR RENTAL SERVICES"
+Width  :  100
+
+[Line : RSECRS cmpny Address]
+	
+
+Field : RSECRS cmpny Address field
+	
+[Field : RSECRS cmpny Address field]
+  Use  : Name Field
+Style  : Normal Bold
+Align  :  Center
+Set as : "Office No.429 A/B,A/B/C/D,4th-Floor,A-Wing,Jay Ganesh Vision,Akurdi,Pune-411035 MAHARASHTRA(27)"
+Width  :  100
+
+[Line : RSECRS cmpny Contact]
+Field : RSECRS cmpny Contact Field
+	
+[Field :  RSECRS cmpny Contact Field]
+Use    :  Name Field
+Style  :  Normal Bold
+Align  :  Center
+Set as : "Contact-020-46919181 / 020-46919178"
+Width  :  100
+
+
+[Line : RSECRS cmpny Mail]
+Field : RSECRS cmpny Mail Field
+	
+[Field : RSECRS cmpny Mail Field]
+   Use : Name Field
+Style  : Normal Bold
+Align  :  Center
+Set as : "E-Mail - Billing@ecrsPune.com,Credit.Control@ecrsPune.com,accounts@ecrsPune.com"
+Width  :  100
+
+
+
+[Line  : RSECRS cmpny Inform]
+Border : Thick Bottom
+Field  : RSECRS cmpny Inform Field
+
+    [Field : RSECRS cmpny Inform Field]
+	Use    :  Name Field
+    Style  :  Extra Large Bold
+    Align  :  Center
+    Set as : "TAX INVOICE"
+    Width  :  100
+	
+
+[Part : RSECRS Customer Information part]
+Part  : RSECRS Customer Information Left part,RSECRS Customer Information part2,RSECRS Customer Information part3
+	
+
+[Part : RSECRS Customer Information Left part]
+     Line   : RSECRS Customer To,RSECRS Customer Address,RSECRS Customer Address line2,RSECRS Customer Address line3,RSECRS Customer Address line4,RSECRS Customer Address line5
+Bottom Line : RSECRS Customer GST number,RSECRS Customer User Name,RSECRS Customer Department,RSECRS Customer Req NO.,RSECRS Customer Cost Center
+	
+
+[Line : RSECRS Customer To]
+Field : RSECRS Customer TO Field
+	
+[Field  : RSECRS Customer To Field]
+ Use    :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "To,"
+  Width :  10
+  
+[Line   : RSECRS Customer Address]
+Field   : RSECRS Customer Address Field
+	
+[Field  : RSECRS Customer Address Field]
+   Use  :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "OM SAI AFFLUENT TRAVELES PRIVETE LIMITED."
+  Width :  50
+  
+
+[Line   : RSECRS Customer Address line2]
+Field   : RSECRS Customer Address2 Field
+	
+[Field  : RSECRS Customer Address2 Field]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "S19-01172,NEAR KHALSA HINDU HOTEL"
+  Width :  50
+	
+[Line   : RSECRS Customer Address line3]
+Field   : RSECRS Customer Address3
+	
+[Field  : RSECRS Customer Address3]
+	Use :  Name Field
+  Align :  Left
+ Set as : "RAILWAY ROAD"
+  Width :  30
+	
+
+[Line   : RSECRS Customer Address line4]
+Field   : RSECRS Customer Address4
+	
+[Field  : RSECRS Customer Address4]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "PATHANKOT PUNJAB,145001"
+  Width :  30
+  
+
+[Line  : RSECRS Customer Address line5]
+Field  : RSECRS Customer Address5
+	
+[Field  : RSECRS Customer Address5]
+	Use :  Name Field
+  Align :  Left
+ Set as : "MAHARASHTRA(27)"
+  Width :  30
+	
+[Line  : RSECRS Customer GST number]
+Field  : RSECRS Customer GST number
+	
+[Field  : RSECRS Customer GST number ]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "GSTIN      :  03AADCO4653K1ZF"
+  Width :  50
+  
+[Line  : RSECRS Customer User Name]
+Field  : RSECRS Customer User Name
+	
+[Field  : RSECRS Customer User Name ]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "USER NAME  :  YOGESH NIKAM+1"
+  Width :  50
+  
+[Line  : RSECRS Customer Department]
+Field  : RSECRS Customer Department
+	
+[Field  : RSECRS Customer Department ]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "Department  :  "
+  Width :  30
+    
+[Line : RSECRS Customer Req NO.]
+Field : RSECRS Customer Req NO.
+	
+[Field  : RSECRS Customer Req NO. ]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "Req  NO.     :  "
+  Width :  30
+  
+
+[Line  : RSECRS Customer Cost Center]
+Field  : RSECRS Customer Cost Center
+	
+[Field  : RSECRS Customer Cost Center ]
+	Use :  Name Field
+ Style  :  Small Bold
+  Align :  Left
+ Set as : "COST CENTER   :  "
+  Width :  30
+  
+
+
+
+[Part : RSECRS Customer Information part2]
+Line  : RSECRS Customer Invoice No.,RSECRS Customer Duty Slip NO.,RSECRS Customer Place of Supply,RSECRS Customer Duty Type,RSECRS Customer Driver Name,RSECRS Customer Start Date,RSECRS Customer End Date,RSECRS Customer Total Days,RSECRS Customer Total Hours
+
+
+
+
+
+[Line : RSECRS Customer Invoice No.]
+Field : RSECRS Customer Invoice No.,RSECRS Customer Invoice No. Detail Field,
+	
+[Field  : RSECRS Customer Invoice No.]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Invoice No. "
+  Width :  15
+  	
+[Field  : RSECRS Customer Invoice No. Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " ECRS/22-23/04675 "
+  Width :  20
+  
+
+[Line  : RSECRS Customer Duty Slip NO.]
+Field  : RSECRS Customer Duty Slip NO.,RSECRS Customer Duty Slip NO. Detail Field
+	
+[Field  : RSECRS Customer Duty Slip NO.]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Duty Slip NO."
+  Width :  15
+  	
+[Field  : RSECRS Customer Duty Slip NO. Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " 0220528107 "
+  Width :  15
+  
+
+[Line : RSECRS Customer Place of Supply]
+
+Field : RSECRS Customer Place of Supply,RSECRS Customer Place of Supply Detail Field
+	
+[Field  : RSECRS Customer Place of Supply ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Place of Supply  :"
+  Width :  20
+  	
+[Field  : RSECRS Customer Place of Supply Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " MAHARASHTRA "
+  Width :  20
+  
+
+
+[Line : RSECRS Customer Duty Type]
+
+Field : RSECRS Customer Duty Type,RSECRS Customer Duty Type Detail Field
+	
+[Field  : RSECRS Customer Duty Type ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Duty Type"
+  Width :  15
+  	
+[Field  : RSECRS Customer Duty Type Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " OUTSTAION USE "
+  Width :  20
+  
+[Line   : RSECRS Customer Driver Name]
+
+Field   : RSECRS Customer Driver Name,RSECRS Customer Driver Name Detail Field
+	
+[Field  : RSECRS Customer Driver Name ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Driver Name"
+  Width :  15
+  	
+[Field:RSECRS Customer Driver Name Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " RAVI "
+  Width :  15
+  
+[Line : RSECRS Customer Start Date]
+
+Field : RSECRS Customer Start Date,RSECRS Customer Start Date Detail Field
+	
+[Field  : RSECRS Customer Start Date ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Start Date  :"
+  Width :  15
+  	
+[Field  : RSECRS Customer Start Date Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " 28-May-2022:   05:40"
+  Width :  25
+  
+
+[Line   : RSECRS Customer End Date]
+
+Field   : RSECRS Customer End Date,RSECRS Customer End Date Detail Field
+	
+[Field  : RSECRS Customer End Date ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "End Date  :"
+  Width :  15
+  	
+[Field  : RSECRS Customer End Date Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " 28-May-2022:   22:45"
+  Width :  25
+  
+
+[Line : RSECRS Customer Total Days]
+
+Field : RSECRS Customer Total Days,RSECRS Customer Total Days Detail Field
+	
+[Field  : RSECRS Customer Total Days ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Total Days  :"
+  Width :  15
+  	
+[Field:RSECRS Customer Total Days Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " 1 "
+  Width :  15
+  
+[Line   : RSECRS Customer Total Hours]
+
+Field   : RSECRS Customer Total Hours,RSECRS Customer Total Hours Detail Field
+	
+[Field  : RSECRS Customer Total Hours ]
+  Use   :  Short Prompt
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "Total Hours :"
+  Width :  15
+  	
+[Field:RSECRS Customer Total Hours Detail Field]
+    Use :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : " 17:05 "
+  Width :  15
+  
+
+[Part   : RSECRS Customer Information part3]
+Line    : RSECRS Customer Invoice Date,RSECRS Customer Date of Supply,RSECRS Customer Car type,RSECRS Customer Vechile no.,RSECRS Customer Start km.,RSECRS Customer End km.,RSECRS Customer Total km.
+	
+	
+[Line  : RSECRS Customer Invoice Date]
+		
+Field  : RSECRS Customer Invoice Date Field,RSECRS Customer Invoice Date detail Field
+	
+[Field:RSECRS Customer Invoice Date Field]
+    Use    :  Short Prompt
+   Style   :  Small Bold
+    Align  :  Center
+    Set as : "Invoice Date :"
+     Width :  15
+	   
+
+	[Field : RSECRS Customer Invoice Date detail Field]
+      Use  :  Name Field
+     Style :  Small Bold
+     Align :  Center
+    Set as : "21-July-2022 "
+     Width :  15
+	   
+
+[Line  : RSECRS Customer Date of Supply]
+Field  : RSECRS Customer  Date of Supply Field,RSECRS Customer  Date of Supply detail Field
+
+[Field : RSECRS Customer  Date of Supply Field]
+  Use  :  Short Prompt
+ Style :  Small Bold
+ Align :  Center
+Set as : " Date of Supply :"
+ Width :  15
+	   
+
+[Field   : RSECRS Customer Date of Supply detail Field]
+   Use   :  Name Field
+  Style  :  Small Bold
+   Align :  Center
+  Set as : "28-May-2022 "
+   Width :  15    
+	   
+   [Line  : RSECRS Customer Car type]
+	Field : RSECRS Customer Car type Field,RSECRS Customer Car type Name Field
+	
+[Field   : RSECRS Customer Car type Field]
+   Use   :  Short Prompt
+  Style  :  Small Bold
+   Align :  Center
+  Set as : "Car type :"
+   Width :  15
+	      
+[Field   : RSECRS Customer Car type Name Field]
+     Use :  Name Field
+  Style  :  Small Bold
+   Align :  Center
+  Set as : "INNOVA AC CRYSTA "
+   Width :  20
+	
+	   
+
+[Line  : RSECRS Customer Vechile no.]
+Field  : RSECRS Customer Vechile no. Field,RSECRS Customer Vechile no. Name Field
+
+[Field : RSECRS Customer Vechile no. Field]
+ Use   :  Short Prompt
+ Style :  Small Bold
+ Align :  Center
+Set as : "Veh.NO. "
+ Width :  15
+	   
+
+[Field : RSECRS Customer Vechile no. Name Field]
+ Use   :  Name Field
+Style  :  Small Bold
+ Align :  Center
+Set as : "MH-14-HG-3250 "
+ Width :  20	
+	   
+[Line  : RSECRS Customer Start km.]
+Field  : RSECRS Customer Start km. Field,RSECRS Customer Start km. Name Field
+
+[Field : RSECRS Customer Start km. Field]
+ Use   :  Short Prompt
+Style  :  Small Bold
+ Align :  Center
+Set as : "Start Km. "
+ Width :  15
+	   
+[Field : RSECRS Customer Start km. Name Field]
+ Use   :  Name Field
+ Style :  Small Bold
+ Align :  Center
+Set as : " 145744"
+ Width :  15
+	
+	   
+
+[Line  : RSECRS Customer End km.]
+Field  : RSECRS Customer End km. Field,RSECRS Customer End km. Name Field
+
+[Field : RSECRS Customer End km. Field]
+ Use   :  Short Prompt
+Style  :  Small Bold
+ Align :  Center
+Set as : "End Km. "
+ Width :  15
+	   
+
+[Field : RSECRS Customer End km. Name Field]
+  Use  :  Name Field
+Style  :  Small Bold
+ Align :  Center
+Set as : "146337 "
+ Width :  15
+	   
+
+[Line  : RSECRS Customer Total km.]	
+Field  : RSECRS Customer Total  km. Field,RSECRS Customer Total  km. Name Field
+
+[Field : RSECRS Customer Total  km. Field]
+ Use   :  Short Prompt
+Style  :  Small Bold
+ Align :  Center
+Set as : "Total  Km. "
+ Width :  15
+	   
+
+[Field  : RSECRS Customer Total  km. Name Field]
+  Use   :  Name Field
+ Style  :  Small Bold
+  Align :  Center
+ Set as : "593 "
+  Width :  15
+	   
+
+
+  [Part : RSECRS Customer Items Detail Part]
+ Border : Thin Left Right
+
+  Line  : RSECRS Customer Items S.NO.,RSECRS Customer Items Detail
+	
+	
+
+[Line  :  RSECRS Customer Items S.NO.]
+Border :  Thick Top Bottom
+Field  :  RSECRS Customer Items S.NO. Field,RSECRS Customer Items Discription of Service Field,RSECRS Customer Items HSN Code Field,RSECRS Customer Items Total Days Field,RSECRS Customer Items Total Kms Field,RSECRS Customer Items Fix Kms Field,RSECRS Customer Items EX Kms Field,RSECRS Customer Items Fix Amt Field,RSECRS Customer Items  EX Km Amt Field,RSECRS Customer Items  EX Hours Field,RSECRS Customer Items  EX Hours Amt Field,RSECRS Customer Items  Total Amt Field
+	
+[Field :  RSECRS Customer Items S.NO. Field]
+ Use   :  Name Field
+Style  :  Small Bold
+Border :  Thin Right
+ Align : Left
+Set as : "S.NO."
+ Width :  7
+	   
+[Field : RSECRS Customer Items Discription of Service Field]
+ Use   :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "Discription of Service"
+ Width :  20
+	   
+[Field : RSECRS Customer Items HSN CODE Field]
+  Use  :  Name Field
+ Style : Small Bold
+ Border: Thin Right
+ Align : Left
+Set as : "SAC/HSN Code "
+ Width :  15
+	   
+[Field : RSECRS Customer Items Total Days Field]
+ Use   :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Left
+Set as : "Total Days "
+ Width :  10
+	   
+[Field : RSECRS Customer Items Total Kms Field]
+  Use  :  Name Field
+ Style : Small Bold
+ Border: Thin Right
+ Align : Center
+Set as : "Total Kms"
+ Width :  12
+	   
+[Field : RSECRS Customer Items Fix Kms Field]
+   Use :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "Fix Kms"
+ Width :  10
+	   
+[Field : RSECRS Customer Items EX Kms Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "EX Kms"
+ Width :  10
+	   
+[Field : RSECRS Customer Items Fix Amt Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "Fix Amt"
+ Width :  10
+	   
+	   
+[Field : RSECRS Customer Items  EX Km Amt Field]
+ Use   :  Name Field
+Style  : Small Bold
+ Border: Thin Right
+ Align : Center
+Set as : "EX Km Amt"
+ Width :  15
+	   
+[Field : RSECRS Customer Items  EX Hours Field]
+   Use :  Name Field
+Style  : Small Bold
+ Border: Thin Right
+ Align : Center
+ Set as: "EX Hours"
+ Width :  12
+	   
+[Field : RSECRS Customer Items  EX Hours Amt Field]
+  Use  :  Name Field
+Style  : Small Bold
+ Border: Thin Right
+ Align : Left
+Set as : "EX Hours Amt"
+ Width :  15
+	   
+[Field : RSECRS Customer Items  Total Amt Field]
+  Use  :  Name Field
+Style  : Small Bold
+ Align : Right
+Set as : "Total"
+ Width :  10
+	   
+[Line  : RSECRS Customer Items Detail]
+Border : Thick Top Bottom
+Field  : RSECRS Customer Items S.NO. Detail Field,RSECRS Customer Items Discription of Service  Detail Field,RSECRS Customer Items HSN CODE Detail Field,RSECRS Customer Items Total Days Detail Field,RSECRS Customer Items Total Kms  Detail Field,RSECRS Customer Items Fix Kms  Detail Field,RSECRS Customer Items EX Kms Details Field,RSECRS Customer Items Fix Amt Detail Field,RSECRS Customer Items  EX Km Amt Detail Field,RSECRS Customer Items  EX Hours  Detail Field,RSECRS Customer Items  EX Hours Amt Detail Field,RSECRS Customer Items  Total Amt Detail Field
+	
+[Field : RSECRS Customer Items S.NO. Detail Field]
+Use    :  Name Field
+ Style : Small Bold
+Border : Thin Right
+ Align : Left
+Set as : "1"
+ Width :  7
+	   
+[Field : RSECRS Customer Items Discription of Service  Detail Field]
+ Use   :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "OUTSTATION USE"
+ Width :  20
+	   
+[Field : RSECRS Customer Items HSN CODE Detail Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Left
+Set as : "996601 "
+ Width :  15
+	   
+[Field : RSECRS Customer Items Total Days Detail Field]
+   Use :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Left
+Set as : "1"
+ Width :  10
+	   
+[Field : RSECRS Customer Items Total Kms  Detail Field]
+ Use   :  Name Field
+Style  :  Small Bold
+Border :  Thin Right
+ Align : Center
+Set as : "593"
+ Width :  12
+	   
+[Field : RSECRS Customer Items Fix Kms  Detail Field]
+ Use   :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "250"
+ Width :  10
+	   
+[Field : RSECRS Customer Items EX Kms Details Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "343"
+  Width:  10
+	   
+[Field : RSECRS Customer Items Fix Amt Detail Field]
+ Use   :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "5000.00"
+ Width :  10
+	   
+[Field : RSECRS Customer Items  EX Km Amt Detail Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "6860.00"
+ Width :  15
+	   
+[Field : RSECRS Customer Items  EX Hours  Detail Field]
+  Use  :  Name Field
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "00.00"
+ Width :  12
+	   
+	   
+[Field : RSECRS Customer Items  EX Hours Amt Detail Field]
+  Use  :  Name Field
+Style  : Small Bold
+ Border: Thin Right
+ Align : Left
+Set as : "0.00"
+ Width :  15
+	   
+[Field : RSECRS Customer Items  Total Amt Detail Field]
+ Use   :  Name Field
+Style  : Small Bold
+ Align : Right
+Set as : "11860.00"
+ Width :  10
+	   
+
+[Part : RSECRS Customer Bank Details Part]
+Part  : RSECRS Customer Amount Part,RSECRS Customer Bank Part
+[Part : RSECRS Customer Amount Part]
+Border: Thin Left Right
+	
+Line  : RSECRS Customer GST,RSECRS Customer Service Category,RSECRS Customer PAN NO.,RSECRS Customer Amt in words,RSECRS Customer Amt in words Value,RSECRS Customer Remark,RSECRS Customer Remark1,RSECRS Customer Remark2,RSECRS Customer Remark3
+	
+[Line : RSECRS Customer GST]
+Border: Thin Top
+Field : RSECRS Customer GST Field
+	
+[Field : RSECRS Customer GST Field]
+ Use   :  Name Field
+ Align : Left
+Set as : "GSTIN : 27AADFE7619N1ZZ"
+ Width :  90
+
+
+	   
+[Line : RSECRS Customer Service Category]
+Field : RSECRS Customer Service Category Field
+	
+[Field: RSECRS Customer Service Category Field]
+Use   :  Name Field
+Align : Left
+Set as: "SERVICE CATEGORY : RENT A CAB"
+Width :  90
+	   
+[Line : RSECRS Customer PAN NO.]
+Border: Thin Bottom
+Field : RSECRS Customer PAN NO. Field
+	
+
+[Field: RSECRS Customer PAN NO. Field]
+Use   :  Name Field
+Align : Left
+Set as: "PAN NO :AADFE7619N / TAN NO :PNEE03082C "
+Width :  90
+	   
+[Line : RSECRS Customer Amt in words]
+Field : RSECRS Customer Amt in words field
+	   
+[Field: RSECRS Customer Amt in words field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: "Amount in Words : -  "
+Width :  90
+      
+
+[Line : RSECRS Customer Amt in words Value]
+Border: Thin Bottom
+
+Field : RSECRS Customer Amt in words Value Field
+
+[Field: RSECRS Customer Amt in words Value Field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: "RS.Twelve Thousand Three Hundreed Sixty Only.  "
+Width :  90    
+	   
+[Line : RSECRS Customer Remark]
+Field : RSECRS Customer Remark Field
+
+[Field: RSECRS Customer Remark Field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: "Remarks : Check to be issued in the Name of "
+Width :  90
+	   
+[Line : RSECRS Customer Remark1]
+Field : RSECRS Customer Remark1 Field
+
+[Field: RSECRS Customer Remark1 Field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: "EXECUTIVE CAR RENTAL SERVICES "
+ Width:  90
+
+
+[Line : RSECRS Customer Remark2]
+Field : RSECRS Customer Remark2 Field
+[Field: RSECRS Customer Remark2 Field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: "Subject to Pune Jurisdiction."
+Width :  90
+	   
+[Line : RSECRS Customer Remark3]
+Border: Thin Bottom
+Field : RSECRS Customer Remark3 Field
+[Field: RSECRS Customer Remark3 Field]
+  Use :  Name Field
+Style : Small Bold
+Align : Left
+Set as: ""
+Width :  90
+
+
+[Part : RSECRS Customer Bank Part]
+Border: Thin Right 
+ Line : RSECRS Customer Total Amt,RSECRS Customer toll Parking,RSECRS Customer Night Charges,RSECRS Customer Driver Charges,RSECRS Customer Fuel Escalation Charges,RSECRS Customer IGST Charges,RSECRS Customer CGST Charges,RSECRS Customer SGST Charges,RSECRS Customer  Grand Total
+
+[Line : RSECRS Customer Total Amt]
+Border: Thin Top Bottom
+
+Field : RSECRS Customer Total Amt Field,RSECRS Customer Total Amt Price Field
+
+[Field: RSECRS Customer Total Amt Field]
+  Use :  Short Prompt
+ Style: Small Bold
+Border: Thin Right
+Align : Center
+Set as: "Total"
+Width :  50
+	   
+[Field: RSECRS Customer Total Amt Price Field]
+   Use: Name Field
+Style : Small Bold
+Align : Center
+Set as: "11860.00"
+Width :  40   
+
+[Line : RSECRS Customer Toll Parking]
+Border: Thin Bottom
+Field : RSECRS Customer Toll Parking Field,RSECRS Customer Toll Parking Price Field
+
+[Field: RSECRS Customer Toll Parking Field]
+  Use :  Short Prompt
+Style : Small Bold
+Border: Thin Right
+Align : Center
+Set as: "Toll & Parking Charges"
+Width :  50
+	   
+[Field: RSECRS Customer Toll Parking Price Field]
+   Use: Name Field
+Style : Small Bold
+ Align: Center
+Set as: "200.00"
+Width :  40   
+
+[Line : RSECRS Customer Night Charges]
+Border: Thin Bottom
+
+Field : RSECRS Customer Night Charges Field,RSECRS Customer Night Charges Price Field
+
+[Field: RSECRS Customer Night Charges Field]
+  Use :  Short Prompt
+Style : Small Bold
+Border: Thin Right
+Align : Center
+Set as: "Night Charges"
+Width :  50
+	   
+[Field: RSECRS Customer Night Charges Price Field]
+   Use: Name Field
+Style : Small Bold
+Align : Center
+Set as: "0.00"
+Width :  40   
+
+
+[Line : RSECRS Customer Driver Charges]
+Border: Thin Bottom
+
+Field : RSECRS Customer Driver  Charges Field,RSECRS Customer Driver  Charges Price Field
+
+[Field : RSECRS Customer Driver  Charges Field]
+   Use :  Short Prompt
+ Style : Small Bold
+ Border: Thin Right
+ Align : Center
+Set as : "Driver  Charges"
+ Width :  50
+	   
+[Field : RSECRS Customer Driver  Charges Price Field]
+   Use : Name Field
+Style  : Small Bold
+ Align : Center
+Set as : "300.00"
+ Width :  40  
+	   
+
+ [Line : RSECRS Customer Fuel Escalation Charges]
+Border : Thin Bottom
+
+ Field : RSECRS Customer Fuel Escalation  Charges Field,RSECRS Customer Fuel Escalation Charges Price Field
+
+[Field : RSECRS Customer Fuel Escalation  Charges Field]
+   Use :  Short Prompt
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "Fuel Escalation Charges"
+ Width :  50
+	   
+[Field : RSECRS Customer Fuel Escalation  Charges Price Field]
+   Use : Name Field
+ Style : Small Bold
+ Align : Center
+Set as : "0.00"
+ Width :  40  
+	   
+ [Line : RSECRS Customer IGST Charges]
+Border : Thin Bottom
+
+Field  : RSECRS Customer IGST  Charges Field,RSECRS Customer IGST Charges Price Field
+
+[Field : RSECRS Customer IGST  Charges Field]
+   Use :  Short Prompt
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "IGST 5.00%"
+ Width :  50
+	   
+[Field : RSECRS Customer IGST Charges Price Field]
+   Use : Name Field
+ Style : Small Bold
+ Align : Center
+Set as : "0.00"
+ Width :  40  
+	   
+ [Line : RSECRS Customer CGST Charges]
+Border : Thin Bottom
+ Field : RSECRS Customer CGST  Charges Field,RSECRS Customer CGST Charges Price Field
+[Field : RSECRS Customer CGST  Charges Field]
+   Use :  Short Prompt
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "CGST 5.00%"
+ Width :  50
+	   
+ [Field: RSECRS Customer CGST Charges Price Field]
+   Use : Name Field
+Style  : Small Bold
+ Align : Center
+Set as : "0.00"
+ Width :  40  
+	   
+[Line  : RSECRS Customer SGST Charges]
+Border : Thin Bottom
+Field  : RSECRS Customer SGST  Charges Field,RSECRS Customer SGST Charges Price Field
+
+[Field : RSECRS Customer SGST  Charges Field]
+   Use :  Short Prompt
+Style  : Small Bold
+Border : Thin Right
+ Align : Center
+Set as : "SGST 5.00%"
+ Width :  50
+	   
+[Field : RSECRS Customer SGST Charges Price Field]
+  Use  : Name Field
+Style  : Small Bold
+ Align : Center
+Set as : "0.00"
+ Width :  40 
+	   
+ [Line : RSECRS Customer  Grand Total]
+Border : Thin Bottom
+ Field : RSECRS Customer Grand Total Field,RSECRS Customer Grand Total Price Field
+[Field : RSECRS Customer Grand Total Field]
+   Use :  Short Prompt
+Style  : Small Bold
+Border :Thin Right
+ Align : Center
+ Set as: "Grand Total"
+ Width :  50
+	   
+[Field : RSECRS Customer Grand Total Price Field]
+   Use : Name Field
+ Style : Small Bold
+ Align : Center
+Set as : "12360.00"
+ Width :  40 
+
+
+[Part : RSECRS Customer Declaration Part]
+ Line : RSECRS Customer Declaration,RSECRS Customer Declaration1
+
+Border: Thin top Bottom
+
+[Line : RSECRS Customer Declaration]
+Border: Thin Left Right	
+
+ Field: RSECRS Customer Declaration Field
+ 
+[Field: RSECRS Customer Declaration Field]
+   Use: Name Field
+ Align: Left
+Set as: "Declaration: GST is Payable by recipient of the service under the Reverse"
+ Width:  150 
+	   
+[Line :RSECRS Customer Declaration1]
+Border:Thin Left Right
+ Field:RSECRS Customer Declaration1 Field
+ 
+[Field: RSECRS Customer Declaration1 Field]
+   Use: Name Field
+Align : Left
+Set as: "charge mechanisim as per Notification NO.22/2019 dated 30.09.2019"
+Width :  150 
+
+[Part : RSECRS Customer Note Part]
+ Line : RSECRS Customer Note,RSECRS Customer Note1 ,RSECRS Customer Note2,RSECRS Customer Note3,RSECRS Customer Note4,RSECRS Customer Note5,RSECRS Customer Note6 ,RSECRS Customer Note7 ,RSECRS Customer Note8
+[Line : RSECRS Customer Note  ]
+
+Field : RSECRS Customer Note Field
+
+[Field: RSECRS Customer Note Field]
+   Use: Name Field
+Style : Small Bold
+Align : Center
+Set as: ""
+Width :  100 
+
+
+[Line : RSECRS Customer Note1  ]
+Right Field: RSECRS Customer Note1 Field
+
+[Field : RSECRS Customer Note1 Field]
+   Use : Name Field
+Style  : Small Bold
+ Align : Right
+Set as : "FOR EXECUTIVE CAR RENTAL SERVICES  "
+ Width :  100 
+	   
+ [Line : RSECRS Customer Note2 ]
+
+ Field : RSECRS Customer Note2 Field
+
+[Field : RSECRS Customer Note2 Field]
+   Use : Name Field
+Style  : Small Bold
+ Align : Left
+Set as : "Whether Tax is Payable in RCM  Y   N "
+ Width :  100 
+	   
+
+[Line  : RSECRS Customer Note3  ]
+
+Field  : RSECRS Customer Note3 Field
+
+[Field : RSECRS Customer Note3 Field]
+   Use : Name Field
+Style  : Small Bold
+ Align : Left
+Set as : " "
+ Width :  100 
+	   
+
+[Line  : RSECRS Customer Note4 ]
+
+Field  : RSECRS Customer Note4 Field
+
+[Field : RSECRS Customer Note4 Field]
+  Use  : Name Field
+  Style: Small Bold
+ Align : Left
+Set as : " "
+ Width :  100 
+	   
+
+ [Line : RSECRS Customer Note5 ]
+
+ Field : RSECRS Customer Note5 Field
+
+[Field : RSECRS Customer Note5 Field]
+  Use  : Name Field
+Style  : Small Bold
+ Align : Left
+Set as : " * Note: If As Per Agreement the Fuel Escalation Charges are not"
+ Width :  100 
+
+[Line  : RSECRS Customer Note6 ]
+
+Field  : RSECRS Customer Note6 Field
+
+[Field : RSECRS Customer Note6 Field]
+ Use   : Name Field
+Style  : Small Bold
+ Align : Left
+Set as : "considered in the above Invoice,Then the same will be Build"
+ Width :  100 
+
+
+[Line  : RSECRS Customer Note7 ]
+Field  : RSECRS Customer Note7 Field
+
+[Field : RSECRS Customer Note7 Field]
+ Use   : Name Field
+Style  : Small Bold
+ Align : Left
+Set as : "Seprately in the Succeeding Months"
+ Width :  100 
+
+
+[Line  : RSECRS Customer Note8 ]
+Right Field : RSECRS Customer Note8 Field
+
+[Field : RSECRS Customer Note8 Field]
+  Use  : Name Field
+Style  : Small Bold
+ Align : Right
+Set as : "Authorised Signatory"
+ Width :  100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

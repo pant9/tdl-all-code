@@ -1,0 +1,778 @@
+
+
+[# Menu:Gateway of Tally]
+Add:Item:RSSS Tax Invoice:Display:RSSS Tax Invoice
+
+[Report:RSSS Tax Invoice]
+Form:My Report Form
+[Form:My Report Form]
+Part:RSSS Customer Part,RSSS Invoice Title Part,RSSS Invoice Details Part,RSSS Bank Gst Detail
+Width:100% Screen
+Height:100% Screen
+[Part:RSSS Customer Part]
+	PART: My Top Left Part, My Top Right Part,
+[Part: My Top Left Part]
+	Line:My Line,My Line1,My Line2,My Line3,My Line4,My Line5,My Line6,My Line7,My Line8,My Line9
+
+
+[line:my line]
+ 	field:my field
+		[field:my field]
+			use:name field
+				set as:"Partys Name & Address"
+					width:70
+
+[line:my line1]
+	field:date field
+
+[field:date field]
+	use:date field
+		set as:"Shree Geeta Ispat"
+			width:70
+
+[line:my line2]
+	field:subject field
+		[field:subject field]
+			use:subject field
+				set as:"Shop No 238 2nd floor Grand Marian near"
+						width:70 
+
+[Line:My Line3]
+	Field:Title Field
+		[Field:Title Field]
+			use:title Field
+				Set As:" PNB station road,Branch Raipur(C.G)-492000"
+						Width:70
+
+[line:my line4]
+
+	field:value field
+		[field:value field]
+			use:value	 field
+				set as:"GST No.-22ATTPS1730M1Z9  PAN-ATTPS1730M"
+					WIDTH:70
+
+[line:my line5]
+
+		field:school field
+			[field:school field]
+				use:school field
+					set as:"Consignee:"
+						WIDTH:70
+
+	[line:my line6]
+
+			field:study field
+
+			[field:study field]
+				use:study field
+					set as:"Shree Geeta Ispat"
+						width:70
+
+	[line:my line7]
+		field:ground field
+			[field:ground field]
+				use:ground field
+					set as:"Shop No 238 2nd floor Grand Marian near"
+						width:70 
+
+	[line:my line8]
+		field:sst field
+			[field:sst field]
+				use:sst field
+					set as:" PNB station road,Branch Raipur(C.G)-492000"
+						width:70
+
+		[line:my line9]
+
+			field:science field
+				[field:science field]
+					use:science field
+						set as:"GST No.-22ATTPS1730M1Z9  PAN-ATTPS1730M"
+							WIDTH:70
+
+		[part:my top right part]
+			line:my line10,my line11,my line12,my line13,my line14,my line15,my line16,my line17,my line18,my line19,my line20,my line21
+
+	[line:my line10]
+		field:reading field,playing field
+
+		[field:reading field]						
+			use: reading field
+				style:normal bold
+					set as:"Invoice No."
+						width:30
+
+
+	[field:playing field]
+		use: playing field
+			style:normal bold
+				set as:"date"
+					width:30
+
+	[line:my line11]
+		field:working field,dancing field
+
+	[field:working field]
+		use:working  field
+			set as:"SIUPL/22-23/3676"
+				width:30
+
+	[field:dancing field]
+		use:dancing  field
+			set as:"3-JAN-2023"
+				width:30
+
+
+	
+	[line:my line12]
+		field:manufacturig field,inventory field
+
+	[field:manufacturig field]
+		use:manufacturig field
+			style:normal bold
+				set as:"Preparation of Invoice"
+					width:30
+
+	[field:inventory field]
+		use:inventory  field
+			style:normal bold
+				set as:"Date & time of supply"
+						width:30
+
+	[line:my line13]
+		field:mechanical field,electric field
+
+	[field:mechanical field]
+		use:mechanical  field
+			set as:"3-jan-2023 at 20:00"
+				width:30
+
+		[field:electric field]
+			use:electric  field
+				set as:"3-jan-2023 at 20:05"
+					width:30
+
+
+	[line:my line14]
+		field:hd field,memory field
+
+	[field:hd field]
+		use:hd field
+			style:normal bold
+				set as:"Order no & date"
+					width:30
+
+	[field:memory field]
+		use:memory  field
+			style:normal bold
+				set as:"Place of supply"
+					width:30
+
+	[line:my line15]
+		field:grocery field,cosmetic field
+
+	[field:grocery  field]
+		use:grocery   field
+			set as:""
+				width:30
+
+	[field:cosmetic field]
+		use:cosmetic  field
+			set as:"Raipur(C.G.)"
+				width:30
+
+
+		[line:my line16]
+			field:mb field,cd field
+
+		[field:mb field]
+			use:mb field
+				style:normal bold
+					set as:"Vechicle No."
+						width:30
+
+		[field:cd field]
+			use:cd field
+				style:normal bold
+					set as:"Mode"
+						width:30
+
+		[line:my line17]
+			field:automobile field,civil field
+
+	[field:automobile field]
+		use:automobile field
+			set as:"CGO4NJ5410"
+				width:30
+
+		[field:civil field]
+			use:civil  field
+				set as:"Advance"
+					width:30
+
+
+	[line:my line18]
+		field:cpu field,ups field
+
+	[field:cpu field]
+		use:cpu field
+			style:normal bold
+				set as:"RR\GR No."
+					width:30
+
+	[field:ups field]
+		use:ups field
+			style:normal bold
+				set as:"Date"
+					width:30
+
+
+	[line:my line19]
+		field:kg field,gram field
+
+	[field:kg field]
+		use:kg field
+			set as:""
+				width:30
+
+	[field:gram field]
+		use:gram field
+			set as:"3-jan-2023"
+				width:30
+
+	[line:my line20]
+		field:army field,
+
+	[Field:Army Field]
+		Use:Army Field
+			Style:Normal Bold
+				Set As:"Transporter Detail"
+					Width:30
+
+
+	[line:my line21]
+		field:officer field,
+
+		[field:officer field]
+			use:officer field
+				set as:"SELF"
+					width:30
+	
+	[part:RSSS Invoice title part]
+
+		line:my line22,my line23,my line24,my line25,my line26,my line27,my line28,my line29,my line30,my line31
+
+	[line:my line22]
+		border:thick top bottom
+
+		 field:your field,my office,My staff,my class,my playground
+
+	[field:your field]
+		use:name field
+			style:large bold
+				set as:"Description of Goods"
+					weight:30
+
+	[field:my office]
+		use:age field
+			style:large bold
+				set as:"HSN\SAC"
+					width:30
+
+	[field:my staff]
+		use:age field
+			style:large bold
+				set as:"Quantity M.T."
+					width:30
+
+
+	[field:my class]
+		use:age field
+			style:large bold
+				set as:"Rate Per M.T."
+					width:30
+
+
+	[field:my playground]
+		use:age field
+			style:large bold
+				set as:"Amount "
+					width:30
+
+
+	[line:my line23]
+
+ 		field:bottle field,Platform field,road field,bus field,train field
+
+	[field:bottle field]
+		use:name field
+			set as:"Prime Gold TMT-6MM"
+				weight:30
+
+	[field:Platform field]
+		use:age field
+			style:normal bold
+				set as:"72141090"
+					width:30
+
+	[field:road field]
+		use:age field
+			style:normal bold
+				set as:"0.750MTS"
+					width:30
+
+
+	[field:bus field]
+		use:age field
+			style:normal bold
+				set as:"50,726"
+					width:30
+
+
+	[field:train field]
+		use:age field
+			style:normal bold
+				set as:"38,044.50"
+					width:30
+
+
+	[line:my line24]
+		field:my park ,my mall,my snacker,my hardware,my software
+
+	[field:my park]
+		use:name field
+			set as:"Prime Gold TMT-8MM"
+				weight:30
+
+	[field:my mall]
+		use:age field
+			style:normal bold
+				set as:"72141090"
+					width:30
+
+	[field:my snacker]
+		use:age field
+			style:normal bold
+				set as:"6.170MTS"
+					width:30
+
+
+	[field:my hardware]
+		use:age field
+			style:normal bold
+				set as:"50,726"
+					width:30
+
+	
+		[field:my software]
+			use:age field
+				style:normal bold
+					set as:"3,12,979.42"
+						width:30
+
+
+	[line:my line25]
+		field:my cap ,my jacket  ,my sweater ,my shirt ,my muffler
+
+	[field:my cap]
+		use:name field
+			set as:"Prime Gold TMT-10MM"
+				weight:30
+
+	[field:my jacket]
+		use:age field
+			style:normal bold
+				set as:"72141090"
+					width:30
+
+	[field:my sweater]
+		use:age field
+			style:normal bold
+				set as:"6.200MTS"
+						width:30
+
+
+	[field:my shirt]
+		use:age field
+			style:normal bold
+				set as:"49,226"
+					width:30
+
+	
+	[field:my muffler]
+		use:age field
+			style:normal bold
+				set as:"3,05,201.20"
+					width:30
+
+
+		[line:my line26]
+			field:my work,my  digits,my alphabates ,my rupee ,my dollar
+
+			[field:my work]
+		use:name field
+			set as:"Prime Gold TMT-10MM"
+				weight:30
+
+		[field:my digits]
+		use:age field
+			style:normal bold
+				set as:"72141090"
+					width:30
+
+	[field:my alphabates]
+		use:age field
+			style:normal bold
+				set as:"1.930 MTS"
+						width:30
+
+
+	[field:my rupee]
+		use:age field
+			style:normal bold
+				set as:"49,226"
+					width:30
+
+	
+	[field:my dollar]
+		use:age field
+			style:normal bold
+				set as:"95,006.18"
+					width:30
+
+        [line:my line27]
+   
+          field:my tokyo
+          right field:my frame
+				[field:my tokyo]
+				align:center
+		  			use :age field
+                         style:large bold
+					set as:"Total"
+						weight:130
+
+		[field:my frame]
+		align:left
+		use:age field
+			style:large bold
+				set as:"7,51,231.30"
+					width:30
+		
+			[line:my line28]
+				field:my phone
+                   right field:my cover
+
+
+			[field:my phone]
+				align:center
+		  			use :age field
+                         style:large bold
+					set as:"cgst@ 9%"
+						weight:170
+					
+				[field:my cover]
+			use:age field
+				align:left
+			style:large bold
+				set as:"67,610.83"
+					width:30
+
+		[line:my line29]
+		field:my risk
+	right field:my talk
+
+ 
+						[field:my risk]
+				align:center
+		  			use :age field
+                         style:large bold
+					set as:"sgst@ 9%"
+						weight:170
+					
+				[field:my talk]
+					align:left
+			use:age field
+			style:large bold
+				set as:"67,610.83"
+					width:30
+
+			[Line:My Line30]
+			 Field:My Water
+			Right Field:My Pen
+
+
+				[Field:My Water]
+					Use:Age Field
+						Style:Large Bold
+							Set As:"Round off"
+								Weight:170
+
+						
+				[field:my pen]
+			use:age field
+			style:large bold
+				set as:"0.04"
+					width:30
+		
+			Border:Thick Top Bottom
+			[Line:My Line31]
+				Field:Wire Field,Book Field
+             Right Field:Dairy Field
+					
+					[Field:Wire Field]
+						Use:Age Field
+							Style:Large Bold
+							Align:Center
+							Set As:"Total"
+								Width:40
+
+						[Field:Book Field]
+						Use:Age Field
+							Style:Large Bold
+							Align:Center
+							Set As:"15.050MTS"
+								Width:40
+						
+						
+						[Field:Dairy Field]
+						Use:Age Field
+							Style:Large Bold
+							Align:Left
+							Set As:"8,86,453.00"
+								Width:30
+				
+			[part:RSSS Invoice Details Part]	
+
+				Line:My Line32,My Line33,My Line34,My Line35
+
+				
+
+		
+	[Line:My Line32]
+		Border:thick top bottom
+	Field:My Edit
+
+			[Field:My Edit]
+				Use:Age Field
+					Align:Center
+						Style:Large Bold
+				Set As:"Total Amount in words-INR eight lakh eighty six thousand four hundreed fifty three only"
+					Width:120
+
+
+					[Line:My Line33]
+						Field:My View,My File,My Help,My Folder,
+					right field:my cut
+
+					[Field:My View]
+						use:date field
+							align:center
+								style:large bold
+							set as:"HSN/SAC"
+								width:30
+
+						
+					[field:my file]
+						use:date field
+								style:large bold
+							align:center
+							set as:"Taxable value"
+								width:30
+
+										
+					[field:my help]
+						use:date field
+								style:large bold
+							align:center
+							set as:"central tax"
+								width:30
+
+														
+					[field:my folder]
+						use:date field
+								style:large bold
+							Align:center
+							set as:"state tax"
+								width:30
+
+								 
+																	
+					[Field:My Cut]
+						Use:Date Field
+						Style:Large Bold
+							Align:Left
+							Set As:"Total"
+								Width:30
+			
+			
+			
+					[Line:My Line34]
+
+				Field:My Undo,My Exit,My Save,My Open,My Close,My New
+				
+
+
+					[Field:My Undo]
+					Align:Center
+						Use:Date Field
+							Set As:"2141090"
+								Width:30
+
+
+				[Field:My Exit]
+					Align:Right
+						Use:Date Field
+								Style:Large Bold
+							Set As:"Rate"
+								Width:40
+
+				
+				[Field:My Save]
+					Align:Right
+						Use:Date Field
+							Style:Large Bold
+							Set As:"Amount"
+								Width:10
+
+			
+				[Field:My Open]							
+					Align:Right
+						Use:Date Field
+							Style:Large Bold
+							Set As:"Rate"
+								Width:20
+
+				[Field:My close]
+					Align:Right
+						Use:Date Field
+								Style:Large Bold
+							Set As:"Amount"
+								Width:10
+
+												
+					[field:my new]
+						use:date field
+								style:large bold
+							align:center
+							set as:"Tax Amount"
+								width:30
+
+			
+			[line:my line35]
+				field:my status,my meet,my select,my word,my zoom,my wrap,my time
+						[field:my status]
+							align:center
+						use:name field
+							set as:"Total"
+								width:30
+	
+					[field:my meet]
+							align:center
+								use:date field
+									set as:"7,51,231.30"
+										width:30
+
+				[field:my select]
+					align:right
+						use:date field
+							set as:"9%"
+								width:10
+
+			[field:my word]
+					align:right
+						use:date field
+							set as:"67,610.83"
+								width:10
+
+			[field:my zoom]
+					align:right
+						use:date field
+							set as:"9%"
+								width:20
+
+			[field:my wrap]
+					align:right
+						use:date field
+							set as:"67,610.83"
+								width:10
+
+											
+					[field:my time ]
+						use:date field
+							align:center
+							set as:"1,35,221.66"
+								width:30
+	
+
+			
+			[part:RSSS bank gst detail]	
+
+				line:my line36,my line37,my line38,my line39,my line40
+
+				
+
+		
+	[line:my line36]
+		border:thick top bottom
+	field:my previous
+
+			[field:my previous]
+				use:age field
+					align:center
+						style:large bold
+				set as:"Total Gst in words-INR One lakh thirty five thousand two hundreed twenty one and sixty six paisa only"
+					width:120
+				
+			[line:my line37]
+					field:my font			
+			
+
+		[field:my font]
+				use:font field
+					align:center
+						set as:"Remarks:  UNION BANK OF INDIA SAMATA COLONY "
+
+		
+				[line:my line38]
+					field:my window
+					[field:my window]	
+						use :window
+							set as :"CASH CREDIT A/C NO:496805010450183  IFSC:UBIN0549681"
+		
+
+						
+	[line:my line39]
+				field:my note
+
+			[field:my note]
+				use:age field
+					align:center
+						style:large bold
+				set as:"Terms and conditions"
+					width:40	
+
+
+			[line:my line40]
+					field:my royal
+						right field: my tally
+					[field:my royal ]	
+						use :window
+			               set as :"Reverse charge applicable yes\No 2.This sale is EX-SIUPL basis only,otherwise specifically mentioned in the invoice "
+		
+			
+		[Field:My tally ]	
+				use:window
+					set as:"certified that the particulars are give above are true and correct and "
+					
+	[Line:My Line41]
+				Field:MyFan
+			Right Field:Mycooler
+					[field:MyFan ]	
+				use:window
+					set as:"otherwise specifically mentioned in the invoice.our responseblity ceases after goods are removed from our factory \godown  "
+				
+		[Field:Mycooler]
+			Use:mycooler
+				Set as: "Amount indicated represents the price actually charged and that there"
+				

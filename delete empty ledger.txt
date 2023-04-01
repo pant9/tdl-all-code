@@ -1,0 +1,54 @@
+[#Menu : Gateway of Tally]
+
+Item : Delete Empty Ledgers : Display : EmptyLedgerReport
+
+[Report : EmptyLedgerReport]
+
+Form :EmptyLedgerReport
+
+[Form :EmptyLedgerReport]
+
+Part : EmptyLedgerReport
+Button : Select All Button, Delete Ledger
+Width : 100 % Page
+
+[Part :EmptyLedgerReport]
+
+Line : EmptyLedgerReport
+Repeat : EmptyLedgerReport : EmptyLedgerReportColl
+Scroll : Vertical
+
+[Line : EmptyLedgerReport]
+
+Field : Name Field
+Right Field : Amount Field
+Local : Field : Name Field : Set As : $Name
+Local : Field : Amount Field : Set As : $ClosingBalance
+
+[Collection :EmptyLedgerReportColl]
+
+Type : Ledger
+Filter : IsaEmptyLedger
+
+;;  For Stock Items
+; Type : Stockitem
+; Filter :IsaEmptyItem
+;
+
+[System : Formula]
+
+IsaEmptyLedger : $$IsEmpty:$ClosingBalance And $$IsEmpty:$DebitTotals
+
+;;For Stock Items
+;IsaEmptyItem : $$IsEmpty:$ClosingBalance And $$IsEmpty:$InwardQuantity
+;
+
+[Button : Select All Button]
+
+Key : Alt +1
+Action : Select All
+
+[Button : Delete Ledger]
+
+Key : Alt + 2
+Action : Delete Object

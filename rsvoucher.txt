@@ -1,0 +1,94 @@
+[#Menu:Gateway of Tally]
+	Add:Item:RS Accounting Voucher Creation:Alter:RS Accounting Voucher Creation
+	
+
+		
+[report:RS Accounting Voucher Creation]
+form:RS Accounting Voucher Creation form
+[form:RS Accounting Voucher Creation form]
+
+Part:RS VchPF
+Height:100% Screen
+Width:100% Screen
+[Part:RS VchPF]
+	
+Line:Line1,Line2,Line3,Line4,Line5
+
+
+[Line:Line1]
+	Field:Value,Title
+	Right Field:Date Field
+		
+		
+		[Field:Value]
+			Use:Name Field
+			Align:Left
+			Style:Large Bold
+			Set as:"Payment"
+			
+
+[Field:Title]
+			Use:Name Field
+			Align:Center
+			Set as:"NO.    1"
+				Width:40
+				
+
+		[Field:Date Field]
+use:date field
+	Align:Right
+	Style:Small Bold
+Set As:"17-jan-2023"
+width:20
+
+[Line:Line2]
+	Right Field:Command
+		[Field:Command]
+			Align:Right
+				Style:Small Bold
+					Set As:"Tuesday"
+						width:20
+
+
+
+			[Line:Line3]
+				Field:Refrence,Build
+				
+	[Field:Refrence]
+		Use:Name Field
+		Align:Left
+		Set as:"Account   :"
+			Width:20
+			
+	[Field:Build]
+		Use:Name Field
+		Align:center 
+		Set as:" 1234890  "
+			Width:40
+			
+[Line:Line4]
+	Field:output
+		[Field:output]
+			Use:Name Field
+				Align:Left
+				Set as:"Current Balance    :"
+				Width:20
+				
+
+		[Line:Line5]
+		Border:thin top bottom	
+Field:Input
+Right Field:Action
+		[Field:Input]
+			Use:Name Field
+				Align:Center
+				Set as:"Particulars"
+				Width:20
+				
+
+		[Field:Action]
+			Use:Name Field
+				Align:Left
+				Set as:"Amount"
+				Width:10
+				

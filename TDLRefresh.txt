@@ -1,0 +1,12 @@
+;; PRODUCT: <Enter the product name>
+;; PRODUCT-ID: 791e269a-1168-442d-94cd-451a026e2489
+;; AUTHOR: TallyDeveloper
+
+[#Menu: Gateway of Tally]
+	Add	: Button	: Refresh TDL
+[#Form: Voucher]
+	Add	: Button	: Refresh TDL
+
+[Key: Refresh TDL]
+	Action	: Refresh TDL
+	Key		: Alt + R

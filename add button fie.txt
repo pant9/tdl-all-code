@@ -1,0 +1,37 @@
+[#Menu:Gateway of Tally]
+add:button:Excel,Rest,Daybook,Wordpad,Notepad
+
+[Button:Excel]
+Title:"Excel"
+Key:Ctrl+X
+Action:Exec Command:Excel.exe
+
+[Button:Rest]
+Title:"RestartTally"
+Key:Ctrl+R
+Action:Restart Application
+
+[Button:Daybook]
+Title:"Daybook"
+Key:Ctrl+D
+Action:Display:Daybook
+
+
+
+[Button:Wordpad]
+Title:"Wordpad"
+Key:Ctrl+W
+Action:Exec Command:Wordpad.exe
+
+
+[Button:Notepad]
+Title:"Notepad"
+Key:Ctrl+N
+Action:Exec Command:Notepad.exe
+
+
+
+
+
+
+

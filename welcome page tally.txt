@@ -1,0 +1,46 @@
+
+
+[System: Events]
+AppStartEvent : System Start : NOT $$IsRemoteCompany : CALL :WElCome2
+CmpLoadEvent2 : Load Company : NOT $$IsRemoteCompany : Call :WElCome2
+CmpCloseEvent : Close Company : NOT $$IsRemoteCompany : Call :WElCome2
+AppEndEvent : System End: NOT $$IsRemoteCompany
+
+[Function: WElCome2]
+00 : DISPLAY : Softwares.royal@gmail.com
+
+[Report: Softwares.royal@gmail.com  ]
+
+Form:MyForm
+[Form:MyForm]
+Part: Part, TxtPart
+[Part:MyImage]
+Line:MyImage
+
+
+[System:formula]
+Image1:"D:\Pooja TDl"
+
+[Line:MyImage]
+Field:namefield
+Local:Field:Namefield:Set as:""
+
+[Part: part]
+Lines : PartLine
+Graph Type : "D:\Pooja TDL"
+
+[Line: PartLine]
+Fields : Simple Field
+[Part:TxtPart]
+Line:TxtPart
+[Line:TxtPart]
+Field:TxtPart
+
+
+[Field:TxtPart]
+Set as: "Welcome to Tally Prime"
+Style: Large
+Align: Center
+Wide Space: Yes
+Color: Blue
+

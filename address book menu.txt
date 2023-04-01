@@ -1,0 +1,112 @@
+[#Menu: Gateway Of Tally]
+Add : Item : After : ~Balance Sheet : Address Book : Menu : AddressBookMenu
+
+[Menu: AddressBookMenu]
+Add : Item : Sundry Debtors Details : Display : TMSD Address Book
+Add : Item : Sundry Creditors Details : Display : TMSC Address Book
+
+
+[Report: TMSD Address Book]
+Use : DSP Template
+Form : TMSD Address Book
+
+[Form: TMSD Address Book]
+Use : DSP Template
+Part : TMSD Address Book Title, TMSD Address Book
+Width : 100% Screen
+[Part : TMSD Address Book Title]
+Line : TMSD Address Book Title
+
+[Line : TMSD Address Book Title]
+Use : TMSD Address Book
+Local : Field : SD Sr No : Set as : SNo
+Local : Field : SD Name : Set as : Name
+Local : Field : SD Contact No: Set as : Contact Person
+Local : Field : SD Phone : Set as : Phone
+Local : Field : SD Address : Set as : Address
+Local : Field : Mobile No : Set as : Mobile
+Local : Field : GroupName1 : Set as : GroupName1
+Border : Column Titles
+
+
+[Part : TMSD Address Book]
+Line : TMSD Address Book
+Repeat : TMSD Address Book : TM Sundry Debtors
+Scroll : Vertical
+Common Border : Yes
+
+[Line : TMSD Address Book]
+Field : SD Sr No, SD Name, GroupName1, SD Contact No, Mobile no,SD Phone, SD Address
+
+[Field : SD Sr No]
+Use : Short Name Field
+Set as : $$Line
+Style : Normal
+Width : 3
+Align : Centre
+
+[Field : SD Name]
+Use : Name Field
+Set as : $Name
+Width : 25
+Style : Normal
+Border : Thin Left
+[Field : SD ST]
+Use : Short Name Field
+Set as : $STno
+Style : Normal
+Border : Thin Left
+Width : 9
+
+
+[Field : SD PAN]
+Use : Short Name Field
+Set as : $IncomeTaxNumber
+Style : Normal
+Border : Thin Left
+Width : 10
+
+[Field : SD Contact No]
+Use : Short Name Field
+Set as : $LedgerContact
+Style : Normal
+Border : Thin Left
+Width : 10
+
+[Field : SD Phone]
+Use : Short Name Field
+Set as : $LedgerPhone
+Style : Normal
+Border : Thin Left
+
+[Field : SD Address]
+Use : Short Name Field
+Set as : $$FullList:Address:$Address+”, “+$StateName +”, “+$PinCode
+Style : Normal
+Border : Thin Left
+Full Width : Yes
+
+
+[Field : Mobile No]
+Use : Short Name Field
+Set as : $ledgermobile
+Style : Normal
+Border : Thin Left
+Width : 20
+
+[Field :Group name1]
+Use : Name Field
+Set as : $Parent
+Style : Normal
+Border : Thin Left
+Width : 12
+
+[Collection: TM Sundry Debtors]
+Type : Ledger
+Child of : $$GroupSundryDebtors
+Belongs To : Yes
+
+[Report : TMSC Address Book]
+Use : TMSD Address Book
+Local : Collection : TM Sundry Debtors : Child Of : $$GroupSundryCreditors
+

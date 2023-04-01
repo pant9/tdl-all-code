@@ -1,0 +1,130 @@
+[#Menu: Gateway of Tally]
+	Add: Item: Customer Report: Display: Customer Report
+	[Report: Customer Report]
+		Form: Customer Form
+				[Form: Customer Form]
+			Part: CU REPORT PART
+				[Part: CU REPORT PART]
+				Height: 100% screen
+				Width : 100% screen
+
+Line   : CU REPORT LINE, CU DETAIL LINE
+Repeat :	CU DETAIL LINE:My Voucher Items
+Scroll : Vertical		
+
+[Line: CU REPORT LINE]
+	Border: thick top bottom
+	Field: CU ItemName, CU Pen Order, CU STK, CU POrder, CU Net Qty
+	[Field: CU ItemName]
+		Use: name field
+		Set as: "Item Name"
+		Width: 30
+		Align: Center
+		Border: thick left right
+		
+[Field: CU Pen Order]
+	Use: name field
+	Set as: "Pending Order"
+	Width: 30
+	Align: Center
+	Border: thick right
+	
+		
+[Field: CU STK ]
+	Use: name field
+	Set as: "Stock In Hand"
+	Width: 30
+	Align: Center
+	Border: thick right
+		
+[Field: CU POrder ]
+	Use: name field
+	Set as: "Purchase Order"
+	Width: 30
+	Align: Center
+	Border: thick right
+	
+[Field: CU Net Qty ]
+	Use: name field
+	Set as: "Net Quantity for Order"
+	Align: Right
+	Border: thick right
+	Full Width: Yes
+	
+[Line: CU DETAIL LINE]
+;	Border: thick bottom
+	Field: CUD ItemName, CUD Pen Order, CUD STK, CUD POrder, CUD Net Qty
+	[Field: CUD ItemName]
+		Use: name field
+		Set as: $StockItemName
+		Width: 30
+		Align: Right
+		Border: thick left right
+		Scroll: vertical
+		
+		
+[Field: CUD Pen Order]
+	Use: name field
+	Set as: $PendingOrder
+	Width: 30
+	Align: Right
+	Border: thick right
+	Scroll: vertical
+	
+		
+[Field: CUD STK ]
+	Use: name field
+	Set as: $StockInHand
+	Width: 30
+	Align: Right
+	Border: thick right
+	Scroll: vertical
+		
+[Field: CUD POrder ]
+	Use: name field
+	Set as: $PurchaseOrder
+	Width: 30
+	Align: Right
+	Border: thick right
+	Scroll: vertical
+	
+[Field: CUD Net Qty ]
+	Use: name field
+	Set as: $BilledQty
+	Full Width: Yes
+	Align: right
+	Border: thick right
+	Scroll: vertical
+	
+
+
+
+[Collection :  SaleCollection]
+	
+	
+	     Type     :    Vouchers:Voucher Type
+		Fetch     :    *.* 
+	  Child Of    :    $$VchTypeSales
+     Belongs To   :    Yes
+
+[Collection: My Voucher Items]
+	
+	
+	Source Collection : SaleCollection
+		        Walk  : Inventory Entries
+			 Compute  : StockItemName        : $StockItemName
+			  Compute : StockInHand		     : $StockInHand
+			  Compute : BilledQty		     : $BilledQty
+			  Compute : PendingOrder		 : $PendingOrder
+			  Compute : $purchaseorder       : $purchaseorder
+			  Compute : PartyLedgerName      : $..PartyLedgerName
+		      Compute : VoucherNumber        : $..VoucherNumber
+		      Compute : Date                 : $..Date
+		
+
+
+
+
+		
+
+		

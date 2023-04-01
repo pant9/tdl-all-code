@@ -1,0 +1,593 @@
+[#Menu : Display Menu]
+   Add :  Item : Customer Report : Display : Customer Report 
+
+     [Report : Customer Report]
+		 
+         Set : SvFromDate : $$MonthStart:##SvCurrentDate
+	     Set : SvToDate : $$MonthEnd:##SvCurrentDate
+		 
+
+	  Title	 : $$LocaleString:"Customer Report"
+	Print Set: ReportTitle   : "Customer Report"
+	 Use	 : DSP Template
+	    Form : Customer Form
+	
+  [Form  : Customer Form]
+	Use	 : DSP Template
+	Part : DSPCompanyName,DSP CompanyAddress,DSP ReportTitle, CU REPORT PARTTitle,CU REPORT PART
+   Delete: Page Break
+	Add	 : Page Break  : DSP ClPageBreak, CU OpPageBreak
+	
+  [Part	 : CU OpPageBreak]
+	Part : DSPCompanyName,DSP CompanyAddress,DSP ReportTitle,CU REPORT PARTTitle
+ Vertical: Yes
+
+     [Part  : CU REPORT PARTTitle]
+	Line	: CU REPORT LINE
+    [Line   : CU REPORT LINE]
+		
+
+	Use		: CU DETAIL LINE
+	Local 	: Field: Default	: Type	: String
+	Local 	: Field: default	: Style	: Small Bold
+	Local   : Field: VchItemName : Set as: "Item Name"
+	Local 	: Field: VchBillNo	: Set as: "Bill NO"
+	Local   : Field: VchName    : Set as: "Name"
+	Local   : Field: VchAddress : Set as: "Address"
+	Local   : Field: VchBillD   : Set as: "Bill Date"
+	Local   : Field: VchPinCode : Set as: "Pin Code"
+	Local   : Field: VchAdv     : Set as: "ADV"
+	Local   : Field: VchCod     : Set as: "COD"
+	Local   : Field: VchAmnt    : Set as: "Amount"
+	Local   : Field: VchDocketno: Set as: "Docket No"
+	Local   : Field: VchMobNo   : Set as: "Mob No"
+	Local   : Field: VchTrnsprt : Set as: "Transport"
+	Local   : Field: VchRemark  : Set as: "Remark"
+	Border	: Column Titles
+   
+   
+   [Part    : CU REPORT PART]
+	Line    : CU DETAIL LINE
+	Repeat  :	CU DETAIL LINE:My Voucher Items
+	Scroll  : Vertical
+	
+     [Line  : CU DETAIL LINE]
+	 Field  : VchItemName
+Right Field	: VchBillNo,VchName,VchAddress,VchBillD ,VchPinCode,VchAdv,VchCod,VchAmnt,VchDocketno,VchMobNo,VchTrnsprt,VchRemark  
+	 
+	 
+ [Field   : VchItemName]
+ Use      : name field
+Set as    : $StockItemName
+Full Width: Yes
+   Style  : Small    
+		
+  [Field :  VchBillNo]
+	Use  : Name Field
+   Set as: $
+	Width: 10
+	Align: Right
+	Style: Small
+
+[ Field  : VchName]
+    Use  : Name Field
+   Set as: $PartyLedgerName 
+	Width: 30
+	Align: Right
+	Style: Small
+	
+[ Field  : VchAddress]
+    Use  : Name Field
+   Set as: $
+	Width: 30
+	Align: Right
+	Style: Small
+	
+	
+[ Field  : VchBillD]
+    Use  : Name Field
+   Set as: $Date
+	Width: 15
+	Align: Right
+	Style: Small
+	
+	
+[ Field  : VchPinCode]
+    Use  : Name Field
+   Set as: $
+	Width: 15
+	Align: Right
+	Style: Small
+
+	
+[ Field  : VchAdv ]
+    Use  : Name Field
+   Set as: $
+	Width: 10
+	Align: Right
+	Style: Small
+
+[ Field  : VchCod ]
+    Use  : Name Field
+   Set as: $
+	Width: 10
+	Align: Right
+	Style: Small
+	
+[Field   : VchAmnt ]
+    Use  : Name Field
+   Set as: $Amount
+	Width: 15
+	Align: Right
+	Style: Small
+
+
+[Field   : VchDocketno ]
+    Use  : Name Field
+   Set as: $
+	Width: 15
+	Align: Right
+	Style: Small
+	
+[Field   : VchMobNo ]
+    Use  : Name Field
+   Set as: $
+	Width: 12
+	Align: Right
+	Style: Small
+	
+[Field   : VchTrnsprt ]
+    Use  : Name Field
+   Set as: $
+	Width: 12
+	Align: Right
+	Style: Small
+	
+[Field   : VchRemark ]
+    Use  : Name Field
+   Set as: $
+	Width: 15
+	Align: Right
+	Style: Small
+	
+
+
+       [Collection :  SaleCollection]
+	
+	
+	     Type      :    Vouchers:Voucher Type
+		 Fetch     :    *.* 
+       Child Of    :    $$VchTypeSales
+   Belongs To      :    Yes
+
+       [Collection : My Voucher Items]
+	
+	
+ Source Collection : SaleCollection
+		     Walk  : Inventory Entries
+		  Compute  : StockItemName        : $StockItemName
+		   Compute : PartyLedgerName      : $..PartyLedgerName
+		   Compute : VoucherNumber        : $..VoucherNumber
+		   Compute : Date                 : $Date
+		   Compute : Amount               : $Amount
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;[#Menu:Gateway of tally]
+;	Add: Item: Customer Report: Display: Customer Report
+;	
+;
+;	[Report: Customer Report]
+;		Form: Customer Form
+;				[Form: Customer Form]
+;				Part: CU REPORT PART
+;	
+;Delete	: Page Break
+;	Add	: Page Break: DB1Close,DB1Open
+;
+;[Part:DB1Close]
+;	Line	: DB1Close
+;[Line	: DB1Close]
+;	Field: Name Field
+;	Local	: Field: NAMe field :Set as: "Continue"
+;	Local	: Field: NAMe field :Align:Right
+;	Local	: Field: NAMe field :Border: thin top
+;	Local	: Field: NAMe field :Full Width:Yes
+;	
+;[Part:DB1Open]
+;	
+;
+;[Part: CU REPORT PART]
+;Scroll : Vertical
+;				Height: 100% screen
+;				Width : 100% screen
+;				
+;
+;
+;Line   : CU REPORT LINE, CU DETAIL LINE
+;
+;Repeat :	CU DETAIL LINE:My Voucher Items
+;		
+;
+; [Line : CU REPORT LINE]
+;	Border: thin top bottom 
+;Field  : VchBillno,VchCstmrNme,VchAddress,VchBillD,VchItmName,VchpinCode,VchADV,VchCOD ,VchDocketno ,VchMOBNO,VchTransport,VchRemarks
+;
+;[Field     : VchBillno   ]
+;	 Use   : Name Field
+;	 Width : 30
+;	 Align: Center
+;	Border: thin left right
+;	Set as : "Bill No."
+;
+;     [Field : VchCstmrNme]
+;      Use   : Name Field
+;	   Full Width: Yes
+;	   Align: Center
+;	Border: thin right
+;      Set as:"Name"
+; 
+;
+;[Field: VchAddress]
+;  Use : Name Field
+;  Width : 30
+;  Align: Center
+;	Border: thin right
+;Set as:"Address"
+;	
+;
+;	
+;[Field: VchBillD]
+; Use  : Name Field
+;  Width : 30
+;  Align: Center
+;	Border: thin right
+;Set as: "Bill Date"
+;
+;
+;[Field :VchItmName]
+;Use    : Name Field
+;Full Width : yes
+; Align: Center
+;	Border: thin right
+;Set as : "Item Name"
+;	
+;
+;
+;
+;[Field : VchpinCode]
+;Use    : Name Field
+; Width : 30
+; Align: Center
+;	Border: thin right
+;Set as : "Pin Code"
+;	
+;
+;
+;[Field : VchADV  ]
+;Use    : Name Field
+; Width : 30
+; Align: Center
+;Border: thin right
+;Set as : "ADV"
+;	
+;
+;
+;[Field : VchCOD  ]
+;Use    : Name Field
+; Width : 30
+; Align: Center
+;	Border: thin right
+;Set as : "COD"
+;	
+;
+;
+;[Field : VchDocketno ]
+; Use   : Name Field
+;  Width : 30
+;  Align: Center
+;	Border: thin right
+;Set as : "Docket No."
+;
+;
+;
+;[Field: VchMOBNO ]
+;Use   : Name Field
+; Width : 30
+; Align: Center
+;	Border: thin right
+;Set as: "Mobile No."
+;
+;	
+;[Field  : VchTransport  ]
+;	Use : Name Field
+;	 Width : 30
+;	 Align: Center
+;	Border: thin right
+;  Set as:"Transport"
+;
+;	
+;
+;[Field  : VchRemarks ]
+;	Use : Name Field
+;	 Width : 30
+;	 Align: Center
+;	Border: thin right
+;Set as  : "Remarks"
+;
+;
+;	
+;[Line : CU DETAIL LINE]	
+;	;Border:Thin Left Right
+;Field  : VchBillno1,VchCstmrNme1,VchAddress1,VchBillD1,VchItmName1,VchpinCode1,VchADV1,VchCOD1 ,VchDocketno1 ,VchMOBNO1,VchTransport1,VchRemarks1
+;
+;
+;[Field: VchBillno1   ]
+;	 Use  : Name Field
+;	Set as: $
+;	Width : 30
+;	 Align: Center
+;	Border: thin left right
+;	
+;	
+;
+;
+;[Field    : VchCstmrNme1]
+; Use      : Name Field
+; Full Width : Yes
+;  Align: Center
+;	Border: thin right
+;    Set as: $PartyLedgerName 
+;    
+; 
+;
+;[Field: VchAddress1]
+;  Use : Name Field
+;Set as:$
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;	
+;[Field: VchBillD1]
+; Use  : Name Field
+;Set as: $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;
+;[Field:VchItmName1]
+;Use    : Name Field
+;Set as : $StockItemName
+;Full Width : Yes
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;[Field : VchpinCode1]
+;Use    : Name Field
+;Set as : $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;
+;[Field : VchADV1  ]
+;Use    : Name Field
+;Set as : $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;
+;[Field : VchCOD1  ]
+;Use    : Name Field
+;Set as : $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;	
+;
+;
+;[Field : VchDocketno1 ]
+; Use   : Name Field
+;Set as : $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;
+;
+;
+;[Field: VchMOBNO1 ]
+;Use   : Name Field
+; Width : 30
+; Align: Center
+;	Border: thin right
+;Set as: $
+;
+;
+;	
+;[Field  : VchTransport1  ]
+;	Use : Name Field
+;  Set as: $
+;   Width : 30
+;   Align: Center
+;	Border: thin right
+;  
+;	
+;
+;[Field  : VchRemarks1   ]
+;	Use : Name Field
+;Set as  : $
+; Width : 30
+; Align: Center
+;	Border: thin right
+;
+;
+;
+;
+;[Collection :  SaleCollection]
+;	
+;	
+;	     Type     :    Vouchers:Voucher Type
+;		Fetch     :    *.* 
+;	  Child Of    :    $$VchTypeSales
+;     Belongs To   :    Yes
+;
+;[Collection: My Voucher Items]
+;	
+;	
+;	Source Collection : SaleCollection
+;		        Walk  : Inventory Entries
+;			 Compute  : StockItemName        : $StockItemName
+;;			  Compute : StockInHand		     : $StockInHand
+;;			  Compute : BilledQty		     : $BilledQty
+;;			  Compute : PendingOrder		 : $PendingOrder
+;;			  Compute : $purchaseorder       : $purchaseorder
+;			  Compute : PartyLedgerName      : $..PartyLedgerName
+;		      Compute : VoucherNumber        : $..VoucherNumber
+;		      Compute : Date                 : $..Date
+;		
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;;[#Line: EI ColumnOne]	
+;;	Delete Field:VChQtyTitle,VchRatetitle,VchperTitle
+;;Add : Right Field : Before : VCH QtyTitle  : VchBillno,VchCstmrNme,VchAddress,VchBillD,VchpinCode,VchADV,VchCOD ,VchDocketno ,VchMOBNO
+;;
+;;Local : Field :VchBillno  : Set as :  "Bill No"
+;;Local : Field :VchCstmrNme: Set as :  "Name "
+;;Local : Field :VchAddress : Set as :  "Address"
+;;Local : Field :VchBillD   : Set as :  "Bill Date"
+;;Local : Field :VchpinCode :Set as  :  "Pin Code"
+;;Local : Field :VchADV     : Set as :  "ADV"
+;;Local : Field :VchCOD     : Set as :  "COD"
+;;Local : Field :VchDocketno: Set as :  "Docket No."
+;;Local : Field :VchMOBNO   : Set as :  "MOB NO."
+;;
+;;[Field: VchBillno   ]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	Storage: VchBillno
+;;	
+;;[System   : UDF]
+;;VchBillno : String : 669
+;;
+;;
+;;[Field : VchCstmrNme]
+;; Use   : Name Field
+;; Width:10
+;; Skip:yes
+;; Storage: VchCstmrNme
+;;	
+;;[System   : UDF]
+;;VchCstmrNme : String : 670
+;; 
+;;[Field:VchAddress]
+;;	Use:Name Field
+;;	Width:10
+;;	Skip:yes
+;;	
+;;	Storage: VchAddress
+;;	
+;;[System   : UDF]
+;;VchAddress : String : 671
+;;
+;;
+;;	
+;;[Field:VchBillD]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	
+;;	Storage: VchBillD
+;;	
+;;[System   : UDF]
+;;VchBillD : String : 672
+;;
+;;
+;;[Field: VchpinCode]
+;;	Use:Name Field
+;;	Width:10
+;;	Skip:yes
+;;	Storage: VchpinCode
+;;	
+;;[System   : UDF]
+;;VchpinCode : String : 673
+;;
+;;
+;;
+;;[Field: VchADV  ]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	Storage: VchADV
+;;	
+;;[System   : UDF]
+;;VchADV : String : 674
+;;
+;;
+;;[Field: VchCOD  ]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	Storage: VchCOD 
+;;	
+;;[System   : UDF]
+;;VchCOD  : String : 675
+;;
+;;
+;;[Field:VchDocketno   ]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	Storage: VchDocketno
+;;	
+;;[System   : UDF]
+;;VchDocketno : String : 676
+;;
+;;
+;;[Field:VchMOBNO    ]
+;;	Use:Name Field
+;;	Skip:yes
+;;	Width:10
+;;	Storage:VchMOBNO 
+;;	
+;;[System   : UDF]
+;;VchMOBNO	: String : 678
+;;

@@ -1,0 +1,95 @@
+[#Menu: Gateway of Tally]
+Add : Item : Blank
+Add : Key Item : Find or Search : I : Alter : FindVoucherpooja
+
+[Report:FindVoucherpooja]
+Form : FrmFindVoucher
+Title : $$LocaleString:"Find or Search"
+
+[Form: FrmFindVoucher]
+Part : PrtFindVoucher
+Full Width : No
+Space Right : 2
+Space Left : 2
+Option : Small Size Form
+Background : @@SV_CMPCONFIG
+On: Form Accept : Yes : Form Accept
+On: Form Accept : Yes : Display : Daybook
+
+[Part: PrtFindVoucher]
+Line :LinImpReceiptV,LinImpReceiptV1,LinImpReceiptV2
+
+[Line: LinImpReceiptV]
+Fields : Medium Prompt, Name Field`
+Local: Field: Medium Prompt : Set As : "Vocher No or Narration"
+Local: Field: Name Field : Modifies : xlsFilePath : Yes
+
+[Line: LinImpReceiptV1]
+Fields : custslipfld
+
+[field : custslipfld]
+info :" www.Royal Software.com"
+full width : yes
+align : centre
+style : large
+[Line: LinImpReceiptV2]
+Fields : custslipfld1
+
+[field : custslipfld1]
+info : "find voucher entries in Day book"
+full width : yes
+align : centre
+style : large
+
+
+
+[Report: FindVoucherNazim Entries in Daybook]
+
+Use : Daybook
+Set : SVFromDate : $$FinYearBeg:##StartDate:$StartingFrom:Company:##SVCurrentCompany
+Set : SVToDate : $$FinYearEnd:##StartDate:$StartingFrom:Company:##SVCurrentCompany
+Set : ExplodeNarrFlag : Yes
+Local : Collection : Default : Add : Filter : Dup Filter
+
+
+[System: Formula]
+
+
+Dup Filter :if NOT $$IsEmpty:##xlsFilePath then $VoucherNumber CONTAINS ##xlsFilePath or $Narration CONTAINS ##xlsFilePath else $Narration CONTAINS "Duplicated"
+
+[Function: Voucher Duplication]
+
+10 : WALK COLLECTION : TSPL Smp Company Vch
+20 : SET : SVViewName : $$SysName:AcctgVchView
+30 : NEW OBJECT : Voucher
+40 : SET VALUE : Date : $Date
+50 : SET VALUE : VoucherTypeName : $VoucherTypeName
+60 : SET VALUE : Narration : $Narration + " Duplicated"
+70 : SET VALUE : PersistedView : ##SVViewName
+
+80 : WALK COLLECTION : LedgerEntries
+90 : INSERT COLLECTION OBJECT : Ledger Entries
+100 : SET VALUE : Ledger Name : $LedgerName
+110 : SET VALUE : IsDeemedPositive : $IsDeemedPositive
+120 : SET VALUE : Amount : $Amount
+130 : SET TARGET: ..
+140 : END WALK
+150 : CREATE TARGET
+160 : END WALK
+
+170 : DISPLAY : FindVoucherpooja Entries in Daybook
+180 : RETURN
+
+[Collection: TSPL Smp Company Vch]
+
+Source Collection : Company Vouchers
+Fetch : Date, VoucherTypeName, Narration, LedgerEntries.*
+
+[System: Variable]
+xlsFilePath: ""
+
+[Variable:xlsFilePath]
+Type : String
+Default : ""
+Persistent : Yes
+

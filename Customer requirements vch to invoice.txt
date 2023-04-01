@@ -1,0 +1,112 @@
+[#Line: EI ColumnOne]	  
+Add :Right Field : Before : VCH QtyTitle  : Vchpndngodr ,VchStkInHand,VchAvlblefOdr
+
+
+Local : Field : Vchpndngodr: Set as :  "Pending Order"
+Local : Field : VchStkInHand: Set as :  " Stock  IN  Hand "
+Local : Field :VchAvlblefOdr: Set as :  "Avialable for Hand"
+			
+[Field : Vchpndngodr]
+   Use : Name Field
+   Skip:Yes
+Storage: Vchpndngodr
+	
+[System   : UDF]
+Vchpndngodr : String : 5002
+
+
+[Field : VchStkInHand ]
+   Use : Name Field
+     Skip:Yes
+Storage: VchStkInHand
+
+
+[System   : UDF]
+VchStkInHand : String : 5003
+
+
+[Field : VchAvlblefOdr]
+   Use : Name Field
+     Skip:Yes
+Storage: VchAvlblefOdr
+	
+[System   : UDF]
+VchAvlblefOdr : String : 5009
+
+
+[#Line:EI InvInfo]
+	
+Add :Right Field : Before : VCH QtyTitle  : Vchpndngodrno ,VchStkInHandAmnt,VchAvlblefOdrDetails
+
+
+Local : Field : Vchpndngodrno: Set as :  ""
+Local : Field : VchStkInHand: Set as :  ""
+Local : Field :VchAvlblefOdr : Set as :  ""
+			
+[Field : Vchpndngodrno]
+   Use : Name Field
+   Width:30
+   Set as :  ""
+   Align:Center
+Storage: Vchpndngodrno
+	
+[System   : UDF]
+Vchpndngodrno : String : 6002
+
+
+[Field : VchStkInHandAmnt ]
+   Use : Name Field
+   Set as :  ""
+Storage: VchStkInHandAmnt
+
+[System   : UDF]
+VchStkInHandAmnt : String : 5003
+
+
+[Field : VchAvlblefOdrDetails]
+   Use : Name Field
+   Set as :  ""
+Storage: VchAvlblefOdrDetails
+	
+[System   : UDF]
+VchAvlblefOdrDetails : String : 5009
+;
+;
+;[#Line : EXPINV column2]
+;	Add : Field : Before: EXPINV DescTitle:Vchpndngodr2 ,VchStkInHand2,VchAvlblefOdr2
+;		
+;Local : Field : Vchpndngodr2: Set as :  "Pending Order"
+;Local : Field : VchStkInHand2: Set as :  " Stock  IN  Hand "
+;Local : Field : VchAvlblefOdr2 : Set as :  "Avialable for Hand"
+;
+;[Field : Vchpndngodr2]
+;   Use : Name Field
+;   Set as:$Vchpndngodr2
+;   
+;[Field : VchStkInHand2]
+;   Use : Name Field
+;   Set as:$VchStkInHand2
+;   
+;[Field : VchAvlblefOdr2]
+;   Use : Name Field
+;   Set as:$VchAvlblefOdr2
+;     
+;     
+;
+;[#Form: comprehensive invoice]
+
+
+
+[#Field:VCH QtyTitle]
+	Use:Name Field
+	Storage:VCH QtyTitle
+	Notify:EI Value:$$IsEmpty:$$Value
+	
+[System: Formula]
+	EI Value:"Empty Value"
+	
+[System:udf]
+	EI Value: String:609	
+
+	
+   

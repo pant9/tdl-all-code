@@ -1,0 +1,78 @@
+
+[#Menu: Display Menu]
+	Add: Key Item    : After : @@locExceptionReports  : Material Requirement : M : Display: MRPReport
+
+[Report: MRPReport]
+	Title	: $$LocaleString:"MRP Report"
+	Print Set: ReportTitle : "MRP Report"
+	Use	: DSP Template
+	Form: Customer Form
+	
+[Form: Customer Form]
+	Use	: DSP Template
+	Part: DSPCompanyName,DSP CompanyAddress,DSP ReportTitle, CU REPORT PARTTitle,CU REPORT PART
+	Delete	: Page Break
+	Add	: Page Break  : DSP ClPageBreak, CU OpPageBreak
+[Part	: CU OpPageBreak]
+	Part	: DSPCompanyName,DSP CompanyAddress,DSP ReportTitle,CU REPORT PARTTitle
+	Vertical	: Yes
+
+[Part: CU REPORT PARTTitle]
+	Line	: CU REPORT LINE
+
+[Line	: CU REPORT LINE]
+	Use		: CU DETAIL LINE
+	Local 	: Field: Default	: Type	: String
+	Local 	: Field: default	: Style	: Small Bold
+	Local 	: Field: CUD ItemName	: Set as	: "Item Name"
+	Local 	: Field: CUD Pen Order	: Set as	: "Pending Order"
+	Local 	: Field: CUD STK		: Set as	: "Closing Bal."
+	Local 	: Field: CUD POrder		: Set as	: "P.O. Qty"
+	Local 	: Field: CUD Net Qty	: Set as	: "Need to Order"
+	Border	: Column Titles
+
+[Part: CU REPORT PART]
+	Line   : CU DETAIL LINE
+	Repeat :	CU DETAIL LINE:RSMRPPendingItems
+	Scroll : Vertical		
+
+	
+[Line: CU DETAIL LINE]
+	Field: CUD ItemName
+	Right Field	: CUD Pen Order, CUD STK, CUD POrder, CUD Net Qty
+	Empty	: $NetOrder >= 0
+	[Field: CUD ItemName]
+		Use: name field
+		Set as: $Name
+		Full Width: Yes
+		Style	: Small
+[Field: CUD Pen Order]
+	Use: Qty Primary field
+	Set as: $$AsQty:$PendingSo
+	Width: 12
+	Align: Right
+	Style	: Small
+[Field: CUD STK ]
+	Use: Qty Primary field
+	Set as: $ClosingBalance
+	Width: 12
+	Align: Right
+	Style	: Small
+		
+[Field: CUD POrder ]
+	Use: Qty Primary field
+	Set as: $$AsQty:$PendingPo
+	Width: 12
+	Align: Right
+	Style	: Small
+	
+[Field: CUD Net Qty ]
+	Use: Qty Primary field
+	Set as: $$AsPositive:$$AsQty:$NetOrder
+	Width: 12
+	Align: Right
+	Style	: Small
+
+
+
+

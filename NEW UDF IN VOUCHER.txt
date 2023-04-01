@@ -1,0 +1,23 @@
+[#Line:EI Consignee]
+Field:rsphgst
+Left Fields:rsphmobileno,rsphgstno
+Border:Thin Bottom
+
+[Field:rsphgst]
+use:Medium Prompt
+Color:Blue
+Set As:"MoNo/GST"
+
+[Field:rsphmobileno]
+Use:Name field
+Set As:$LedgerMobile:Ledger:#EIConsignee
+skip:Yes
+
+[Field:rsphgstno]
+Use:Name field
+Set As:$PartyGSTIN:Ledger:#EIConsignee
+skip:Yes
+
+
+
+[#Field:VchQtyTitle]

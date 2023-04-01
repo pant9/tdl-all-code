@@ -1,0 +1,17 @@
+[#Part : VCH Narration]
+Add: Option : TechguruplusVC : $$IsSales:$VoucherTypeName
+
+[!Part:TechGuruPlusVC]
+Bottom Line : Tgp
+width : 100% screen
+
+[Line : TGP]
+Field : TGP
+[Field : TGP]
+
+Set as : "www.Royal Software.com"
+width : 100% screen
+Alignment : Center
+Background : Yellow
+Color : Blue
+Skip : Yes

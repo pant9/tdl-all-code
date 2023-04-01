@@ -1,0 +1,155 @@
+
+
+[#Menu : Gateway of Tally]
+Item : Column Day Book : Display : Column Day Book
+
+[Report : Column Day Book]
+Form :Column Day Book
+
+[Form :Column Day Book]
+Part :daybookhead,daybookhead1, Column Day Book 
+
+bottom Part : daybookbottam
+Button : Change Period,Print Button,Export Button,FilterButton,GRPVCH Configure
+
+Background : LightBlue
+
+[Part : daybookhead]
+Line :daybookhead
+[Line :daybookhead]
+Field : Simple Field
+
+
+Local : Field : Simple Field : Set As :  Coulmer Day Book 
+Local : Field : Simple Field : Style : Normal Bold
+Local : Field : Simple Field : Align : Centre
+
+[Part : daybookhead1]
+Use : Column Day Book
+Delete : Repeat
+Delete : Scroll
+Border : ColumnTitles
+Local : Field : Default : Type : string
+Local : Field : My Voucher Date : Set As : Date
+Local : Field : MyVoucherParty: Set As : Particular
+Local : Field : MyVchNo : Set As : Voucher No
+Local : Field : MyVchType : Set As : Voucher Type
+Local : Field : MyVchAmount0 : Set As : Contra
+Local : Field : MyVchAmount : Set As : Sales
+Local : Field : MyVchAmount1 : Set As : Receipt
+Local : Field : MyVchAmount2 : Set As : Payment
+Local : Field : MyVchAmount3 : Set As : Debit Note
+Local : Field : MyVchAmount4 : Set As : Credit Note
+Local : Field : MyVchAmount5 : Set As : Journal
+Local : Field : MyVchAmount6 : Set As : Purchase
+Local :Field : Default : Style : Large Bold
+Local: Field: Default: Align: Center
+Local: Field: Default:Background: Green
+
+[Part :Column Day Book]
+Line : Column Day Book
+Repeat :Column Day Book :My Voucher Rep Collection
+tOTAL : MyVchAmount0,MyVchAmount,MyVchAmount1,MyVchAmount2,MyVchAmount3,MyVchAmount4,MyVchAmount5,MyVchAmount6
+
+Scroll : Vertical
+[Line :Column Day Book]
+Field :My Voucher Date,MyVoucherParty,MyVchNo,MyVchType
+
+Right Field : MyVchAmount0,MyVchAmount,MyVchAmount1,MyVchAmount2,MyVchAmount3,MyVchAmount4,MyVchAmount5,MyVchAmount6
+
+Option : Alter On Enter
+
+[Field :My Voucher Date]
+Use : Short Date Field
+Set As : $Date
+Border : Thin Right
+
+[Field : MyVoucherParty]
+
+Use : NAme Field
+Set As : $LedgerName
+Width : 35
+Border : Thin Right
+Alter : Voucher
+
+[Field : MyVchNo]
+Use : NAme Field
+Set As : $VoucherNumber
+Width : 18
+Border : Thin Right
+[Field : MyVchType]
+Use : Name Field
+Set As : $VoucherTypeName
+Border : Thin Right
+Width : 15
+
+[Field : MyVchAmount0]
+Use : Amount Field
+
+Set As :"if $VoucherTypeName CONTAINS Con then $Amount else "
+Format : DrCr
+Border : Thin Right
+
+[Field : MyVchAmount]
+Use : Amount Field
+
+Set As :"if $VoucherTypeName CONTAINS Sale then $Amount else "
+Format : DrCr
+Border : Thin Right
+
+[Field : MyVchAmount1]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS Rec then $Amount else "
+Border : Thin Right
+[Field : MyVchAmount2]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS pay then $Amount else "
+Border : Thin Right
+[Field : MyVchAmount3]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS deb then $Amount else "
+Border : Thin Right
+[Field : MyVchAmount4]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS Cre then $Amount else "
+Border : Thin Right
+[Field : MyVchAmount5]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS Jou then $Amount else "
+Border : Thin Right
+[Field : MyVchAmount6]
+Use : Amount Field
+Set As :"if $VoucherTypeName CONTAINS Pur then $Amount else" 
+
+[Collection : My Voucher Rep Collection]
+Type : Vouchers
+Fetch : Date,Amount,VoucherTypeName ,PArtyLedgerName,VoucherNumber
+
+
+
+[Part: daybookbottam]
+
+Lines : daybookTotalLine
+
+[Line: daybookTotalLine]
+
+Use : Column Day Book
+Local: Field: Default : Style : Small Bold
+Local: Field: Default:Background: Green
+Local: Field: Default: Type: String
+Local: Field: Default: Align: Center
+Local : Field : MyVoucherParty: Set As : Total
+Local : Field : MyVoucherParty: Color: Blue
+Local : Field : MyVchNo : Set As : Day Book
+Local : Field : MyVchNo: Color: Blue
+Local : Field : MyVchType : Set As : Amount
+Local : Field : MyVchType : Color: Blue
+Local : Field : MyVchAmount0 :Set As: $$Total:MyVchAmount0
+Local : Field : MyVchAmount : Set As : $$Total:MyVchAmount
+Local : Field : MyVchAmount1 : Set As : $$Total:MyVchAmount1
+Local : Field : MyVchAmount2 : Set As : $$Total:MyVchAmount2
+Local : Field : MyVchAmount3 : Set As : $$Total:MyVchAmount3
+Local : Field : MyVchAmount4 : Set As : $$Total:MyVchAmount4
+Local : Field : MyVchAmount5 : Set As : $$Total:MyVchAmount5
+Local : Field : MyVchAmount6 : Set As : $$Total:MyVchAmount6
+Border : Totals

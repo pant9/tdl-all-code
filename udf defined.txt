@@ -1,0 +1,284 @@
+[#Part : LED Mailing Address]
+Add : Line : After : LED Mailing Address : Adharno.
+	
+[Line : Adharno.]
+	Field : Longprompt,AdharNumber
+	Local : Field : longprompt : Set as : "Adhar Number"
+	
+[Field : AdharNumber]
+   Use : Name Field
+Storage: AdharNumber
+	
+    [System : UDF]
+AdharNumber : String : 1000
+	
+
+	
+[#Part : LED Provide Bank Details]
+Add : Line : After : LED Provide Bank Details : Bank Account no.
+		
+[Line : Bank Account no.]
+Field : Longprompt,Bank Account no.
+Local : Field : longprompt : Set as : "Bank Account No."
+			
+[Field : Bank Account no.]
+   Use : Name Field
+Storage: Bank Account no.
+			
+[System : UDF]
+Bank Account no. : String : 3000
+
+
+
+[#Part : STKI Tariff]
+   Add : Line : After : STKI  TariffType : Truck no.
+	
+[Line : Truck no.]
+Field : Longprompt,Truck no.
+Local : Field:longprompt : Set as : "Truck No."
+			
+[Field : Truck no.]
+   Use : Name Field
+Storage: Truck no.
+			
+[System  : UDF]
+Truck No.:String : 3500
+	
+
+	
+[#Part : STKI Tariff]
+ Add   : Line	: Before : STKI  TariffType : PAN no.
+
+	
+[Line : PAN no.]
+Field : Longprompt,PAN no.
+Local : Field:longprompt:Set as:"PAN no."
+			
+[Field   : PAN no.]
+  Use    : Name Field
+  Storage:PAN no.
+	
+[System  : UDF]
+PAN no.  : String : 3555
+	
+
+
+[#Part : DBLLINE Narration]
+Add : Line : After : VCH NarrPrompt : Signature
+	
+[Line : Signature]
+Field : Shortprompt,Signature
+Local : Field : Shortprompt : Set as : "Signature"
+			
+[Field : Signature]
+   Use : Name Field
+Storage: Signature
+	
+[System   : UDF]
+Signature : String : 4000
+	
+
+
+
+  
+
+[#Line: DBTitle1]	  
+Add : Field : Before : DSP VchAcctTitle  : VchVechicle NO,Vchcartype
+Field:VchVechicle NO,Vchcartype
+
+Local : Field : VchVechicle NO: Set as :  "Vechicle NO"
+Local : Field : Vchcartype: Set as :  "Car Type"
+			
+[Field : VchVechicle NO]
+   Use : Name Field
+Storage: VchVechicle NO.
+	
+[System   : UDF]
+VchVechicle NO : String : 4002
+
+
+[Field : Vchcartype ]
+   Use : Name Field
+Storage: Vchcartype
+
+[System   : UDF]
+Vchcartype : String : 4003
+
+
+[#Field : EiConsignee]
+	
+[#Form  : VchSuppl DespatchOrderDetails]
+Add : Part: VchMisc
+	
+[Part : VchMisc]
+ Line : VchMisc
+[Line : VchMisc]
+Field : Short Prompt,VchMisc
+Local : Field: short prompt:Set as:"Start Kms :"
+	
+[Field : VchMisc]
+   Use : Name field
+Storage:rsvchkms
+	
+[System  : UDF]
+rsvchkms : String: 800
+
+
+
+
+[#Part: GDWN Type]
+
+Add : Line : After : GDWN Type Title: Godown No.
+	
+[Line : Godown No.]
+	Field : Longprompt,Godown No.
+	Local : Field : longprompt : Set as : "Godown No."
+	
+[Field : Godown No.]
+   Use : Name Field
+Storage: Godown No.
+	
+    [System : UDF]
+Godown No. : String : 1100
+
+
+
+
+[#Part :STKI Units]
+Add : Line : After : STKI BaseUOM :  Item No.
+	
+[Line : Item No.]
+	Field : Longprompt, Item No.
+	Local : Field : longprompt : Set as : " Item No."
+	
+[Field :  Item No.]
+   Use : Name Field
+Storage:  Item No.
+	
+    [System : UDF]
+ Item No. : String : 1300
+ 
+
+
+
+[#Line: STKI BalTitles]
+	
+Add : Field : After : Amount Title Field : Total Amount Field
+ Field: Total Amount Field
+
+Local : Field :Total Amount Field: Set as :  "Total Amount"
+
+
+[Field :Total Amount Field]
+   Use : Name Field
+Storage: Total Amount Field
+	
+[System   : UDF]
+Total Amount Field: String : 4004
+
+
+
+[#Line:EI ColumnOne]
+	
+Add : Right Field : Before :  VCH QtyTitle : VCHVehiclenoField,VCHCartypeField
+
+
+Local : Field :VCHVehiclenoField: Set as :  "Vechicle No"
+Local : Field :VCHCartype Field: Set as :  "Car Type "
+
+[Field :VCHVehiclenoField]
+   Use : Name Field
+      Skip:Yes
+Storage: VCHVehiclenoField
+	
+[System   : UDF]
+VCHVehiclenoField: String : 409
+			
+
+
+[Field :VCHCartypeField]
+   Use : Name Field
+      Skip:Yes
+Storage: VCHCartypeField
+	
+[System   : UDF]
+VCHCartypeField: String : 406
+
+
+
+
+[#Line:EI InvInfo]
+Add : Right Field : Before :  VCH ActualQty : VCHVehiclenoEntry,VCHCartypeEntry
+
+Local : Field : VCHVehiclenoEntry: Set as :  ""
+Local : Field : VCHCartypeEntry : Set as :  " "
+
+[Field    : VCHVehiclenoEntry]
+   Use    : Name Field
+Storage   : VCHVehicle noEntries
+Table     : MyLedgerList,Not Applicable
+Show Table: Always
+	
+
+[Field     : VCHCartypeEntry]
+   Use     : Name Field
+Storage    : VCHCartypeEntry
+  Table    : MyItemsList
+ Show Table: Always
+
+
+	
+       [System   : UDF]
+VCHVehiclenoEntry: String:876
+VCHCartypeEntry  : String : 410
+
+
+
+	
+[#Line: DSP VchDetail]
+	
+Add   : Right Field : Before :  DSP VchType : VCHVehiclenoEntries,VCHCartypeEntries
+
+Local : Field : VCHVehicleno.Entries : Set as :  $VCHVehicleno
+Local : Field : VCHCartypeEntries     : Set as : $VchCarType
+
+[Field   : VCHCartypeEntries]
+   Use   : Name Field
+ Set as  : $BaseUnits:Stockitem:$StockitemName
+ ;Storage:VCHCartypeEntries
+
+[Field   : VCHVehicle noEntries]
+   Use   : Name Field
+   Set as: $vechiclenoEntries
+;Storage : VCHVehiclenoEntries
+
+           [System   : UDF]
+VCHVehicle noEntries : String  : 416
+VCHCartypeEntries    : String  : 322
+	
+[#Collection : Daybook Vouchers of Company]
+	Fetch    : VCHVehiclenoEntries,StockitemName
+	Fetch    : InventoryEntries.VCHCartypeEntry
+	Compute  : VCHCartypeEntryDB :$VCHVehiclenoEntries 
+	Compute  : VchCarType:$$CollectionField:$VCHCartypeEntry:1:InventoryEntries ;$$FullList:Inventoryentries:$VCHCartypeEntry 
+	Compute  : vechiclenoEntries : $$CollectionField:$VCHVehiclenoEntries:1:InventoryEntries 
+
+			
+
+
+
+[Collection: MyItemsList]
+	Title  : $$LocaleString:"List of Items"
+	Type   : Stockitem
+Sub Title  : $$LocaleString:"Name",$$LocaleString:"Group"
+	Fetch  : Name,Parent
+	Format : $Name,20
+	Format : $Parent,20
+	Filter : FirstParentShoes
+[Collection: MyLedgerList]
+	Type   : Ledger
+	Fetch  : Name
+	Format : $Name,20
+	
+      [System    : Formula]
+FirstParentShoes : $Parent = "Sandals"

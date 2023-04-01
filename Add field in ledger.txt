@@ -1,0 +1,32 @@
+[#line: DSP VchAccTitles]
+Add:Right Field:After:DSP VCHNumberTitle:RS Ledger  Narration
+[Field:RS Ledger Narration]
+use:Name Field
+Set as:"Narration"
+Style:Normal Bold
+
+[#line: DSP VchDetail]
+Add:Right Field:After:DSP VCHNumber:RS Ledger Narration1
+[Field:RS Ledger  Narration1]
+use:Name Field
+Set as:$Narration
+
+[#line: DSP VchAccTitles]
+Add:Right Field:After:DSP VCHNumberTitle:RS Ledger Reference
+[Field:RS Ledger Reference]
+use:Name Field
+Set as:"Reference"
+Style:Normal Bold
+
+[#line: DSP VchDetail]
+Add:Right Field:After:DSP VCHNumber:RS Ledger Reference1
+[Field:RS Ledger Reference1]
+use:Name Field
+Set as:$Reference
+
+[#line: DSP VchAccTitles]
+Add:Right Field:After:DSP VCHNumberTitle:RS Ledger ReferenceD
+[Field:RS Ledger ReferenceD]
+use:Name Field
+Set as:"ReferenceDate"
+Style:Normal Bold

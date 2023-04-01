@@ -1,0 +1,163 @@
+[#Menu : Gateway of Tally]
+	Add:Item: RS Sales Report : Display : RS Sales Report
+[Report:RS Sales Report]
+	
+	Use	: DSPtemplate
+	Set	: SvFromDate : $$MonthStart:##SvCurrentDate
+	Set	: SvToDate : $$MonthEnd:##SvCurrentDate
+	Form: RS Sales Report Form
+
+[Form   : RS Sales Report Form]
+	Use	: DSPTemplate
+	Part:DSP CompanyName,DSP CompanyAddress,DSp ReportTitle,  RSSaleReportPart,RSSalesEntryPart
+	
+Delete	: Page Break
+	Add	: Page Break  : RSDB4PageBreak, RSDB3OpPageBreak
+[Part	: RSDB3OpPageBreak]
+   Part : DSP CompanyName,DSP CompanyAddress,DSP ReportTitle,RSSaleReportPart,RSSalesEntryPart
+Vertical: Yes
+
+			
+[Part : RSSaleReportPart]
+ Line : RS Sales Report
+	
+[Line : RS Sales Report]
+Border: thin top bottom
+Field : RSSale Date,RSSale Name,RSSale GSTIN,RSSale Invoice,RSSale ITC,RSSale HSN
+Right Field : RSSale Goods,RSSale Tax,RSSale Value,RSSale Amt
+	;Option: alter on enter
+	
+
+	
+[Field : RSSale Date]
+	Use: Name field
+ Set as: "Date"
+  Lines: 0
+  Width: 10
+					
+[Field: RSSale Name]
+   Use: Name field
+Set as: "Name of the Customer"
+ Lines: 0
+ Width: 20
+	
+[Field: RSSale GSTIN]
+   Use: Name field
+Set as: "GSTIN of the Customer"
+ Lines: 0
+ Width: 15
+					
+[Field: RSSale Invoice]
+   Use: Name field
+Set as: "Invoice Number"
+ Lines: 0
+ Width: 10
+					
+
+[Field: RSSale ITC]
+   Use: Name field
+Set as: "ITC availed"
+ Lines: 0
+ Width: 15
+							
+[Field: RSSale HSN]
+   Use: Name field
+Set as: "HSN code of Goods/Services"
+ Lines: 0
+ Width: 15
+	
+[Field: RSSale Goods]
+   Use: Name field
+Set as: "Name of the Goods/Services"
+ Lines: 0
+ Width: 20
+		
+[Field: RSSale Tax]
+   Use: Name field
+Set as: "Rate of Tax"
+ Width: 15
+ Align: Center
+	
+[Field: RSSale Value]
+   Use: Name field
+Set as: "Outward supply/Sale value"
+ Lines: 0
+ Width: 20
+	
+[Field: RSSale Amt]
+   Use: Name field
+Set as: "Total Amount"
+ Width: 15
+	
+					
+
+			
+  [Part: RSSalesEntryPart]
+   Line: RS Sales Report1
+ Repeat: RS Sales Report1:RSVoucherItems
+ Scroll: Vertical
+					
+[Line: RS Sales Report1]
+Field: RsVchD,RsVchLN,RsVchNumber
+Right Field:RsItems,RsRate,RsBillQty,RsVchAmount
+	;Option	: alter on enter
+
+[Field: RsVchD]
+   Use: Date field
+Set as: $Date
+ Width: 10
+
+[Field: RsVchLN]
+   Use: Name field
+Set as: $PartyLedgerName
+ Width: 17
+	
+[Field: RsVchNumber]
+   Use: Namefield
+Set as: $VoucherName
+ Width: 10
+	
+[Field: RsItems]
+   Use: Name Field
+Set as: $StockItemName
+ Width: 20
+	
+[Field: RsRate]
+   Use: Name field
+Set as: $Rate
+ Width: 17	
+						
+[Field: RsBillQty]
+   Use: Number field
+Set as: $BilledQty
+ Width: 15
+	
+							
+[Field : RsVchAmount]
+	Use: Name field
+ Set as: $Amount
+  Width: 15					
+						
+[Collection: RSVoucher]
+	   Type: Vouchers:Voucher Type
+	  Fetch: *.*
+   Child Of: $$VchTypeSales
+ Belongs To: Yes
+					
+           [Collection: RSVoucherItems]
+	Source Collection : RSVoucher
+	             Walk : Inventory entries
+	           Compute: StockItemName : $StockItemName
+	           Compute:Rate           : $Rate
+	           Compute:BilledQty      : $BilledQty
+	           Compute:Amount         : $Amount
+			   Compute:PartyLedgerName: $..PartyLedgerName
+	           Compute:VoucherNumber  : $..VoucherNumber
+	           Compute:Date           : $..Date
+				
+
+
+
+
+
+					

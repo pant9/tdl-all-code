@@ -1,0 +1,48 @@
+
+[#line:EI ColumnOne]
+Add:Right Field:Before:VCH QtyTitle:Purchaserate
+[Field:Purchaserate]
+Setas:$$LocaleString:"Purchase Rate"
+Align:left
+Style:large Bold
+Skip:Yes
+
+[#line:EI invinfo]
+Add:Right Field:Before:VCH ActualQty:PurchaserateRd
+[Field:PurchaserateRd]
+     use:Short Prompt
+       Setas:$StandardCost:StockItem:$StockItemName
+            Style:normal Bold
+                Skip:Yes
+
+
+[#line:EI ColumnOne]
+Add:Right Field:Before:VCH QtyTitle:salesRate
+[Field:salesRate]
+   Setas : $$LocaleString:"Sales Rate"
+       Align:Right
+         Style:large Bold
+            Skip:Yes
+
+[#line:EI invinfo]
+Add:Right Field:Before:VCH ActualQty:salesRateRD
+
+[Field:salesRateRD]
+    use:Short Prompt
+        Setas:$StandardPrice:StockItem:$StockItemName
+           Style:normal Bold
+               Skip:Yes
+
+
+
+
+[#line:EI ColumnOne]
+Add:Right Field:Before:Purchaserate:DAField
+
+[Field:DAField]
+	Style:Large bold
+       	Skip:Yes
+	         Setas : "@ Calculation field"
+	              Calculation field : $Purchaserate - $salesRateRD
+
+

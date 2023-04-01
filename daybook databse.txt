@@ -1,0 +1,121 @@
+[# menu:gateway of tally]
+add:item:Day book1:Display:Day book1
+[report:Day book1]
+	Use	: DSPtemplate
+;	Set	: SvFromDate : ##SvCurrentDate
+;	Set	: SvToDate : ##SvCurrentDate
+	Set	: SvFromDate : $$MonthStart:##SvCurrentDate
+	Set	: SvToDate : $$MonthEnd:##SvCurrentDate
+	
+	form:Day book1 form
+[form:Day book1 form]
+	Use	: DSPtemplate
+	part:my part,my part1
+	;width:100% screen
+	;height:100% screen
+	Delete	: Page Break
+	Add	: Page Break: DB1Close,DB1Open
+
+[Part:DB1Close]
+	Line	: DB1Close
+[Line	: DB1Close]
+	Field: Name Field
+	Local	: Field: NAMe field :Set as: "Continue"
+	Local	: Field: NAMe field :Align:Right
+	Local	: Field: NAMe field :Border: thin top
+	Local	: Field: NAMe field :Full Width:Yes
+	
+[Part:DB1Open]
+	Part: my part
+
+[part:my part]
+line:my line,my line2
+Border:Thick top Bottom
+[line:my line]
+ field:my field
+right field:date field
+[field:my field]
+use:name field
+Style:Large Bold
+set as:"day book"
+weight:160
+
+[field:date field]
+use:date field
+Style:Large Bold
+set as:"23-jan-2023"
+width:10
+
+
+[line:my line2]
+border:thin top bottom
+;field:my value ,my title,my risk,my talk,my phone,my cover
+;	Field :My Voucher Date,MyVoucherParty,MyVchNo,MyVchType,MyVchAmount,MyVchAmountCR
+	Use	: my line4
+	Local: Field	: Default : Type	: String
+	Local: Field	: Default : Style: large bold
+	Local: Field	: Default : Lines:0
+	
+	Local : Field :My Voucher Date 	: Set as: "Date"
+	Local : Field :MyVoucherParty 	: Set as: "Particulars"
+	Local : Field :MyVchNo 			: Set as: "Vch Type"
+	Local : Field :MyVchType 		: Set as: "Vch no"
+	Local : Field :MyVchAmount 		: Set as: "Debit"
+	Local : Field :MyVchAmountCR 	: Set as: "Credit" 
+			
+
+
+
+
+[part:my part1]
+	Line:my line4
+	Repeat:my Line4:MyCollection
+	Scroll: Vertical
+	[Collection:MyCollection]
+		Type:Voucher
+		Fetch:*.* ;;My Voucher Date,MyVoucherParty,MyVchNo,MyVchType,MyVchAmount
+		Fetch:date,partyledgername
+		Fetch	: masterid
+		Compute	: Amount : $Amount
+
+	[Line:my line4]
+		Border:Thin Top Bottom
+		Field :My Voucher Date,MyVoucherParty
+		Right Field:MyVchNo,MyVchType,MyVchAmount,MyVchAmountCR
+		OPtion	: alter on enter
+		[Field :My Voucher Date]
+			Align:Left
+			Use : Short Date Field
+			Set As : $Date
+			
+			Width : 10
+			Alter : Voucher
+
+[Field : MyVoucherParty]
+Align:Left
+Use : NAme Field
+Set As : $PartyLedgerName
+Full Width: Yes
+
+[Field : MyVchNo]
+Use : NAme Field
+Align:Left
+Set As : $VoucherTypeName
+Width : 10
+
+
+[Field : MyVchType]
+Use : Name Field
+Align:Left
+Set As : $VoucherNumber
+Width : 12
+
+[Field : MyVchAmount]
+Use : Amount Field
+Set As : if $$IsDr:$amount then $Amount else 0
+Width : 12
+[Field:MyVchAmountcr]
+Use : Amount Field
+Set As : if not $$IsDr:$amount then $Amount else 0
+Width : 12
+	

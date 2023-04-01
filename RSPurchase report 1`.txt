@@ -1,0 +1,221 @@
+[# Menu : Gateway Of Tally]
+Add:Item: RS Purchase Report : Display : RS Purchase Report
+[Report : RS Purchase Report]
+	
+	Use	: DSPTemplate
+	
+
+	Set	: SvFromDate : $$MonthStart:##SvCurrentDate
+	Set	: SvToDate : $$MonthEnd:##SvCurrentDate
+
+
+   Form : RS Purchase Report Form
+  [Form : RS Purchase Report Form]
+	Use	: DSPTemplate
+	Part: DSPCompanyName,DSP CompanyAddress,DSP ReportTitle,RS Purchase Report part,RS Purchase Entry Part  
+	
+Delete	: Page Break
+	Add	: Page Break  : RSDB1PageBreak, RSDB2OpPageBreak
+	
+[Part	: RSDB2OpPageBreak ]
+   Part : DSPCompanyName,DSP CompanyAddress,DSP ReportTitle,RS Purchase Report part
+Vertical: Yes
+
+	
+
+  [part : RS Purchase Report part]
+  Border: Column Titles
+	
+  Line  : RSPurchaseReportTop
+
+  [Line : RSPurchaseReportTop]	
+
+  Field : RSPurchDate,RSPurchsn Supplier Name
+  Right Field : RSPurchsn GST NO.,RSPurchsn Invoice No.,RSPurchsn Goods HSN,RSPurchsn ITC,RSPurchsn Goods Name,RSPurchsnTax Rate,RSPurchsn Purchase Value,RSPurchsnAmnt
+
+
+
+[Field   : RSPurchDate]
+ Use     : Date Field
+ Set As  : Date
+Style    : Normal Bold
+Width    : 10	
+				
+
+
+[Field     :  RSPurchsn Supplier Name ]
+Use        :  Name Field
+Set As     :  Name of the Supplier
+Style      :  Normal Bold
+Full Width :  Yes
+					 
+					
+
+
+[Field  : RSPurchsn GST NO.]
+Use     : Name Field  
+Align   : Center
+Set As  : GSTIN of the Supplier
+Style   : Normal Bold
+Lines   : 0
+						
+				
+
+[Field : RSPurchsn Invoice No.]
+Use    : Name Field 
+Set As : Invoice No.
+Style  : Normal Bold
+Align  : Left
+Lines  : 0
+Width  : 15
+				
+				
+
+[Field : RSPurchsn ITC ]
+ Use   : Name Field  
+Set As : ITC Availed
+Align  : Center
+Style  : Normal Bold
+				
+					
+
+[Field  : RSPurchsn Goods HSN]
+Use     : Name Field 
+Style   : Normal Bold
+Set As  : HSN Code Of Goods/Services
+Width   : 15
+Lines   : 0
+						
+
+						
+[Field  : RSPurchsn Goods Name ]
+Use     : Name Field 
+Set As  : Name of the Goods/Services
+Style   : Normal Bold
+Lines   : 0
+Width   : 30
+						
+
+						
+[Field  : RSPurchsn Tax Rate]
+Use     : Name Field
+Set As  : Rated Of Tax
+Style   : Normal Bold
+			
+				
+				
+[Field  : RSPurchsn Purchase Value]
+Use     : Name Field  
+Set As  : Inward Supply/Purchase Value
+Style   : Normal Bold
+Lines   : 0
+					
+					
+[Field  : RSPurchsnAmnt]
+Use     : Name Field 
+Set As  : Amount
+Style   : Normal Bold
+Align   : Center
+Width   : 20
+						 
+					
+
+     [Part : RS Purchase Entry Part ]
+	
+	Line   : RSPurchaseReportEntry
+	Repeat : RSPurchaseReportEntry: My Voucher Items
+	Scroll : Vertical
+	
+	
+[Line : RSPurchaseReportEntry]
+	
+ Field : RSPurchD,RSPurchLN
+ Right Field : RSPurchGST NO.,RSPurchInvoice No.,RSPurchITC,RSPurchGoods HSN,RSPurchSN,RSPurchRTE,RSPurchBQTY ,RSPurchAMnt
+ 
+
+		   
+[Field : RSPurchD]
+Use    : Date Field
+Set As : $Date	
+Width  : 10
+			
+			
+[Field     : RSPurchLN ]
+Use        : Name Field
+Align      : Center
+Set As     : $PartyLedgerName
+Full Width : Yess
+				
+				
+[Field  : RSPurchGST NO.]
+ Use    : Name Field  
+Align   : Center
+Set As  : $
+					
+				
+
+[Field : RSPurchInvoice No.]
+Use    : Name Field 
+Set As : $
+Align  : Left
+Width  : 15
+				
+				
+
+[Field : RSPurchITC ]
+Use    : Name Field  
+Set As : $
+Align  : Center
+				
+				
+					
+
+[Field : RSPurchGoods HSN]
+Use    : Name Field 
+Set As : $
+Width  : 15
+						
+
+[Field : RSPurchSN]
+Use    : Name Field
+Set As : $StockItemName
+				
+			
+[Field  : RSPurchRTE]
+Use     : Name field 
+Set As  : $Rate
+				
+
+[Field  : RSPurchBQTY ]
+Use     : NAme Field
+Set As  : $BilledQty
+			
+
+
+[Field : RSPurchAMnt]
+Use    : Amount Field
+Align  : Center
+Set As : $Amount
+Width  : 20
+			
+
+[Collection :  PurchaseCollection]
+	
+	
+	     Type     :    Vouchers:Voucher Type
+		Fetch     :    *.* 
+	  Child Of    :    $$VchTypePurchase
+     Belongs To   :    Yes
+
+[Collection: My Voucher Items]
+	
+	
+	Source Collection :  PurchaseCollection
+		        Walk  : Inventory Entries
+			 Compute  : StockItemName        : $StockItemName
+			  Compute : Rate		         : $Rate
+			  Compute : BilledQty		     : $BilledQty
+			  Compute : Amount		         : $Amount
+			  Compute : PartyLedgerName      : $..PartyLedgerName
+		      Compute : VoucherNumber        : $..VoucherNumber
+		      Compute : Date                 : $..Date

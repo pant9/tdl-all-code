@@ -1,0 +1,141 @@
+ [#Part          : EI DelNoteInfo]
+	Add          : Line  : After  : EI PreCarriage  : EI COD
+	[Line        : EI COD]
+		Field    : mediumprompt, EI COD NUM
+		Local    : field  :mediumprompt  :Set as  :"Cash On Delivery"
+		[Field   : EI COD NUM]
+			Use  : name field
+			Storage   : EI COD NUM 
+			Control   : EI Value   : $$IsEmpty:$$Value
+			
+[System         :  Formula]
+	EI Value    : "Empty value" 
+	
+	
+			
+[System               : UDF]
+	EI COD NUM        : String  :  1401
+	IsTPTLedger    	  : Logical	:  1402	
+	Vch Created Name  : String  :  1403
+	Vch Spl Note      : String  :  1404
+	Vch Dsipatch Note : Logical :  1405
+
+	
+[#Form:comprehensive invoice]
+
+
+[#Part           : DBLLINE Narration]
+	Add          : Line   : Before   : Vch Narrprompt      : Vch Created Name
+	Add          : Line   : Before   : Vch Created Name    : Vch Spl Note
+	Add          : Line   : Before   : Vch Spl Note        : Vch Dsipatch Note
+	[Line        : Vch Created Name]
+		Field    : shortprompt, Vch Created Name
+		Local    : field     : shortprompt    : Set as     : "Created By"
+		[Field   : Vch Created Name]
+			Use  : Name field
+			Storage  : Vch Created Name
+			
+
+	
+
+
+	
+[Line            : Vch Spl Note]
+		Field    : shortprompt, Vch Spl Note
+		Local    : field      : shortprompt    : Set as     : "Special Note"
+		[Field   : Vch Spl Note]
+			Use  : Name field
+			Storage  : Vch Spl Note
+			
+
+[Line             : Vch Dsipatch Note]
+		Field     : shortprompt, Vch Dsipatch Note
+		Local     : field      : shortprompt   : Set as    : "Dispatch"
+		[Field    : Vch Dsipatch Note]
+			Use   : loGICAL field
+		 Storage  : Vch Dsipatch Note
+			
+
+	
+
+
+	
+[#Part           : EXPINV Terms]
+	Add          :Line        : After     : EXPINV Terms   : EI COD Line
+	[Line        : EI COD Line]
+		Field    : EI CODnumber,EI NUMBER
+		[Field   : EI CODnumber]
+			Use  : name field
+			Set as : "Cash on Delivery :"
+			Style  : normal
+			Width  : 15
+			
+			
+		[field    : EI NUMBER]
+			Use   : number field
+			Set as: $EICODNUM 
+			Style : normal
+			
+
+[#Field           : EI PreCarriage]
+		
+   Add            : Table     : MyTPT,Not Applicable
+   Show Table     : Always
+
+
+[Collection       : MyTPT]
+	Type          : ledger
+	Format        : $name,25
+	Filter        : Only TPT Ledger
+
+
+	
+[#Part: LED Other Details]
+	Add: Line: After: LED GSTAddlDetails       : LED TPT
+	[Line         : LED TPT]
+		Field     : mediumprompt, IsTPT
+		Local     : field      : mediumprompt   : Set as    : "Transport Travelling"
+		[Field    : IsTPT]
+			Use   : loGICAL field
+		 Storage  : IsTPTLedger
+		 
+
+[System            : Formula]
+	Only TPT Ledger: $IsTPTLedger
+
+;[#Form: VCHSuppl DespatchOrderDetails]
+;	
+;[#Line: EI TRADER MOTORVEHICLENO]
+	
+[#Field:  EI EIBillL Dt]
+	
+
+
+[#Part: EI DelNoteInfo]
+	Delete     :   Lines
+	Add        :   Lines   : EI ShipDetails, EI PreCarriage, GST EI MotorVehicleNo,  EI COD, EI PortDestination, KRLVAT ChekcPostname, EI BillOrLRR No 
+			
+
+	
+
+
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+			
+	
+
+
+
+
+
+
+
+
