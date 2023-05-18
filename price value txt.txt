@@ -1,0 +1,52 @@
+[System				: UDF]
+	Price Level		: String	: 901
+
+	
+[#Part			: EI PRICE LEVEL]
+	Add			: Option	: RS PRICE LEVEL
+	[!Part		: RS PRICE LEVEL]
+		Delete	: Line
+		
+		Add		: Line	: RS PRICE LEVEL
+		[Line	: RS PRICE LEVEL]
+			
+			RightField	: short Prompt, RS PRICE LEVEL
+			Local		: Field		: short Prompt 		: Set as: "Price Level"
+			Local       : Field	    : Short Prompt		: Width	: @@VchLeftPromptWidth % Page
+            Local       : Field	    : RS PRICE LEVEL	: Width	: @@VchRightDataFldWidth % Page
+
+			[Field		: RS PRICE LEVEL]
+				Use         :  Name Field
+				Storage     : Price Level
+ 
+				Set As 		: If @@WithPriceLevels Then If $IsCancelled Then (If $$IsEmpty:$$Value Then $PriceLevel:Ledger:@PartyName Else $$Value) Else +
+					If (($$Owner:$$InAlterMode) OR ##IsVchInDuplicateMode) Then (If $$IsEmpty:$$Value Then $$Value Else $PriceLevel:Ledger:@PartyName) Else +
+					$PriceLevel:Ledger:@PartyName Else ""
+				Set always  : Yes
+	
+				Table       : Price Levels
+				ShowTable   : Always
+ 
+				Skip        : NOT @@DoEditAll AND NOT $$IsEmpty:$PriceLevel:Ledger:@PartyName AND $$IsValidPriceLevel:($PriceLevel:Ledger:@PartyName)
+				Invisible   : NOT @@WithPriceLevels OR @@AcctsInvoice
+
+				PartyName	: If @@IsPOSInvoice Then $PartyName Else $PartyLedgerName
+
+				Help		: @@HlpEI_PriceLevel
+
+
+
+
+
+
+
+
+[#Field	: VCHBATCH Rate]
+	Add	: Option	: VCHBATCHRSBRATE : @@IsSales
+	
+	[!Field	: VCHBATCHRSBRATE]
+		Add		: Control	: RSBKLessRATE	: $$Value < @@PriceLevelRate
+		Delete	: Skip On	: $$Line > 1 OR $$IsEmpty:$BilledQty OR (NOT @@DoEditAll AND $$IsValidPriceLevel:$PriceLevel AND @@StdVchFldSkipCond)
+			
+[System	: Formula]
+	RSBKLessRATE	: "Less Value"

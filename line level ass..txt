@@ -1,0 +1,138 @@
+[#Menu	: Default]
+	Add	: Button	: At Beginning	: RefreshTdlBttn
+	
+[#Form	: Default]
+	Add	: Button	: At Beginning	: RefreshTdlBttn
+	
+	[Button	: RefreshTdlBttn]
+		Title	: $$LocaleString:"Refresh"
+		Key		: Alt + 7
+		Action	: Refresh TDL
+		
+[System	: Formula]
+	GurleenLedRepTit	: $$LocaleString:"Ledger Master Details"
+
+[#Menu	: Display Menu]
+	Add	: Key Item	: After	: @@locStatementsofAccounts	: @@GurleenLedRepTit	: M : Display	: LedgerDtline
+	
+	[Report		: LedgerDtline]
+		Use		: DSP Template
+		Form	: LedgerDtline
+		
+		[Form		: LedgerDtline]
+			Use		: DSP Template
+			Height	: 100% screen
+			Width	: 100% screen
+			Parts	: DSP ReportTime, DSP CompanyName, DSP CompanyAddress, DSP ReportTitle, DSP PageNo, LedgerDtlineTOp, LedgerDtline
+			Option	: Small Size Form
+			
+			[Part	: LedgerDtlineTOp]
+				Line	: LedgerDtlineTOp
+				
+				[Line	: LedgerDtlineTOp]
+					Field	: DSP Period
+					
+[Part		: LedgerDtline]
+	Line	: RSledtitle, RSTLedgerList
+	Repeat	: RSTLedgerList: RSALedgerList
+	Scroll	: Vertical
+	
+[Line		: RSledtitle]
+	Border	: Column Titles
+	Field	: LEDTITLE1, LEDTITLE2, LEDTITLE3, LEDTITLE4,LEDTITLE5, LEDTITLE6, LEDTITLE7, LEDTITLE8
+	[Field	: LEDTITLE1]
+		Use	: Namefield
+		Set as	: "Ledger Name"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE2]
+		Use	: Namefield
+		Set as	: "Group Name"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE3]
+		Use	: Namefield
+		Set as	: "State Name"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE4]
+		Use	: Namefield
+		Set as	: "Address"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE5]
+		Use	: Namefield
+		Set as	: "Email"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE6]
+		Use	: Namefield
+		Set as	: "GST Type"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE7]
+		Use	: Namefield
+		Set as	: "Opening Balance"
+		Skip	: Yes
+		
+	[Field	: LEDTITLE8]
+		Use	: Namefield
+		Set as	: "Closing Balance"
+	
+[Line		: RSTLedgerList]
+	Field	: ledtname, ledtparent, ledtstate, ledtaddress, ledtemail , ledtgst, ledtopenbal, ledtclosebal
+;	Local	: Field	: longprompt	: Set as: "Ledger Details"
+	Local	: Field	: Default	: Style	: Normal
+
+	
+[Field: ledtname]
+	Use: name field
+	Set as: $name
+	
+[Field: ledtparent]
+	Use: Name field
+	Set as: $parent
+	
+[Field: ledtstate]
+	Use: Name field
+	Set as: $LedStateName
+	
+[Field: ledtaddress]
+	Use: Name field
+	Set as: $address
+	
+[Field: ledtemail]
+	Use: Name field
+	Set as: $LEDEMAILADD
+	
+[Field: ledtgst]
+	Use: Name field
+	Set as: $GstType
+	
+[Field: ledtopenbal]
+	Use: Name field
+	Set as: $OpeningBalance
+	
+[Field: ledtclosebal]
+	Use: Name field
+	Set as: $ClosingBalance
+
+[Collection	: RSALedgerList]
+	Title	: "List of ledgers"
+	Type	: ledger
+	Child Of: $$GroupSundryCreditors
+	Belongs To	: Yes
+	
+	
+[#Part: LED Mailing Address]
+	Add: Line: After: LED Mailing Address: LED EMAIL ADDRESS
+	[Line: LED EMAIL ADDRESS]
+		Field: Medium Prompt,LED EMAILADD
+		Local: Field: Medium Prompt: Set as: "EMAIL"
+		[Field: LED EMAILADD]
+			Use: NAME FIELD
+			Storage: LED EMAILADD
+			
+[System: UDF]
+	LED EMAILADD: String: 9001
+	

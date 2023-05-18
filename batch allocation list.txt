@@ -1,0 +1,9 @@
+[#Field	: VCHBATCH Rate]
+	Add	: Option	: VCHBATCHRSBRATE : @@IsSales
+	
+	[!Field	: VCHBATCHRSBRATE]
+		Add		: Control	: RSBKLessRATE	: $$Value < @@PriceLevelRate
+		Delete	: Skip On	: $$Line > 1 OR $$IsEmpty:$BilledQty OR (NOT @@DoEditAll AND $$IsValidPriceLevel:$PriceLevel AND @@StdVchFldSkipCond)
+			
+[System	: Formula]
+	RSBKLessRATE	: "Less Value"
