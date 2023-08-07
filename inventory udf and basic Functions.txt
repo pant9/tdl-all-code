@@ -1,0 +1,111 @@
+	[#Line	: EI COLUMNONE]
+		Add : Option : EI COLUMNONE option : @@issales
+	[!Line  : EI COLUMNONE option]
+		Add	: Right FIELD  : After: VCH RateUnitsTitle : VCHLISTOFMObTit
+		
+
+[Field		: VCHLISTOFMObTit]
+	Use		: NAME FIELD
+	Width	: 5%  PAGE
+	Align	: center
+	Info	: "List of "
+;Invisible	: Not @@issales
+	
+	
+	[#Line	: EI COLUMNONE RATE] 
+	Add 	: Option :EI COLUMNONE RATE option : @@issales
+	[!Line	: EI COLUMNONE RATE option]
+	Add		: Right  Field	: After	:  VCH RateUnitsTitle	: VCHLISTOFMObTit
+	Local	: Field	: VCHLISTOFMObTit	: Info: "Mobile"
+
+
+[#Line		: ei columntwo]
+	Add 	: Option :ei columntwo option : @@issales
+ [!Line 	: ei columntwo option]
+Add			: Right  Field	: After	:  VCH RateUnitsTitle	: VCHLISTOFMObTit
+Local		: Field	: VCHLISTOFMObTit	: Info	: ""
+		
+ [#Line 	: EI InvInfo]
+	Add 	: Option : EI InvInfooption : @@issales
+  [!Line	: EI InvInfo option]
+	Add		: Right Field	: After	:  VCH RateUnit	: VCHLISTOFMOBILES
+	  
+	[Field	: VCHLISTOFMOBILES]
+	Use		: NAme Field
+	Align	: Center
+	Width	: 5% Page
+	Style	: Small bold
+	Storage	: VCHLISTOFMOBILES
+;		Invisible: Not @@issales
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Functions Basics;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	[#Field	:Vch Stockitem]
+		On	: Accept	: Yes	: Call	: vchStocitem
+		On	: Accept	: Yes 	: Field Accept
+		
+	[Function	:vchStocitem]
+		01:Set Value:VCHLISTOFMOBILES: $$Number:$BilledQty+$$Number:$Rate
+		
+
+[#Field	: VchBatchBilledQty]		
+		On	: Accept	: Yes	: Call	:SetRateFunc
+		On	: Accept	: Yes	: Field Accept
+		
+[Function	: SetRateFunc]
+	1:Set Value	: Tracking Number : "378asscav"
+	
+		
+
+	
+  [#Line	: CI InvInfo]
+	  Add   : Option :ci invinfo option : @@issales
+	[!Line  : ci invinfo option]
+	  Add	: Right Field : After: VCHRateUnit  : VCHLISTOFMOBILES
+	  
+	[#Line	: EI AccInfo]
+	Add		: Right  Field	: After	:  EI AccRatePer	: VCHLISTOFMObTit
+	Local	: Field	: VCHLISTOFMObTit	: Info	: ""
+
+	[System : UDF]
+	VCHLISTOFMOBILES : String: 1009
+	
+
+[#Line: TRACKCol1]
+	Add: Field	:	At end	:  DSPDispclass	
+	[Field	: DSPDispclass]
+			Use		: Name Field
+			Info	: "Class"
+			Align	: Right
+			Width	: 30
+			
+  [#Line: TRACKCol2]
+	  Add: Field	:	At end	:  DSPDispclassvalue	
+	  
+[Field	: DSPDispclassvalue]
+			Use		: Name Field
+			Storage	: DSPDispclassvalue
+			Align	: Right
+			Width	: 30
+			
+[System	:UDF]
+DSPDispclassvalue:String:2002	
+	  
+
+	[#Field	: DSPAccName]
+		Add: Option	: Dsppartypan:(##GroupName =$$GroupSundryDebtors)
+		
+		[!Field	:Dsppartypan]
+			Local :Field	:DSPDispName:Width:40% page
+			Add	:Field	:After:DSP DispName:dsppartpan
+			
+			
+			[Field	: dsppartpan]
+				Use		: Name Field
+				Set as	: $IncomeTaxNumber:Ledger:$$Name
+				Align	: Right
+				Width	: 10
+				;Border	:column Title
+				
+		
+		

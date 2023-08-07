@@ -1,0 +1,92 @@
+
+
+		
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;*************************************************************************Hey Isht Devta Kripa Bnaye Rakhna************************
+;**********---------------------------------------------------------------------------------------Balaji Ashirvaad Bnaye Rakhna********************************
+
+
+;-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;**********************************************************************************************************************************
+
+;;********************************************************Branch MEnu Started From Here********************************************************
+
+[#Menu	:  Gateway Of Tally]
+Add	:	Item	:	 Branch Menu	: 	Menu	: 	Branch Menu
+
+[Menu		:	Branch Menu]
+		Indent  	: @@locTransactions
+		Key Item	: @@locVouchers					: V : Create Collection	: Company Vouchers	
+
+		Item        : BLANK 
+		Indent  	: @@locIndentReports
+		
+		Key Item    : @@locDayBook         			: K : Display  					: Day Book
+		Key Item    : @@locSalesOrdersBook     		: O : Display					: Sales Orders Register    	
+		Key Item    : @@locPurchaseOrdersBook  		: B : Display					: Purchase Orders Register 	
+		Key Item    : @@locLedger                   : L : Display Collection		: Monthly Ledger Extract  
+		Key Item    : @@locReceivables       		: R : Display Collection		: Bills ReceivableExtract;:@@AllItemsSysName)
+		Key Item    : @@locPayables         		: P : Display Collection 	 	: Bills Payable Extract;:@@AllItemsSysName)	
+		
+		Key Item    : @@locGroup            		: G : Display Collection 		: Group Outstandings Extract 
+		Key Item    : @@locLedger           		: L : Display Collection		: Ledger Outstandings Extract
+		Key Item	: @@locGodowns					: G : Display Collection		: Godown Summary
+		Key Item    : @@locGroupAnalysis       		: G : Display Collection 		: Group Analysis        
+		Key Item    : @@locLedgerAnalysis       	: L : Display Collection 		: Ledger Analysis  
+		Key Item    : @@locSaleBillsPending     	: B : Display  					: Outward Tracking Details 
+		Key Item    : @@locPurchaseBillsPending		: U : Display  					: Inward Tracking Details
+		
+;*************************************************CF Menu ***************************************************************************
+;------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;**********************************************************************************************************************************************
+
+[#Menu	:  Gateway Of Tally]
+Add	:	Item	:	 CF Menu	: 	Menu	:  CF	Menu
+
+[Menu		:	CF	Menu]
+		Indent  	: @@locTransactions
+		Key Item	: @@locVouchers			: V : Create Collection		: Company Vouchers	
+		
+		Item        : BLANK 
+		Indent  	: @@locIndentReports
+		
+		Key Item    : @@locDayBook       	: K : Display   			: Day Book
+		Key Item    : @@locSalesOrdersBook  : O : Display				: Sales Orders Register  
+		Key Item    : @@locLedger           : L : Display Collection	: Monthly Ledger Extract  
+		Key Item    : @@locLedger           : L : Display Collection	: Ledger Outstandings Extract
+		Key Item	: @@locGodowns			: G : Display Collection	: Godown Summary
+		
+;********************************************Plant Menu*****************************************************************************
+;-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;*************************************************************************************************************************************
+
+
+[#Menu	:  Gateway Of Tally]
+Add	:	Item	:	 Plant Menu	: 	Menu	: 	Plant Menu
+
+		[Menu		: Plant Menu]
+		Indent  	: @@locTransactions
+		Key Item	: @@locVouchers						: V : Create Collection	: Company Vouchers	
+		
+		Item      	: BLANK 
+		Indent  	: @@locIndentReports
+		Key Item    : @@locDayBook        				: K : Display   			: Day Book
+		Key Item    : @@locSalesOrdersBook     			: O : Display				: Sales Orders Register
+		Key Item	: @@locGodowns						: G : Display Collection	: Godown Summary
+		Key Item    : @@locPurchaseBillsPending			: U : Display  				: Inward Tracking Details
+		
+;		Key Item    : @@locDayBook        				: K : Display   			: Day Book
+;		Key Item    : @@locSalesOrdersBook     			: O : Display				: Sales Orders Register  
+;		Key Item	: @@locGodowns						: G : Display Collection	: Godown Summary
+;		Key Item    : @@locPurchaseBillsPending			: U : Display  				: Inward Tracking Details
+;		
+;		
+	
+		
+		
+
+	
+	  
+	
+
+

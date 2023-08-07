@@ -1,0 +1,2704 @@
+;;;;777563388
+;;;;796476384
+
+
+
+
+
+[System	: UDF]
+	Showppreport				:Logical	: 5003
+	Showppreportsss				:Logical	: 5004
+	VchpaymentstatusDone		:Logical	: 5006
+	RSTruckEmpty				: Logical	: 8001
+	RSvchTruckNo				: String	: 8002
+	RSvchBillwt					: Number	: 8003
+	RSvchfarm					:String		: 1701
+	EiSuppliernme				:String		: 1234
+	RSvchBillRate				: Number	: 1131
+	RSvchBillAmount				: Number	: 1132
+	RSVchOrderType				: String	: 8004
+	RSPurcordernoUDF 			: String	: 8005
+	RsPurcItemNameUDF			: String	: 8006
+	RsPurcItemPriceUDF			: Number	: 8007
+	RSPurcActualWeightUDF		: Number	: 8008
+	RSPurcWeightDiffUDF			: Number	: 8009
+	RsPurcFreightUDF			: Number	: 8010
+	RSPurcDalaUDF				: Number	: 8011
+	RSPurcGSTUDF				: Number	: 8012
+	RSPurcTCSUDF				: Number	: 18012
+	RSPurcTDSUDF				: Number	: 18014
+	RSPurcDiffUDF				: Number	: 18013
+	RSSaleordernoUDF 			: String	: 8013
+	RsSaleItemNameUDF			: String	: 8014
+	RsSaleItemPriceUDF			: Number	: 8015
+	RSSaleActualWeightUDF		: Number	: 8016
+	RSSaleWeightDiffUDF			: Number	: 8017
+	RsSaleFreightUDF			: Number	: 8018
+	RSSaleDalaUDF				: Number	: 8019
+	RSSaleGSTUDF				: Number	: 8020
+	RSSaleTCSUDF				: Number	: 18020
+	RSSaleTDSUDF				: Number	: 18022
+	RSSaleDiffUDF				: Number	: 18021
+	RSSalePartyUDF				: String	: 8021
+	RSSaleAmountUDF				: Number	: 8022
+	RSPurcAmountUDF				: Number	: 8023
+	RSPurcDustUDF				: Number	: 8024
+	RSPurcQP1					: String	: 8025
+	RSPurcQRate1				: Number	: 8026
+	RSPurcQAmt1					: Number	: 8027
+	RSPurcQP2					: String	: 8028
+	RSPurcQRate2				: Number	: 8029
+	RSPurcQAmt2					: Number	: 8030
+	RSPurcQP3					: String	: 8031
+	RSPurcQRate3				: Number	: 8032
+	RSPurcQAmt3					: Number	: 8033
+	RSPurcQP4					: String	: 8034
+	RSPurcQRate4				: Number	: 8035
+	RSPurcQAmt4					: Number	: 8036
+	RSSaleDustUDF				: Number	: 8037
+	RSSaleQP1					: String	: 8038
+	RSSaleQRate1				: Number	: 8039
+	RSSaleQAmt1					: Number	: 8040
+	RSSaleQP2					: String	: 8041
+	RSSaleQRate2				: Number	: 8042
+	RSSaleQAmt2					: Number	: 8043
+	RSSaleQP3					: String	: 8044
+	RSSaleQRate3				: Number	: 8045
+	RSSaleQAmt3					: Number	: 8046
+	RSSaleQP4					: String	: 8047
+	RSSaleQRate4				: Number	: 8048
+	RSSaleQAmt4					: Number	: 8049
+	RSSaleQP5					: String	: 18047
+	RSSaleQRate5				: Number	: 18048
+	RSSaleQAmt5					: Number	: 18049
+	RSSaleQQty5					: Number	: 18050
+	RSPurcEffQty				: Number	: 8050
+	RSPurcEffRate				: Number	: 8051
+	RSPurcEffAmt				: Number	: 8052
+	RSSaleEffQty				: Number	: 8053
+	RSSaleEffRate				: Number	: 8054
+	RSSaleEffAmt				: Number	: 8055
+	RSPurcQQty1					: Number	: 8056
+	RSPurcQQty2					: Number	: 8057
+	RSPurcQQty3					: Number	: 8058
+	RSPurcQQty4					: Number	: 8059
+	RSSaleQQty1					: Number	: 8060
+	RSSaleQQty2					: Number	: 8061
+	RSSaleQQty3					: Number	: 8062
+	RSSaleQQty4					: Number	: 8063
+	RSPurcDecuctionUDF			: Number	: 8064
+	RSPurcCommUDF				: Number	: 8065
+	RSPurcCDUDF					: Number	: 8066
+	RSSaleDecuctionUDF			: Number	: 8067
+	RSSaleCommUDF				: Number	: 8068
+	RSSaleCDUDF					: Number	: 8069
+	RSClearEntry				: Logical	: 8070
+	RSPurCDPerUDF				: Number	: 8071
+	RSPurComPerUDF				: Number	: 8072
+	RsPurcFreightRefUDF			: String	: 8073
+	RsPurcFreightRefDateUDF	 	: Date		: 8074
+	RSvchBillRateSale			: Number	: 8075
+	RSvchBillAmountSale			: Number	: 8076
+	RSVchSaleSupplierName		: String	: 8077
+	EIpurchasebilldate			: Date		: 8078
+	RsSaleitemcd				: Number	: 8079
+	RsPurcItemcd				: Number	: 9080
+	RSsalediscountamnt			: Number	: 9081
+ Rspurchasediscountamnt			: Number	: 9082
+ VoucherPaymentDone				: Logical	: 9083
+	
+
+;;;;;;;;;;;;;;;;;;;;;;;Order 2 UDF
+	RSPurcordernoUDFO2 						: String	: 9001
+	RsPurcItemNameUDFO2						: String	: 9002
+	RsPurcItemPriceUDFO2					: Number	: 9003
+	RSPurcActualWeightUDFO2	52wc			: Number	: 9004
+
+	RSSaleordernoUDFO2 						: String	: 9005
+	RsSaleItemNameUDFO2						: String	: 9006
+	RsSaleItemPriceUDFO2					: Number	: 9007
+	RSSaleActualWeightUDFO2					: Number	: 9008
+
+	RSPurcQP1O2								: String	: 9009
+	RSPurcQRate1O2							: Number	: 9010
+	RSPurcQAmt1O2							: Number	: 9011
+	RSPurcQP2O2								: String	: 9012
+	RSPurcQRate2O2							: Number	: 9013
+	RSPurcQAmt2O2							: Number	: 9014
+	RSPurcQP3O2								: String	: 9015
+	RSPurcQRate3O2							: Number	: 9016
+	RSPurcQAmt3O2							: Number	: 9017
+	RSPurcQP4O2								: String	: 9018
+	RSPurcQRate4O2							: Number	: 9019
+	RSPurcQAmt4O2							: Number	: 9020
+
+	RSSaleQP1O2								: String	: 9021
+	RSSaleQRate1O2							: Number	: 9022
+	RSSaleQAmt1O2							: Number	: 9023
+	RSSaleQP2O2								: String	: 9024
+	RSSaleQRate2O2							: Number	: 9025
+	RSSaleQAmt2O2							: Number	: 9026
+
+	RSSaleQP3O2								: String	: 9027
+	RSSaleQRate3O2							: Number	: 9028
+	RSSaleQAmt3O2							: Number	: 9029
+	RSSaleQP4O2								: String	: 9030
+	RSSaleQRate4O2							: Number	: 9031
+	RSSaleQAmt4O2							: Number	: 9032
+
+	RSSaleQP5O2								: String	: 19030
+	RSSaleQRate5O2							: Number	: 19031
+	RSSaleQAmt5O2							: Number	: 19032
+	RSSaleQQty5O2							: Number	: 19040
+	
+	RSPurcQQty1O2							: Number	: 9033
+	RSPurcQQty2O2							: Number	: 9034
+	RSPurcQQty3O2							: Number	: 9035
+	RSPurcQQty4O2							: Number	: 9036
+	RSSaleQQty1O2							: Number	: 9037
+	RSSaleQQty2O2							: Number	: 9038
+	RSSaleQQty3O2							: Number	: 9039
+	RSSaleQQty4O2							: Number	: 9040
+	RSSaleActualWeightUDFO1					: Number	: 9041
+	RSPurcActualWeightUDFO1					: Number	: 9042
+	RSPurcAmountUDFO2						: Number	: 9043
+	EIORder2YN								: Logical	: 9044
+	EIPORder2YN								: Logical	: 9045
+
+	VchSaleDone								: Logical	: 9046
+	VchPurcDone								: Logical	: 9047
+	VchPurcDone1							: String	: 19047
+	RSPurcRTGSAmt							: Amount	: 9048
+	RSPurcbalAmt							: Amount	: 9049
+	RSLedOpBal								: Amount	: 9050
+	RSIsParchiVoucher						: Logical	: 9051
+	VchTrkDate								: Date		: 9052
+	RSSaleRTGSUDF							: Amount	: 9053
+
+	RSPurcorderDateUDF						: Date		: 9054
+	RSPurcorderDateUDFO2					: Date		: 9055
+	RSSaleorderDateUDF						: Date		: 9056
+	RSSaleorderDateUDFO2					: Date		: 9057
+	RSSaleNug								: String	: 9058
+	RSPurcPerunitDalaUDF					: Number	: 9059
+	RSDedComPerUDF							: Number	: 9060
+	
+	
+[Variable:  RsClesrEntryVar]
+	  Type	:  Logical
+	
+[#Part	: 	VTYP Main Left]
+			Add : Option	 : VchTypeTruckVch	 : $$IsJobMaterialReceive:$Parent
+			Add : Option	 : VchTypeAmtForSecondLedger
+	
+[!part	: VchTypeTruckVch]
+	Add	: Part	: VTypeTruckEntry
+	
+[Part	: VTypeTruckEntry]	
+	Add 	: Line	: VchTypeTruckVchIncoming
+	
+[Line	: VchTypeTruckVchIncoming]
+		Field	: Long Prompt,VchTypeTruckVchIncoming
+		Local	: Field: Long Prompt	 : Set as: "Truck Entry Voucher:"   
+
+	[Field	: VchTypeTruckVchIncoming]
+			Use			: Logical Field
+			Storage		: RSTruckEmpty
+			Style		: Small  
+
+
+[!part	: VchTypeAmtForSecondLedger]
+	Add	: Part	: VchTypeAmtForSecondLedger1
+	
+[Part	: VchTypeAmtForSecondLedger1]	
+	Add      : Line	: VchTypeAmtForSecondLedger
+	
+[Line	: VchTypeAmtForSecondLedger]
+		Field		: Long Prompt,VchTypeAmtForSecondLedger
+		Local	: Field: Long Prompt : Set as: "Use Amount in Parchi Ledger:"   
+
+	[Field	: VchTypeAmtForSecondLedger]
+				Use				: Logical Field
+				Storage			: RSIsParchiVoucher
+				Style			: Small  
+
+
+		
+	[System		:  Formula]
+	IsTruckIncomingVch	:  $RSTruckEmpty:VoucherType:##SvVoucherType
+	
+	QtyWarn	: "Quantity Mismatch"
+;[#Report	: Voucher]
+;	Variable	: RsClesrEntryVar
+;	Set	: RsClesrEntryVar: No
+
+
+
+[#Form	: JobMaterial Journal Voucher]
+		Add	: Option		: UseAsTruckVoucher	 : @@IsTruckIncomingVch
+			
+[!Form		: 	UseAsTruckVoucher]
+	Delete	:	Parts
+	Local 	: Line      		 : VCH NarrPrompt    : Delete   : Right Fields : EI PartyDeemedPos, EI QtyTotal, MatTrans ValueTotal
+	Add		: Parts         	 : VCH Status, VCH Title, VCHTitle2, VCH Optional
+	Delete	: Control
+	Add		: Part					: TruckVchEntry,TruckSalePurchase,TruckGrossProfit
+	Add		: Button:At Beginning	:ShowReports
+ ;   Add 	: Bottom Parts    : VCH Narration
+	
+;	Height	: 90% Screen
+;	Width	: 70% Screen
+
+[Button		:	ShowReports]
+
+		Title       : If ##ShowreportsVar Then $$LocaleString:"Show Reports" Else $$LocaleString:"Hide Reports"
+		Key			:	Ctrl+S
+		Action      : Set : ShowreportsVar : NOT ##ShowreportsVar
+;	Inactive        : NOT @@IsOptionalAllowed OR @@IsPOSInvoice
+		
+	[Variable	: ShowreportsVar]
+
+		Type     : Logical
+		Volatile : No
+[System	:	Variable]
+ShowreportsVar	:No	
+
+
+[Part	 : TruckVchEntry]
+	
+	Add	: Line	:  vchOrderType;,VchBillSaleweight , VchSaleSupplierName;,VchTruckVehicleNO,VchBillweight ;,VchBillSaleweight
+;	Horizontal Align: Center
+
+[Line	: vchOrderType]
+	
+	Field	: Short Prompt,vchOrderType,Simple Prompt,VchTruckVehicleNO
+	Field	: Medium Prompt,VchBillweight,Long Prompt, VchFarm;,Simple Prompt,VchBillRate,Medium Prompt,VchBilltotalAmount
+	
+	Local	: Field	: Medium Prompt : Set as	:"Bill Weight :"
+	Local	: Field	: Medium Prompt : Width		: 12
+	Local	: Field	: Short Prompt	: Set as	:"Order Type :"
+	Local	: Field	: Simple Prompt : Set as	:"Truck No. :"
+	Local	: Field	: Long Prompt 	: Set as	:"Farm Name :"
+	Local	: Field	: Long Prompt	: Width		: 10 
+	
+	[Field		: vchOrderType]
+			Use			: 	Name Field
+			Table		:	 MySaleType
+			Show Table	: 	Always
+			Storage		:	RSVchOrderType
+			Style		:	 Small Bold
+		
+[Line	: VchTruckVehicleNO]
+Field  	: Short Prompt,VchTruckVehicleNO
+Local	: Field	: Short Prompt : Set as:"Truck No. :"
+
+	[Field	: VchTruckVehicleNO]
+				Use			:  Name Field
+				Storage		: RSvchTruckNo
+				Style		:  Small Bold
+		
+;[Line	: VchBillweight]
+;	
+;	Field	: Short Prompt,VchBillweight;,Medium Prompt,VchFarm  ;,Simple Prompt,VchBillRate,Medium Prompt,VchBilltotalAmount
+;	Local	: Field	: Short Prompt : Set as:"Bill Weight :"
+	;Local	: Field	: Medium Promp : Set as:"Farm Name :"
+;		Local	: Field	: medium Prompt : Width	: 10
+	
+	[Field	: VchBillweight]
+				Use			: Number  Field
+				Storage		: RSvchBillwt
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+		
+		[Field	:	VchFarm ]
+				Use		: 	Name Field
+				Storage	:	RSvchfarm
+				Style	: 	Small Bold
+;;;		Format	: "NoZero,Decimal:3"
+;		
+	[Field	: VchBillRate]
+				Use			: Number  Field
+				Storage		:RSvchBillRate
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+		
+	[Field	: VchBillTotalAmount]
+				Use			: Number  Field
+				Set as		: #VchBillweight * #VchBillRate
+				Set Always	: Yes
+				Storage		:	RSvchBillAmount
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+		
+[Line	: VchSaleSupplierName]
+	Field	:  medium Prompt, VchSaleSupplierName
+	
+	Local	: Field	: medium Prompt	: Set as	: "Sale Inv. Party"
+	
+	[Field	: VchSaleSupplierName]
+			Use		: Name Field
+			Storage	:  RSVchSaleSupplierName
+			Width	:20
+
+[Line	: 	VchBillSaleweight]
+	Field	: 	Simple Prompt,VchBillRateSale,Medium Prompt,VchBilltotalAmountSale
+	
+	Local	: Field	: Simple Prompt : Set as	:"Sale Rate :"
+	Local	: Field	: medium Prompt : Set as	:"Sale Amount :"
+	Local	: Field	: medium Prompt	: Width		: 10
+	Local	: Field	: VchBillweight	: Skip		: Yes
+	
+	[Field		: VchBillRateSale]
+				Use			: Number  Field
+				Storage		:RSvchBillRateSale
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				
+	[Field	: VchBillTotalAmountSale]
+				Use			: Number  Field
+				Set as		: #VchBillweight * #VchBillRateSale
+				Set Always	: Yes
+				Storage		: RSvchBillAmountSale
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				
+[Line	: Rssalecdpercentage]
+	Field	: Short Prompt,Rssalecdpercentage
+	Field	: Medium Prompt,RSsalediscountamnt
+	
+	
+	Local	: Field	: Short Prompt : Set as:"Cd% :"
+	Local	: Field	: MediumPrompt : Set as:"Discount Amount :"
+	
+	
+
+	
+	[Field	: Rssalecdpercentage]
+				Use		: Number  Field
+			;	Set as	: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+				;Set Always	: Yes
+				Storage		: RsSaleitemcd
+				Style		:  Small Bold
+				Align		:  Right
+				Format		:  "No Zero, Percentage"
+				
+
+	[Field	: RSsalediscountamnt]
+		Use				: Number  Field
+		;Set as			: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+		Set Always		: Yes
+		Storage			: RSsalediscountamnt
+		Style			:  Large Bold
+		Align			:  Right
+		Format			: "NoZero,Decimal:3"
+		Width			: 10
+		Set as			:  If NOT $$IsFieldEdited Then @DiscAmtVal Else $$value
+		DiscAmtVal		: $RSvchBillAmountSale * ($RsSaleitemcd /100)
+				
+
+	
+	
+[Part	: TruckSalePurchase]
+	Part	: TruckSales,TruckPurchase
+	Border	:Thin Top
+	
+[Part	: TruckPurchase]
+	Part	: TruckPurchaseTop,TruckPurchaseCenter,TruckPurchaseBottom
+	Vertical: Yes
+	Border	: Thin Left
+
+[Part	: TruckPurchaseTop]
+	Line	: EIPurcTitle,EiSuppliernme,EiPurchaseRatedet,RsPurcItemcd,EiConsignee
+	
+	Local	: Line	: EiConsignee : Add		: Field	: EiPurcOrder2YNTitle, EiPurcOrder2YN
+	Local	: Line	: EiConsignee : Local	: Field	: SimplePrompt 	: Set as	:"Enter Order 2"
+	Local	: Line	: EiConsignee : Local	: Field	: EiConsignee 	: Sub Form	: PartyPurcOrder
+	
+[Line	:	EiSuppliernme]
+	Field	:	Long Prompt,EiSuppliernme
+	Field	:	Medium Prompt,EIpurchasebilldate
+	
+Local	: 	Field	: 	Long Prompt 	:Set as		: "Supplier Name"
+Local	: 	Field	: 	Medium Prompt 	:Set as		: "Supp Inv.Date :"
+Local	:	Field	:	Long Prompt 	:Width		: 10
+Local	:	Field	:	Medium Prompt	:Width		: 10
+
+					[Field	: 	EiSuppliernme]
+						Use			: Name Field
+						Storage		: EiSuppliernme
+						Width		: 20
+						Style		:Small Bold
+						
+
+					[Field	: 	EIpurchasebilldate]
+						Use			: 	Uni Date Field
+						Width		:	9
+						Storage		:	EIpurchasebilldate
+						Style		:	Small Bold
+					
+					
+
+					
+	[Line	: EiPurchaseRatedet]
+		Field	: Simple Prompt,VchBillRate,Medium Prompt,VchBilltotalAmount
+		
+	Local	: Field	: Simple Prompt : Set as	:"Bill Rate :"
+	Local	: Field	: medium Prompt : Set as	:"Bill Amount :"
+	Local	: Field	: medium Prompt : Width		:10
+	Local	: Field	: Simple Prompt : Width 	:10
+	
+
+	[Field	: EiPurcOrder2YNTitle]
+			Use			: Name Field
+			Set as		: "Enter Order 2 :"
+			Style		: Small
+			Skip		: Yes
+			Width		: 12
+			
+	[Field	: EiPurcOrder2YN]
+			Use				: Logical Field
+			Storage			: EIPORder2YN
+			Skip			: $$Value = Yes
+			Sub Form		: PartyPurcOrdero2 : $$Value = Yes
+			
+[Line	: RsPurcItemcd]
+	Field	: Short Prompt,RsPurcItemcd
+	Field	: Medium Prompt,Rspurchasediscountamnt
+
+	Local	: Field	: Short Prompt : Set as:"Cd% :"
+	Local	: Field	: Medium Prompt : Set as:"Discount Amount :"
+
+
+		[Field	: RsPurcItemcd]
+			Use			: Number  Field
+			Storage		: RsPurcItemcd
+			Style		:  Small Bold
+			Align		:  Right
+			Width		:	10
+			Format		: "No Zero, Percentage"
+	
+	[Field	: Rspurchasediscountamnt]
+				Use				: Number  Field
+				Set Always		: Yes
+				Storage			: Rspurchasediscountamnt
+				Format			: "NoZero,Decimal:3"
+				Set as			:  If NOT $$IsFieldEdited Then @DiscAmtVal Else $$value
+				DiscAmtVal		: $RSvchBillAmount* ($RsPurcItemcd/100)
+				Style			:  Large Bold
+				Align			:  Right
+				Width			:	10
+		
+;[Field	: RSsalediscountamnt]
+;			Use				: Number  Field
+;		;	Set as			: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+;		Set Always	: Yes
+;		Storage		: 	RSsalediscountamnt
+;		Style				:  Small Bold
+;		Align			:  Right
+;		Format			: "NoZero,Decimal:3"
+;		Width			: 10
+;		Set as			:  If NOT $$IsFieldEdited Then @DiscAmtVal Else $$value
+;		DiscAmtVal	: $RSvchBillAmountSale * ($RsSaleitemcd /100)
+				
+
+	
+				
+[Part	: TruckPurchaseCenter]
+	Part	: TruckPurchaseCenterLeft,TruckPurchaseCenterRight
+	[Part	: TruckPurchaseCenterLeft]
+	
+;	Line	: RSPurcorderno,RsPurcItemName,RsPurcItemPrice,RSPurcActualWeightO1
+	Line	: RsPurcItemName,RsPurcItemPrice,RSPurcActualWeightO1;Rspurchasediscountamnt,
+	Line	: EiPurcQualityTitle,EiPurcDust,EiPurcQualityTitle1,EiPurcQ1,EiPurcQ2,EiPurcQ3,EiPurcQ4,RSPurcBillAmount
+
+;[Line	: Rspurchasediscountamnt]
+;	Field	: Short Prompt,Rspurchasediscountamnt
+;	Local	: Field	: Short Prompt : Set as:"Discount Amount :"
+;	
+;	
+;	[Field	: Rspurchasediscountamnt]
+;		Use	: Number  Field
+;	;	Set as	: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+;		;Set Always	: Yes
+;		Storage	: Rspurchasediscountamnt
+;		Style			:  Small Bold
+;		Align		:  Right
+;		Format	: "NoZero,Decimal:3"
+		
+
+
+	
+
+		
+	[Line	: RSPurcActualWeightO1]
+		Field	: Short Prompt,RSPurcActualWeightO1
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSPurcActualWeightO1]
+			Use			: Number  Field
+			Set as		: #RSSaleActualWeightO1
+			Set Always	:Yes
+			Storage		:RSPurcActualWeightUDFO1
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:3"
+			Align		: Right
+
+[Part	: TruckPurchaseCenterRight]
+;	Line	: RSPurcordernoO2,RsPurcItemNameO2,RsPurcItemPriceO2,RSPurcActualWeightO2
+
+	Line	: RsPurcItemNameO2,RsPurcItemPriceO2,RSPurcActualWeightO2
+	Line	: EiPurcQualityTitleO2,EiPurcQualityTitle1O2,EiPurcQ1O2,EiPurcQ2O2,EiPurcQ3O2,EiPurcQ4O2,EiPurcActualAMountO2
+	
+	Border	: Thin Left
+	Local	: Line	: Default : Local: Field: Default : Inactive	: Not #EiPurcOrder2YN         
+	
+[Part	: TruckPurchaseBottom]
+		Part	: TruckPurchaseBottomLeft,TruckPurchaseBottomRight
+		Border	: Thin Top
+		
+[Part	: TruckPurchaseBottomLeft]	
+	
+	Line		: RSPurcActualWeight,EiPurcActualQty,RSPurcWeightDiff,RsPurcFreightRef,RsPurcFreight,RSPurcDala,RSPurcGST,RSPurcTCS,RSPurcTDS,RSPurcDED,RSPurcComm
+	Line		: RSPurcCD,RSPurcDiff,EiPurcActualRate,EiPurcActualAMount
+	Local	: Line	: Default: Local	: Field	: Short Prompt : Width	: 20
+;;;
+
+[Report	: PartyPurcOrderO2]
+	Form	: PartyPurcOrderO2
+	
+[Form		: PartyPurcOrderO2]
+	Part	: PartyPurcOrderO2
+	
+[Part	: PartyPurcOrderO2]
+		Line	: RSPurcordernoO2,RsPurcItemNameO2,RsPurcItemPriceO2
+		Local	: Line	: RsPurcItemNameO2 : Local	: Field	: Default	: Skip : Yes 
+		Local	: Line	: RsPurcItemPriceO2	 : Local	: Field	: Default	: Skip : Yes 
+
+[Line	: RSPurcordernoO2]
+	Field	: Short Prompt,RSPurcordernoO2,RSPurcorderDateO2
+	
+		Local	:  Field	: Short Prompt : Set as:"Order No. :"
+		
+	[Field	: RSPurcordernoO2]
+			Use			: Name Field
+			Use			: NewNumberTemplate
+			Dynamic		: ""
+			Trigger     : 	New Number : $$IsSysNameEqual:NewNumber:$$EditData
+			Table		: 	InvLPurcOrdersO2,NotApplicable,NewNumber
+			Show Table	: 	Always
+			Storage		:	RSPurcordernoUDFO2
+			Style		: Small Bold
+			
+	[Field	: RSPurcorderDateO2]
+			Use				: Uni Date Field
+			Set as			: if $$IsEmpty:$$value then $$Table:RSPurcordernoO2:$Date else $$Value
+			Set Always		: Yes
+			Storage			: RSPurcorderDateUDFO2
+			Width			: 12
+	
+[Line	: RsPurcItemNameO2]
+	Field	: Short Prompt,RsPurcItemNameO2
+	
+	Local	: Field	: Short Prompt : Set as:"Item Name :"
+	
+	[Field		: RsPurcItemNameO2]
+				Use			: Name Field
+				Set as		: if $$IsEmpty:$$value then $$Table:RSPurcordernoO2:$Parent else $$Value
+				Set Always	: Yes
+				Storage		:RsPurcItemNameUDFO2
+				Table		: Stockitem,NotApplicable
+				Show Table	: Always
+				Style		: Small Bold
+[Line	: RSPurcItemPriceO2]
+	Field	: Short Prompt,RSPurcItemPriceO2
+	
+	Local	: Field	: Short Prompt : Set as:"Item Price :"
+	
+	[Field	: RSPurcItemPriceO2]
+				Use			: Number  Field
+				Set as		: if $$IsEmpty:$$value then $$Table:RSPurcordernoO2:$$Number:$Rate else $$Value
+				Set Always	: Yes
+				Storage		:RsPurcItemPriceUDFO2
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+				Align		: Right
+[Line	: RSPurcActualWeightO2]
+	Field	: Short Prompt,RSPurcActualWeightO2
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSPurcActualWeightO2]
+				Use			: 	Number  Field
+				Storage		: RSPurcActualWeightUDFO2
+				Style		: 	Small Bold
+				Format		: 	"NoZero,Decimal:3"
+				Align		:	 Right
+
+[Line	: EiPurcQualityTitleO2]
+	Field	: Name Field
+	
+	Local	: Field	: Name Field : Set as			 :"Purchase Quality"
+	Local	: Field	: Name Field : Full Width: Yes
+	Local	: Field	: Name Field : Skip				 : Yes
+
+[Line	: EiPurcQualityTitle1O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: Default			: Delete	: Storage	
+	Local	: Field	: Default			: Skip		: Yes
+	Local	: Field	: Default			: Type		: String
+	Local	: Field	: EiPurcQ1Name  	: Set as	:"Deduction Name"
+	Local	: Field	: EiPurcQ1Rate	 	: Set as	:"Rate"
+	Local	: Field	: EiPurcQ1Qty		: Set as	: "Qty"
+	Local	: Field	: EiPurcQ1Amt	 	: Set as	: "Amount"
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: "Total Rate"
+	Border	: Thin Top Bottom
+	
+[Line	:	 EiPurcQ1O2]
+	Field	:	 EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	Field	: 	EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name			: Storage	: RSPurcQP1O2
+	Local	: Field	: EiPurcQ1Rate			: Storage	: RSPurcQRate1O2
+	Local	: Field	: EiPurcQ1Qty			: Storage	: RSPurcQQty1O2
+	Local	: Field	: EiPurcQ1Amt			: Storage	: RSPurcQAmt1O2
+	Local	: Field	: EiPurcQ1RateMain 		: Set as	: (#RSPurcItemPriceO2 + #EiPurcQ1Rate)
+[Line	: EiPurcQ2O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name			: Storage	: RSPurcQP2O2
+	Local	: Field	: EiPurcQ1Rate			: Storage	: RSPurcQRate2O2
+	Local	: Field	: EiPurcQ1Qty			: Storage	: RSPurcQQty2O2
+	Local	: Field	: EiPurcQ1Amt			: Storage	: RSPurcQAmt2O2
+	Local	: Field	: EiPurcQ1RateMain    	: Set as	: (#RSPurcItemPriceO2 + #EiPurcQ1Rate)
+[Line	: EiPurcQ3O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		  : Storage	: RSPurcQP3O2
+	Local	: Field	: EiPurcQ1Rate		  : Storage	: RSPurcQRate3O2
+	Local	: Field	: EiPurcQ1Qty		  : Storage	: RSPurcQQty3O2
+	Local	: Field	: EiPurcQ1Amt		  : Storage	: RSPurcQAmt3O2
+	Local	: Field	: EiPurcQ1RateMain 	  : Set as	: (#RSPurcItemPriceO2 + #EiPurcQ1Rate)
+[Line	: EiPurcQ4O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name			: Storage	: RSPurcQP4O2
+	Local	: Field	: EiPurcQ1Rate			: Storage	: RSPurcQRate4O2
+	Local	: Field	: EiPurcQ1Qty			: Storage	: RSPurcQQty4O2
+	Local	: Field	: EiPurcQ1Amt			: Storage	: RSPurcQAmt4O2
+	Local	: Field	: EiPurcQ1RateMain 		: Set as	: (#RSPurcItemPriceO2 + #EiPurcQ1Rate)
+
+[Line	: EiPurcActualAMountO2]
+	Field	: Short Prompt,EiPurcActualAMountO2
+	
+	Local	: Field	: Short Prompt : Set as:"Amount :"
+	
+	[Field		: EiPurcActualAMountO2]
+					Use				: 	Number  Field
+					Type			: 	Number: Forced
+					Set as			: 	@MyVal
+					Set Always		:	Yes
+					Myval			: 	$RSPurcQAmt1O2+$RSPurcQAmt2O2+$RSPurcQAmt3O2+$RSPurcQAmt4O2
+					Storage			:	RSPurcAmountUDFO2
+					Style			: 	Small Bold
+					Format			: 	"NoZero,Decimal:2"
+					Align			: 	Right
+					Skip			: 	Yes
+
+;;;;
+[Line	: EIPurcTitle]
+	Field	: Name Field
+	
+	Local	: Field	: Name Field : Set as				:"Purchase"
+	Local	: Field	: Name Field : Full Width			: Yes
+	Local	: Field	: Name Field : Align				: Center
+	Local	: Field	: Name Field : Skip					: Yes
+	
+	Border	: Thin Top Bottom
+[Report	: PartyPurcOrder]
+Form		: PartyPurcOrder
+[Form		: PartyPurcOrder]
+	Part		: PartyPurcOrder
+[Part		: PartyPurcOrder]
+	Line		: RSPurcorderno,RsPurcItemName,RsPurcItemPrice
+	
+	Local	: Line	: RsPurcItemName : Local	: Field	: Default: Skip : Yes 
+	Local	: Line	: RsPurcItemPrice : Local	: Field	: Default: Skip : Yes 
+	
+[Line		: RSPurcorderno]
+	Field		: Short Prompt,RSPurcorderno,RSPurcorderDate
+	
+	Local	: Field		: Short Prompt : Set as:"Order No. :"
+	[Field	: RSPurcorderno]
+					Use			: Name Field
+					Use			: NewNumberTemplate
+					Dynamic		: ""
+					Trigger     : New Number : $$IsSysNameEqual:NewNumber:$$EditData
+					Table		: InvLPurcOrders,NotApplicable,NewNumber
+					Show Table	: Always
+					Storage		: RSPurcordernoUDF
+					Style		: Small Bold
+	[Field	: RSPurcorderDate]
+					Use			: Uni Date Field
+					Set as		: if $$IsEmpty:$$value then $$Table:RSPurcorderno:$Date else $$Value
+					Set Always	: Yes
+					Storage		: RSPurcorderDateUDF
+					Width		: 12
+					
+[Line	: RsPurcItemName]
+	Field	: Short Prompt,RsPurcItemName
+	
+	Local	: Field	: Short Prompt : Set as:"Item Name :"
+	
+	[Field	: RsPurcItemName]
+				Use			: Name Field
+				Set as		: if $$IsEmpty:$$value then $$Table:RSPurcorderno:$Parent else $$Value
+				Set Always	: Yes
+				Storage		:RsPurcItemNameUDF
+				Table		: Stockitem,NotApplicable
+				Show Table	: Always
+				Style		: Small Bold
+				
+[Line	: RSPurcItemPrice]
+	Field	: Short Prompt,RSPurcItemPrice
+	
+	Local	: Field	: Short Prompt : Set as:"Item Price :"
+	
+	[Field	: RSPurcItemPrice]
+					Use			: 	Number  Field
+					Set as		: 	if $$IsEmpty:$$value then $$Table:RSPurcorderno:$$Number:$Rate else $$Value
+					Set Always	: 	Yes
+					Storage		:	RsPurcItemPriceUDF
+					Style		: 	Small Bold
+					Format		: 	"NoZero,Decimal:3"
+					Align		: 	Right
+					
+[Line	: RSPurcActualWeight]
+	Field	: Short Prompt,RSPurcActualWeight
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSPurcActualWeight]
+				Use			: 	Number  Field
+				Set as		: 	#RSPurcActualWeightO1 + #RSPurcActualWeightO2
+				Set Always	:	 Yes
+				Storage		:	RSPurcActualWeightUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+				Align		: Right
+[Line	: RSPurcWeightDiff]
+	Field	: Short Prompt,RSPurcWeightDiff
+	
+	Local	: Field	: Short Prompt : Set as:"Weight Diff. :"
+	
+	[Field	: RSPurcWeightDiff]
+				Use			:	 Number  Field
+				Set as		:	 #VchBillweight - #RSPurcActualWeight
+				Set Always	:	 Yes
+				Storage		:	RSPurcWeightDiffUDF
+				Style		: 	Small Bold
+				Format		:	 "NoZero,Decimal:3"
+				Align		:	 Right
+				Skip		: 	Yes
+[Line	: RsPurcFreightRef]
+	Field	: Short Prompt,RsPurcFreightRef,RsPurcFreightRefDate
+	
+	Local	: Field	: Short Prompt : Set as:"Freight Ref :"
+	
+	[Field	: RsPurcFreightRef]
+					Use				: Name Field
+					Storage			:RsPurcFreightRefUDF
+					Table			: MyLedgerPymtVoucherSumm,NotApplicable ;PendingBillsFreight,NotApplicable,NewNumber
+					Dynamic			: ""
+					Show Table		: Always
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:2"
+					Width			: 12
+	[Field	: RsPurcFreightRefDate]
+					Use				: Uni Date Field
+					Set as			: if $$IsEmpty:$$value then $$Table:RsPurcFreightRef:$Date else $$Value
+					Set Always		: Yes
+					Storage			:RsPurcFreightRefDateUDF
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:2"
+					Align			: Right
+					Skip			: Yes
+		
+[Line	: RsPurcFreight]
+	Field	: Short Prompt,RsPurcFreight
+	
+	Local	: Field	: Short Prompt : Set as:"Freight :"
+	
+	[Field		: RsPurcFreight]
+			Use			: Number  Field
+			Set as		: if $$IsEmpty:$$value then $$Table:RsPurcFreightRef:$$Number:$Amount else $$Value
+			Set Always	: Yes
+			Storage		:RsPurcFreightUDF
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:2"
+			Align		: Right
+[Line	: RSPurcDala]
+	Field	: Short Prompt,RsPurcDalaPerUnit
+	Field	: Simple Prompt,RSPurcDala
+	
+	Local	: Field	: Short Prompt : Set as:"Dala Per Unit (-):"
+	Local	: Field	: Simple Prompt : Set as:"Amount:"
+	
+	[Field	: RsPurcDalaPerUnit]
+					Use			: Number  Field
+					Set as		: $Dalaper:Ledger:#EiConsignee
+					Storage		: RSPurcPerunitDalaUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+		
+	[Field	: RSPurcDala]
+					Use			: Number  Field
+					Set as		: if $$IsEmpty:$$Value then $$Round:@MyVal:1 else $$Value
+					MyVal		: $$Number:#RSPurcActualWeight * $$Number:#RsPurcDalaPerUnit
+					Storage		:RSPurcDalaUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+[Line	: RSPurcGST]
+	Field	: Short Prompt,RSPurcGST
+	
+	Local	: Field	: Short Prompt : Set as	:"GST :"
+	[Field	: RSPurcGST]
+		Use			:	 Number  Field
+		Set as		: 	if $$IsEmpty:$$Value then $$Round:@MyVal:1 else $$Value
+		MyVal		:	 $$Number:#VchBillTotalAmount * $$Number:@@GSTPercent/100
+		Set Always	: 	Yes
+		Storage		:	RSPurcGSTUDF
+		Style		:	 Small Bold
+		Format		: "NoZero,Decimal:2"
+		Align		: Right
+		
+[Line	: RSPurcTCS]
+	Field	: Short Prompt,RSPurcTCS
+	
+	Local	: Field	: Short Prompt : Set as:"TCS :"
+	
+	[Field	: RSPurcTCS]
+					Use			: Number  Field
+					Set as		: if $$IsEmpty:$$Value then $$Number:#VchBillTotalAmount * $$Number:@@TCSPercent/100 else $$Value
+					Set Always	: Yes
+					Storage		:RSPurcTCSUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+
+[Line	: RSPurcTDS]
+	Field	: Short Prompt,RSPurcTDS
+	
+	Local	: Field	: Short Prompt : Set as:"TDS (-):"
+	
+	[Field	: RSPurcTDS]
+					Use			: Number  Field
+					Set as		: if $$IsEmpty:$$Value then $$Round:@MyVal:1 else $$Value
+					Set Always	: Yes
+					MyVal		: $$Number:#VchBillTotalAmount * $$Number:@@TDSPercent/100
+					Storage		: RSPurcTDSUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+
+[Line		: RSPurcDED]
+	Field	: Short Prompt,RsDedper,SimplePrompt,RSPurcDED
+	
+	Local	: Field	: Short Prompt : Set as:"Deduction Per Unit (-):"
+	Local	: Field	: Simple Prompt : Set as:"Commission (-) :"
+	
+	[Field	: RsDedper]
+			Use			:	Number  Field
+			Set as		:	$DedPer:Ledger:#Eiconsignee
+			Storage		:	RSDedComPerUDF
+			Style		: 	Small Bold
+			Format		: 	"NoZero,Decimal:2"
+			Align		: 	Right
+	[Field	: RSPurcDED]
+				Use				: Number  Field
+				Set as			: @ApplicableDed ;; if $$IsEmpty:$$Value and @ApplicableDed > 0 then @ApplicableDed else $$Value
+				Set Always		: Yes
+				valinkgs		: $$Number:#RSPurcWeightDiff * 1000
+				ApplicableDed	: $$Number:($$Number:@valinkgs - $$Number:@@Deductionkgs) * $$Number:#RsDedper
+				Storage			:RSPurcDecuctionUDF
+				Style			: Small Bold
+				Format			: "NoZero,Decimal:2"
+				Align			: Right
+
+[Line		: RSPurcComm]
+	Field		: Short Prompt,RSCommPer,SimplePrompt,RSPurcComm
+	
+		Local	: Field	: Short Prompt : Set as:"Comm per Ton :"
+		Local	: Field	: Simple Prompt : Set as:"Commission (-) :"
+		
+	[Field	: RSCommPer]
+				Use			: Number  Field
+				Set as		: $commPer:Ledger:#Eiconsignee
+				Storage		:RSPurComPerUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+
+	[Field		: RSPurcComm]
+				Use			: Number  Field
+				Set as		: $$Round:@MyVal:1
+				Set Always	:Yes
+				MyVal		: #RSPurcActualWeight * #RSCommPer
+				Storage		:RSPurcCommUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+[Line		: RSPurcCD]
+Field			: Short Prompt,RSpurcDPer,SimplePrompt,RSPurcCD
+			Local	: Field	: Short Prompt : Set as:"CD %age:"
+			Local	: Field	: Simple Prompt : Set as:"Cash Discount (-):"
+			
+	[Field	: RSpurcDPer]
+					Use		: Number  Field
+					Set as	: $LedCDper:Ledger:#EiConsignee
+					Storage	:RSPurCDPerUDF
+					Style	: Small Bold
+					Format	: "NoZero,Decimal:2"
+					Align	: Right
+	
+	[Field	: RSPurcCD]
+					Use			: Number  Field
+					Type		: Number	: Forced
+					Set as		: $$Round:@MyVal:1
+					Set Always	: Yes
+					MyVal		: ($RSPurcQAmt1 + $RSPurcQAmt2 + $RSPurcQAmt3 + $RSPurcQAmt4 + $RSPurcQAmt1O2 + $RSPurcQAmt2O2 + $RSPurcQAmt3O2 + $RSPurcQAmt4O2) * #RSpurcDPer / 100
+					Storage		: RSPurcCDUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+					Skip		: Yes
+
+[Line	: RSPurcDiff]
+	Field	: Short Prompt,RSpurcDiff
+	
+	Local	: Field	: Short Prompt : Set as:"Difference :"
+	
+	[Field	: RSpurcDiff]
+				Use			: Number  Field
+				Storage		: RSPurcDiffUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+
+
+[Line		: RSPurcBillAmount]
+	Field	: Short Prompt,RSPurcBillAmount
+	
+		Local	: Field	: Short Prompt : Set as:"Amount :"
+	;Invisible	: Yes
+	[Field		: RSPurcBillAmount]
+				Use				: Number  Field
+				Type			: Number: Forced
+				Set as			: @MyVal
+				Set Always		:	Yes
+				Myval			: $RSPurcQAmt1+$RSPurcQAmt2+$RSPurcQAmt3+$RSPurcQAmt4
+				Storage			:RSPurcAmountUDF
+				Style			: Small Bold
+				Format			: "NoZero,Decimal:2"
+				Align			: Right
+				Skip			: Yes
+
+[Line	: EiPurcQualityTitle]
+	Field	: Name Field
+	
+		Local	: Field	: Name Field : Set as:"Purchase Quality"
+		Local	: Field	: Name Field : Full Width: Yes
+		Local	: Field	: Name Field : Skip	: Yes
+
+[Line	: EiPurcDust]
+	Field	: Short Prompt,EiPurcDust
+	
+	Local	: Field	: Short Prompt : Set as:"Dust (Qty):"
+	
+	[Field	: EiPurcDust]
+				Use			: Number  Field
+				Storage		:RSPurcDustUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+				Align		: Right
+
+[Line		: EiPurcQualityTitle1]
+	Field		: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: Default			: Delete	: Storage	
+	Local	: Field	: Default			: Skip		: Yes
+	Local	: Field	: Default			: Type		: String
+	Local	: Field	: EiPurcQ1Name 		: Set as	:"Deduction Name"
+	Local	: Field	: EiPurcQ1Rate 		: Set as	:"Rate"
+	Local	: Field	: EiPurcQ1Qty		: Set as	: "Qty"
+	Local	: Field	: EiPurcQ1Amt  		: Set as	: "Amount"
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: "Total Rate"
+	Border	: Thin Top Bottom
+	
+[Line	: EiPurcQ1]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	[Field	: EiPurcQ1Name]
+					Use			: Name Field
+					Storage		: RSPurcQP1
+					Style		: Small Bold
+					Width		: 15
+					Invisible	: Yes
+					
+		[Field	: EiPurcQ1Rate]
+					Use			: Number  Field
+					Storage		:RSPurcQRate1
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+					
+		[Field		: EiPurcQ1Qty]
+					Use			: Number  Field
+					Storage		:RSPurcQQty1	
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:3"
+					Align		: Right
+				
+	[Field	: EiPurcQ1Amt]
+					Use				: Number  Field
+					;Set as			: (#RSPurcItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+					Set as			:	(#EiPurcQ1RateMain*#EiPurcQ1Qty )
+					Set Always		:Yes
+					Storage			:RSPurcQAmt1
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:2"
+					Align			: Right
+	[Field	: EiPurcQ1RateMain]
+					Use				: Number  Field
+					Set as			: (#RSPurcItemPrice + #EiPurcQ1Rate)
+					Set Always		:Yes
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:2"
+					Align			: Right
+		
+
+[Line		: EiPurcQ2]
+	Field		: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name	: Storage	: RSPurcQP2
+	Local	: Field	: EiPurcQ1Rate	: Storage	: RSPurcQRate2
+	Local	: Field	: EiPurcQ1Qty	: Storage	: RSPurcQQty2
+	Local	: Field	: EiPurcQ1Amt	: Storage	: RSPurcQAmt2
+	Local	: Field	: EiPurcQ1RateMain : Set as: (#RSPurcItemPrice + #EiPurcQ1Rate)
+[Line	: EiPurcQ3]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name	: Storage	: RSPurcQP3
+	Local	: Field	: EiPurcQ1Rate	: Storage	: RSPurcQRate3
+	Local	: Field	: EiPurcQ1Qty	: Storage	: RSPurcQQty3
+	Local	: Field	: EiPurcQ1Amt	: Storage	: RSPurcQAmt3
+	Local	: Field	: EiPurcQ1RateMain : Set as: (#RSPurcItemPrice + #EiPurcQ1Rate)
+[Line	: EiPurcQ4]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name	: Storage	: RSPurcQP4
+	Local	: Field	: EiPurcQ1Rate	: Storage	: RSPurcQRate4
+	Local	: Field	: EiPurcQ1Qty	: Storage	: RSPurcQQty4
+	Local	: Field	: EiPurcQ1Amt	: Storage	: RSPurcQAmt4
+	Local	: Field	: EiPurcQ1RateMain : Set as: (#RSPurcItemPrice + #EiPurcQ1Rate)
+
+[Line	: EiPurcActualQty]
+	Field	: Short Prompt,EiPurcActualQty
+	
+	Local	: Field	: Short Prompt : Set as:"Effective Qty:"
+	
+	[Field	: EiPurcActualQty]
+					Use				: Number  Field
+					Set as			: #RSPurcActualWeight - ($RSPurcQQty1+$RSPurcQQty2+$RSPurcQQty3+$RSPurcQQty4+$RSPurcQQty1O2+$RSPurcQQty2O2+$RSPurcQQty3O2+$RSPurcQQty4O2+#EiPurcDust)
+					Set Always		: Yes
+					Storage			:RSPurcEffQty
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:3"
+					Align			: Right
+					Notify			: QtyWarn : not (($RSPurcQQty1+$RSPurcQQty2+$RSPurcQQty3+$RSPurcQQty4+#EiPurcDust) = #RSPurcActualWeight)
+					Background		: green
+					Read Only		: Yes
+					
+[Line	: EiPurcActualRate]
+	Field	: Short Prompt,EiPurcActualRate
+	
+	Local	: Field	: Short Prompt : Set as:"Effective Rate:"
+	Invisible	: Yes
+	
+	[Field	: EiPurcActualRate]
+					Use				: Number  Field
+					Set as			: @MyVal
+					Set Always		: Yes
+					Myval			: #RSPurcItemPrice - ($RSPurcQRate1+$RSPurcQRate2+$RSPurcQRate3+$RSPurcQRate4)
+					Storage			: RSPurcEffRate
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:2"
+					Align			: Right
+					
+[Line	: EiPurcActualAMount]
+	Field	: Short Prompt,EiPurcActualAMount
+	
+	Local	: Field	: Short Prompt : Set as:"Total Amount:"
+	
+	[Field	: EiPurcActualAMount]
+				Use			: Number  Field
+				Type		: Number	: Forced
+				Set as		: @MyVal
+				MyVal		: (($RSPurcQAmt1 + $RSPurcQAmt2 + $RSPurcQAmt3 + $RSPurcQAmt4 + $RSPurcQAmt1O2 + $RSPurcQAmt2O2 + $RSPurcQAmt3O2 + $RSPurcQAmt4O2 + #RsPurcgst + #RsPurcTCS  + #RSPurcDiff)) - (#RSPurcDED+#RSPurcComm+#RSPurcCD+#RsPurcdaLA + #RsPurcFreight+ #RSPurcTDS)
+				Set Always	: Yes
+				Storage		: "NoZero,Decimal:2"
+				Align		: Right
+				Read Only	: Yes
+
+[Part	: TruckPurchaseBottomRight]
+;	Line	: TruckPurcBalAmt,TRuckRTGSAMt,TRuckclAMt
+	Line	: TRuckRTGSAMt,TRuckNugs
+	Border	: Thin left
+	
+[Line	: TRuckRTGSAMt]
+	Field	: Short Prompt,TRuckRTGSAMt
+	
+	Local	: Field	: Short Prompt	:Set as	: "RTGS Amount :"
+	Local	: Field	: Short Prompt 	: Width	: 15
+	
+	[Field	: TRuckRTGSAMt]
+		Use		: Amount Field
+		Storage	: RSPurcRTGSAmt
+		Format	: "DRCR"
+			
+			
+[Line	: TRuckNugs]
+	Field	: Short Prompt,TRuckNugs
+	
+	Local	: Field	: Short Prompt:Set as	: "Nug :"
+	Local	: Field: Short Prompt : Width	: 15
+	
+	[Field	: TRuckNugs]
+		Use		: Name Field
+		Storage	: RSSaleNug
+		Width	: 15
+				
+[Line	: TruckPurcBalAmt]
+Field	: Short Prompt,TruckPurcBalAmt,TruckPurcOpBalAmt,TruckPurcDRAmt,TruckPurcCRAmt
+		Local	: Field: Short Prompt : Set as	: "Opening Balance : "
+		Local	: Field: Short Prompt : Width	: 15
+	[Field	: TruckPurcBalAmt]
+			Use			: Amount Field
+			Set as		: if $$IsEmpty:$$value then @@RSPURCDR	else $$Value
+			Storage		: RSPurcbalAmt
+			Format		: "DRCR"
+			
+	[Field	: TruckPurcOpBalAmt]
+			Use			: Amount Field
+			Set as		: @@RsPurOpBal
+			Set Always	:Yes
+			;Storage	: RSPurcbalAmt
+			Format		: "DRCR"
+			Invisible	: Yes
+			
+	[Field	: TruckPurcDRAmt]
+			Use			: Amount Field
+			Set as		: @@TLedDrAmt
+			Set Always	:Yes
+			;Storage	: RSPurcbalAmt
+			Format		: "DRCR"
+			;Invisible	: Yes
+			
+		[Field	: TruckPurcCRAmt]
+				Use			: Amount Field
+				Set as		: @@TLedCrAmt
+				;Storage	: RSPurcbalAmt
+				Format		: "DRCR"
+				;Invisible	: Yes
+
+[Line	: TRuckclAMt]
+	Field	: Short Prompt,TRuckclAMt
+	
+	Local	: Field: Short Prompt : Set as	: "Closing Balance : "
+	Local	: Field: Short Prompt : Width	: 15
+	
+		[Field	: TRuckclAMt]
+			Use			: Amount Field
+			Set as		: $$NettAmount:@@RSPURCDR:#TRuckRTGSAmt
+			Set Always	: Yes
+			Format		: "DRCR"
+	
+	
+	[System		: Formula]
+			RsPurOpBal				: $RSLedOpBal:Ledger:#EiConsignee
+			IsParchiVoucher			: $RSIsParchiVoucher:VoucherType:$VoucherTypeName
+			IsCurDate				: $Date <= $$BaseOwner:$Date
+			IsCurParty				: $Partyledgername <= $$BaseOwner:#EiConsignee
+			
+			TLedDrAmt				: $$FilterAmtTotal:MyLedVouchersSumm:IsCurDate:$LedDrAmt + $$FilterAmtTotal:MaterialInVchSumm:IsCurDate:$LedRTGSAmt
+			TLedCrAmt				: $$FilterAmtTotal:MyLedVouchersSumm:IsCurDate:$LedCrAmt + $$FilterAmtTotal:MaterialInVchSumm:IsCurDate:$LedPurAmt
+			RSPURCDR				: if $$IsDr:@@RsPurOpBal then $$NettAmount:(@@RsPurOpBal + @@TLedDrAmt):@@TLedCrAmt else $$NettAmount:(@@TLedDrAmt):(@@RsPurOpBal + @@TLedCrAmt)
+			
+[Collection	: MyLedVOUCHERS]
+					Type		: Vouchers : Ledger
+					Child Of	: #EiConsignee
+					Fetch		: *.*
+					Filter		: IsParchiVoucher,IsCurDate
+					Compute		: Amount	: $Amount
+	
+	[Collection	: MyLedVouchersSumm]
+		Source Collection		: MyLedVOUCHERS
+		By									: Dated		: $Date
+		Aggr Compute			: LedDrAmt	: Sum	: if $$IsDr:$Amount then $Amount else 0
+		Aggr Compute			: LedCrAmt	: Sum	: if not $$IsDr:$Amount then $Amount else 0
+;			Aggr Compute		: LedRTGSAmt: Sum	: $RSPurcRTGSAmt 
+;			Aggr Compute		: LedPurAmt	: Sum	: $$AsCrAmt:$RSPurcEffAmt
+			Format				: $Dated , 30
+	
+	;Filter	: IsCurDate
+
+	[Collection	: MaterialInVch]
+					Type			: Vouchers : VoucherType
+					Child Of		: $$VchTypeJobMaterialReceive
+					Belongs To		: Yes
+					Filter			: IsParchiVoucher,IsCurDate,IsCurParty
+					Compute			: Amount	: $Amount
+
+	[Collection	: MaterialInVchSumm]
+			Source Collection		: MaterialInVch
+			By						: Dated		: $Date
+			Aggr Compute			: LedRTGSAmt: Sum	: $RSPurcRTGSAmt 
+			Aggr Compute			: LedPurAmt	: Sum	: $$AsCsrAmt:$$AsAmount:$RSPurcEffAmt
+			Format							: $Dated , 30
+	
+	
+;Select $dated,$LedRTGSAmt,$LedPurAmt from MaterialInVchSumm
+
+[#Part: LED OpBalances]
+	Add	: Line	: LedSecondOpening
+	
+	[Line	: LedSecondOpening]
+		Field	: Short Prompt ,LedSecondOpening
+	
+		Local	: Field	: Short Prompt : Set as	: "Second Opening :"
+		Local	: Field	: Short Prompt : Width	: 15
+		
+		[Field	: LedSecondOpening]
+			Use		: Amount Field
+			Storage	: RSLedOpBal
+			Format	: "DRCR"
+
+			
+
+[Part	: TruckSales]
+	Part	: TruckSalesTop,TruckSalesCenter,TruckSalesBottom
+	Vertical: Yes
+	
+[Part	: TruckSalesTop]
+	Line	: EISaleTitle,VchSaleSupplierName,VchBillSaleweight,Rssalecdpercentage,EiSaleConsignee
+	
+[Part	: TruckSalesCenter]
+	Part	: TruckSalesLeft,TruckSalesRight
+	
+	[Part	: TruckSalesBottomRight]
+		Line	: TruckSalesRTGS
+		Border	: Thin Left
+
+		[Line	: TruckSalesRTGS]
+			Field	: Short Prompt,TruckSalesRTGS
+	
+				Local	: Field	: Short Prompt : Set as:"RTGS Amount :"
+				Local	: Field	: Short Prompt : Width	: 12
+				
+				[Field		: TruckSalesRTGS]
+						Use		: Amount Field
+						Storage	: RSSaleRTGSUDF
+						Format	: "DRCR"
+						Style	: Small Bold
+					
+			
+[Part	: TruckSalesBottom]
+	Part	: TruckSalesBottomLeft ,TruckSalesBottomRight
+	Border	: Thin Top
+	
+	[Part	: TruckSalesBottomLeft]	
+		Line	: RSSaleActualWeight,EiSaleActualQty,RSSaleWeightDiff,RSSaleDala,RSSaleGST,RSSaleTCS,RSSaleTDS,RSSaleDED
+		Line	: RSSaleComm,RSSaleCD,RSSaleDiff,EiSaleActualRate,EiSaleActualAMount
+	
+	Local	: Line	: Default: Local	: Field	: Short Prompt : Width	: 20
+	
+	[Part	: TruckSalesLeft]
+	Border	: Thin Right
+	;Line	: RSSaleorderno,RsSaleItemName,RsSaleItemPrice,RSSaleActualWeightO1
+	
+		Line	: RsSaleItemName,RsSaleItemPrice,RSSaleActualWeightO1;RSsalediscountamnt,
+		Line	: EiSaleQualityTitle,EiSaleDust,EiSaleQualityTitle1,EiSaleQ1,EiSaleQ2,EiSaleQ3,EiSaleQ4,EiSaleQ5,RSSaleBillAmount
+;		Width	: 25% Screen
+;		Scroll	: Vertical	
+		Local	: Line	: Default	: Local	: Field	: Short Prompt : Width	: 15
+	
+	[Line	: EISaleTitle]
+		Field	: Name Field
+			Local	: Field	: Name Field : Set as:"Sales"
+			Local	: Field	: Name Field : Full Width: Yes
+			Local	: Field	: Name Field : Align	: Center
+			Local	: Field	: Name Field : Skip	: Yes
+			Border	: Thin top Bottom
+			
+	[Line	: EiSaleConsignee]	
+	
+		Field	: Short Prompt,EiSaleConsignee
+		Field	: Simple Prompt, EiSaleOrder2YN
+	
+			Local	: Field	: Short Prompt : Set as:"Party A/c Name :"
+			Local	: Field	: Simple Prompt : Set as:"Enter Order 2:"
+			
+		[Field	: EiSaleConsignee]
+				Use			: Name Field
+				Storage		:RSSalePartyUDF
+				Table		: Ledger
+				Show Table	: Always
+				Style		: Small Bold
+				Sub Form	: PartySalesOrder 
+				
+		[Field	: EiSaleOrder2YN]
+					Use			: Logical Field
+					Storage		: EIORder2YN
+					Skip		: $$Value = Yes
+					Sub Form	: PartySalesOrdero2 : $$Value= Yes
+					
+[Report	: PartySalesOrder]
+	
+Form	: PartySalesOrder
+[Form	: PartySalesOrder]
+	Part	: PartySalesOrder
+	
+	[Part	: PartySalesOrder]
+		Line	: RSSaleorderno,RsSaleItemName,RsSaleItemPrice;RSsalediscountamnt,Rssalecdpercentage
+	
+			Local	: Line	: RsSaleItemName	 		 : Local	: Field	: Default: Skip : Yes 
+			Local	: Line	: RsSaleItemPrice			 : Local	: Field	: Default: Skip : Yes 
+			Local	: Line	: Rssalecdpercentage		 : Local	: Field	: Default: Skip : Yes 
+
+
+[Report	: PartySalesOrdero2]
+	
+Form	: PartySalesOrdero2
+[Form	: PartySalesOrdero2]
+	
+	Part	: PartySalesOrdero2
+	[Part	: PartySalesOrdero2]
+		Line	: RSSaleordernoO2,RsSaleItemNameO2,RsSaleItemPriceO2
+	
+	Local	: Line	: RsSaleItemPriceO2 : Local	: Field	: Default: Skip : Yes 
+	Local	: Line	: RSSaleActualWeightO2 : Local	: Field	: Default: Skip : Yes 
+
+
+[Line	: RSSaleorderno]
+	Field	: Short Prompt,RSSaleorderno,RSSaleorderDate
+	
+		Local	: Field	: Short Prompt : Set as:"Order No. :"
+	
+	[Field	: RSSaleorderno]
+					Use			: Name Field
+					Use			: NewNumberTemplate
+					Dynamic		: ""
+					Trigger    	: New Number : $$IsSysNameEqual:NewNumber:$$EditData
+					Storage		:RSSaleordernoUDF
+					Table		: InvLSaleOrders,Not Applicable,NewNumber
+					Show Table	: Always
+					Style		: Small Bold
+					
+	[Field	: RSSaleorderDate]
+				Use			: Uni Date Field
+				Set as		: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$Date else $$Value
+				Set Always	: Yes
+				Storage		: RSSaleorderDateUDF
+				Width		: 12
+				
+[Line	: RsSaleItemName]
+	Field	: Short Prompt,RsSaleItemName
+	
+	Local	: Field	: Short Prompt : Set as:"Item Name :"
+	
+		[Field	: RsSaleItemName]
+			Use				: Name Field
+			Set as			: if $$IsEmpty:$$value then  $$Table:RSSaleorderno:$Parent else $$Value
+			Set Always		: Yes
+			Storage			:RsSaleItemNameUDF
+			Table			: Stockitem,NotApplicable
+			Show Table		: Always
+			Style			: Small Bold
+					
+[Line	: RSSaleItemPrice]
+	Field	: Short Prompt,RSSaleItemPrice
+	
+	Local	: Field	: Short Prompt : Set as:"Item Price :"
+	
+	[Field		: RSSaleItemPrice]
+			Use			: Number  Field
+			Set as		: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+			Set Always	: Yes
+			Storage		:RsSaleItemPriceUDF
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:3"
+			Align		: Right
+		
+;[Line	: RSsalediscountamnt]
+;	Field	: Short Prompt,RSsalediscountamnt
+;	Local	: Field	: Short Prompt : Set as:"Discount Amount :"
+;	
+;	[Field	: RSsalediscountamnt]
+;		Use	: Number  Field
+;	;	Set as	: if $$IsEmpty:$$value then $$Table:RSSaleorderno:$$Number:$Rate else $$Value
+;		;Set Always	: Yes
+;		Storage	: 	RSsalediscountamnt
+;		Style			:  Small Bold
+;		Align		:  Right
+;		Format	: "NoZero,Decimal:3"
+;		
+		
+
+
+
+[Line	:	 RSSaleActualWeightO1]
+	Field	: 	Short Prompt,RSSaleActualWeightO1
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSSaleActualWeightO1]
+	Use			: Number  Field
+	Storage		:RSSaleActualWeightUDFO1
+	Style		: Small Bold
+	Format		: "NoZero,Decimal:3"
+	Align		: Right
+
+[Line		: RSSaleActualWeight]
+	Field	: Short Prompt,RSSaleActualWeight
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSSaleActualWeight]
+			Use			: Number  Field
+			Type		: Number: Forced
+			Set as		: #RSSaleActualWeightO1 + #RSSaleActualWeightO2
+			Set Always	: Yes
+			Storage		:RSSaleActualWeightUDF
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:3"
+			Align		: Right
+			Skip		: Yes
+					
+[Line	: RSSaleWeightDiff]
+	Field	: Short Prompt,RSSaleWeightDiff
+	
+	Local	: Field	: Short Prompt : Set as:"Weight Diff. :"
+		
+	[Field	: RSSaleWeightDiff]
+			Use			: Number  Field
+			Set as		: #VchBillweight - #RSSaleActualWeight
+			Set Always	: Yes
+			Storage		:RSSaleWeightDiffUDF
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:3"
+			Align		: Right
+			Skip		: Yes
+					
+[Line	: RsSaleFreight]
+	Field	: Short Prompt,RsSaleFreight
+	
+	Local	: Field	: Short Prompt : Set as:"Freight :"
+	
+	[Field	: RsSaleFreight]
+			Use			: Number  Field
+			Storage		:RsSaleFreightUDF
+			Style		: Small Bold
+			Format		: "NoZero,Decimal:2"
+			Align		: Right
+				
+[Line	: RSSaleDala]
+	Field	: Short Prompt,RSSaleDala
+	
+		Local	: Field	: Short Prompt : Set as:"Dala (-):"
+		
+	[Field	: RSSaleDala]
+		Use			: Number  Field
+		Storage		:RSSaleDalaUDF
+		Style		: Small Bold
+		Format		: "NoZero,Decimal:2"
+		Align		: Right
+		Control		: AmountExecss :$$Value > 9999 
+		
+[Line	: RSSaleGST]
+	Field	: Short Prompt,RSSaleGST
+	
+		Local	: Field	: Short Prompt : Set as:"GST :"
+		
+	[Field	: RSSaleGST]
+		Use				: Number  Field
+		Set as			: if $$IsEmpty:$$Value then $$Round:@mYvAL:1 else $$Value
+		mYvAL			: $$Number:#VchBillTotalAmountSale * $$Number:@@GSTPercent/100
+		Set Always		: Yes
+		Storage			:RSSaleGSTUDF
+		Style			: Small Bold
+		Format			: "NoZero,Decimal:2"
+		Align			: Right
+
+[Line	: RSSaleTCS]
+	Field	: Short Prompt,RSSaleTCS
+	
+	Local	: Field	: Short Prompt : Set as:"TCS :"
+	
+	[Field	: RSSaleTCS]
+		Use				: Number  Field
+		Set as			: if $$IsEmpty:$$Value then $$Number:#VchBillTotalAmountSale * $$Number:@@TCSPercent/100 else $$Value
+		Set Always		: Yes
+		Storage			:RSSaleTCSUDF
+		Style			: Small Bold
+		Format			: "NoZero,Decimal:2"
+		Align			: Right
+		Control			: AmountExecss :$$Value > 9999 
+		
+[Line	: RSSaleTDS]
+	Field	: Short Prompt,RSSaleTDS
+	
+	Local	: Field	: Short Prompt : Set as:"TDS (-):"
+	
+	[Field	: RSSaleTDS]
+		Use				: Number  Field
+		Set as			: if $$IsEmpty:$$Value then $$Round:@MyVal:1 else $$Value
+		MyVal			:$$Number:#VchBillTotalAmountSale * $$Number:@@TDSPercent/100
+		Set Always		: Yes
+		Storage			:RSSaleTDSUDF
+		Style			: Small Bold
+		Format			: "NoZero,Decimal:2"
+		Align			: Right
+
+[Line	: RSSaleDED]
+	Field	: Short Prompt,RSSaleDED
+	
+	Local	: Field	: Short Prompt : Set as:"Deduction(-) :"
+	
+	[Field	: RSSaleDED]
+				Use			: Number  Field
+				Storage		:RSSaleDecuctionUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+
+[Line	: RSSaleComm]
+	Field	: Short Prompt,RSSaleComm
+	
+	Local	: Field	: Short Prompt : Set as:"C D %age :"
+	
+	[Field	: RSSaleComm]
+				Use			: Number  Field
+				Set as		: "1.5"
+				Storage		:RSSaleCommUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+				
+[Line	: RSSaleCD]
+	Field	: Short Prompt,RSSaleCD
+	
+	Local	: Field	: Short Prompt : Set as:"Cash Discount(-) :"
+	
+		[Field	: RSSaleCD]
+				Use			: Number  Field
+				Type		: Number: Forced
+				Set as		: $$Round:@MyVal:1
+				MyVal		: ($RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5 + $RSSaleQAmt1O2 + $RSSaleQAmt2O2 + $RSSaleQAmt3O2 + $RSSaleQAmt4O2 + $RSSaleQAmt5O2) * #RSSaleComm / 100
+				Set Always	: Yes
+				Storage		:RSSaleCDUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:2"
+				Align		: Right
+				Skip		: Yes
+
+[Line	: RSSaleDiff]
+	Field	: Short Prompt,RSSaleDiff
+	
+	Local	:	 Field		: Short Prompt : Set as:"Difference :"
+	
+			[Field	: RSSaleDiff]
+					Use			: Number  Field
+					Type		: Number: Forced
+					Set Always	: Yes
+					Storage		:RSSaleDiffUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+
+
+[Line	: RSSaleBillAmount]
+	Field	: Short Prompt,RSSaleBillAmount
+	
+	Local	: Field	: Short Prompt : Set as:"Total Amount :"
+	
+			[Field	: RSSaleBillAmount]
+					Use			: Number  Field
+					Set as		: @MyVal
+					Set Always	:	Yes
+					Myval		: $RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5
+					Storage		:RSSaleAmountUDF
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+					Skip		: Yes
+	
+	
+[Line	: EiSaleQualityTitle]
+	Field	: Name Field
+	
+	Local	: Field	: Name Field : Set as:"Sales Quality"
+	Local	: Field	: Name Field : Full Width: Yes
+	Local	: Field	: Name Field : Skip	: Yes
+
+[Line	: EiSaleDust]
+	Field	: Short Prompt,EiSaleDust
+	
+	Local	: Field	: Short Prompt : Set as:"Dust (Qty):"
+	
+		[Field	: EiSaleDust]
+				Use			: Number  Field
+				Storage		:RSSaleDustUDF
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+				Align		: Right
+
+[Line	: EiSaleQualityTitle1]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: Default			: Delete	: Storage	
+	Local	: Field	: Default			: Skip		: Yes
+	Local	: Field	: Default			: Type		: String
+	Local	: Field	: EiPurcQ1Name 		: Set as	:"Deduction Name"
+	Local	: Field	: EiPurcQ1Rate 		: Set as	:"Rate"
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: "Total Rate"
+	Local	: Field	: EiPurcQ1Qty		: Set as	: "Qty"
+	Local	: Field	: EiPurcQ1Amt  		: Set as	: "Amount"
+	Border	: Thin Top Bottom
+	
+[Line	: EiSaleQ1]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP1
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate1
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt1
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty1
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+
+[Line	: EiSaleQ2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate2
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt2
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ3]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP3
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate3
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt3
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty3
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ4]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP4
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate4
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty4
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt4
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ5]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP5
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate5
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty5
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt5
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPrice + #EiPurcQ1Rate) * #EiPurcQ1Qty
+
+[Line	: EiSaleActualQty]
+	Field	: Short Prompt,EiSaleActualQty
+	
+	Local	: Field	: Short Prompt : Set as:"Effective Qty:"
+	
+	[Field	: EiSaleActualQty]
+					Use				: Number  Field
+					Type			: Number	: Forced
+					Set as			: #RSSaleActualWeight - ($RSSaleQQty1O2+$RSSaleQQty2O2+$RSSaleQQty3O2+$RSSaleQQty4O2+$RSSaleQQty5O2+$RSSaleQQty1+$RSSaleQQty2+$RSSaleQQty3+$RSSaleQQty4+$RSSaleQQty5+#EiSaleDust)
+					Set Always		: Yes
+					Storage			:RSSaleEffQty
+					Style			: Small Bold
+					Format			: "NoZero,Decimal:3"
+					Align			: Right
+					Notify			: QtyWarn : not (($RSSaleQQty1+$RSSaleQQty2+$RSSaleQQty3+$RSSaleQQty4+#EiSaleDust) = #RSSaleActualWeight)
+					Background		: green
+					Read Only		: Yes
+					
+[Line	: EiSaleActualRate]
+	Field	: Short Prompt,EiSaleActualRate
+	
+	Local		: Field	: Short Prompt : Set as:"Effective Rate:"
+	Invisible	: Yes
+	
+	[Field	: EiSaleActualRate]
+				Use				: Number  Field
+				Set as			: @MyVal
+				Set Always		: Yes
+				Myval			: #RSSaleItemPrice - ($RSSaleQRate1+$RSSaleQRate2+$RSSaleQRate3+$RSSaleQRate4)
+				Storage			:RSSaleEffRate
+				Style			: Small Bold
+				Format			: "NoZero,Decimal:2"
+				Align			: Right
+				Invisible		: Yes
+				
+[Line	: EiSaleActualAMount]
+	Field	: Short Prompt,EiSaleActualAMount
+	
+	Local	: Field	: Short Prompt : Set as:"Total Amount:"
+	
+	[Field	: EiSaleActualAMount]
+					Use			: Number  Field
+					Type		: Number: Forced
+					Set as		: @MyVal
+					MyVal		: (($RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5 + $RSSaleQAmt1O2 + $RSSaleQAmt2O2 + $RSSaleQAmt3O2 + $RSSaleQAmt4O2 + $RSSaleQAmt5O2 + #RSSaleGST + #RSSaleTCS  + #RSSaleDiff)) - (#RSSaleDala +#RSSaleDED+#RSSaleCD+ #RSSaleTdS )
+					Set Always	: Yes
+					Storage		:RSSaleEffAmt
+					Style		: Small Bold
+					Format		: "NoZero,Decimal:2"
+					Align		: Right
+					Skip		: Yes
+
+[Part		: TruckSalesRight]
+	Border	: Thin Right
+	
+;	Line	: RSSaleordernoO2,RsSaleItemNameO2,RsSaleItemPriceO2,RSSaleActualWeightO2
+	Line	: RsSaleItemNameO2,RsSaleItemPriceO2,RSSaleActualWeightO2
+	Line	: EiSaleQualityTitleO2,EiSaleQualityTitle1O2,EiSaleQ1O2,EiSaleQ2O2,EiSaleQ3O2,EiSaleQ4O2,EiSaleQ5O2,EiSaleActualAMountO2
+;	Width	: 25% Screen
+	Scroll	: Vertical	
+	Local	: Line	: Default	: Local	: Field	: Short Prompt 	: Width	: 15
+	Local	: Line	: Default	: Local	: Field	: Default 		: Inactive	: Not #EiSaleOrder2YN
+	;;Invisible	: #EiSaleOrder2YN
+[Line	: RSSaleordernoO2]
+	Field	: Short Prompt,RSSaleordernoO2,RSSaleorderDateO2
+	
+	Local	: Field	: Short Prompt : Set as:"Order No. :"
+	
+	[Field	: RSSaleordernoO2]
+				Use			: Name Field
+				Use			: NewNumberTemplate
+				Dynamic		: ""
+				Trigger    	: New Number : $$IsSysNameEqual:NewNumber:$$EditData
+				Storage		:RSSaleordernoUDFO2
+				Table		: InvLSaleOrdersO2,Not Applicable,NewNumber
+				Show Table	: Always
+				Style		: Small Bold
+				
+	[Field	: RSSaleorderDateO2]
+					Use			: Uni Date Field
+					Set as		: if $$IsEmpty:$$value then $$Table:RSSaleordernoO2:$Date else $$Value
+					Set Always	: Yes
+					Storage		: RSSaleorderDateUDFO2
+					Width		: 12
+				
+[Line	: RsSaleItemNameO2]
+	Field	: Short Prompt,RsSaleItemNameO2
+	
+	Local	: Field	: Short Prompt : Set as:"Item Name :"
+	
+	[Field	: RsSaleItemNameO2]
+				Use				: Name Field
+				Set as			: if $$IsEmpty:$$value then  $$Table:RSSaleordernoO2:$Parent else $$Value
+				Set Always		: Yes
+				Storage			:RsSaleItemNameUDFO2
+				Table			: Stockitem,NotApplicable
+				Show Table		: Always
+				Style			: Small Bold
+				
+[Line	: RSSaleItemPriceO2]
+	Field	: Short Prompt,RSSaleItemPriceO2
+	
+	Local	: Field	: Short Prompt : Set as:"Item Price :"
+	
+	[Field	: RSSaleItemPriceO2]
+				Use			: Number  Field
+				Set as		: if $$IsEmpty:$$value then $$Table:RSSaleordernoO2:$$Number:$Rate else $$Value
+				Set Always	: Yes
+				Storage		:RsSaleItemPriceUDFO2
+				Style		: Small Bold
+				Format		: "NoZero,Decimal:3"
+				Align		: Right
+				
+[Line	: RSSaleActualWeightO2]
+	Field	: Short Prompt,RSSaleActualWeightO2
+	
+	Local	: Field	: Short Prompt : Set as:"Actual Weight :"
+	
+	[Field	: RSSaleActualWeightO2]
+				Use		: Number  Field
+				Storage	:RSSaleActualWeightUDFO2
+				Style	: Small Bold
+				Format	: "NoZero,Decimal:3"
+				Align	: Right
+
+[Line	: EiSaleQualityTitleO2]
+	Field	: Name Field
+	
+	Local	: Field	: Name Field : Set as:"Sales Quality"
+	Local	: Field	: Name Field : Full Width: Yes
+	Local	: Field	: Name Field : Skip	: Yes
+
+[Line	: EiSaleQualityTitle1O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: Default			: Delete: Storage	
+	Local	: Field	: Default			: Skip	: Yes
+	Local	: Field	: Default			: Type	: String
+	Local	: Field	: EiPurcQ1Name 		: Set as:"Deduction Name"
+	Local	: Field	: EiPurcQ1Rate 		: Set as:"Rate"
+	Local	: Field	: EiPurcQ1RateMain 	: Set as: "Total Rate"
+	Local	: Field	: EiPurcQ1Qty		: Set as: "Qty"
+	Local	: Field	: EiPurcQ1Amt 	 	: Set as: "Amount"
+	Border	: Thin Top Bottom
+	
+[Line	: EiSaleQ1O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP1O2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate1O2
+	Local	: Field	: EiPurcQ1RateMain 	: Set as		: (#RSSaleItemPriceO2 + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt1O2
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty1O2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate) * #EiPurcQ1Qty
+
+[Line	: EiSaleQ2O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP2O2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate2O2
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt2O2
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty2O2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ3O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP3O2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate3O2
+	Local	: Field	: EiPurcQ1RateMain 	: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt3O2
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty3O2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ4O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP4O2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate4O2
+	Local	: Field	: EiPurcQ1RateMain 	: Set as		: (#RSSaleItemPriceO2 + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty4O2
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt4O2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate) * #EiPurcQ1Qty
+	
+[Line	: EiSaleQ5O2]
+	Field	: EiPurcQ1Name,EiPurcQ1Qty,EiPurcQ1Rate,EiPurcQ1RateMain,EiPurcQ1Amt
+	
+	Local	: Field	: EiPurcQ1Name		: Storage	: RSSaleQP5O2
+	Local	: Field	: EiPurcQ1Rate		: Storage	: RSSaleQRate5O2
+	Local	: Field	: EiPurcQ1RateMain	: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate)
+	Local	: Field	: EiPurcQ1Qty		: Storage	: RSSaleQQty5O2
+	Local	: Field	: EiPurcQ1Amt		: Storage	: RSSaleQAmt5O2
+	Local	: Field	: EiPurcQ1Amt		: Set as	: (#RSSaleItemPriceO2 + #EiPurcQ1Rate) * #EiPurcQ1Qty
+
+[Line	: EiSaleActualAMountO2]
+	Field	: Short Prompt,EiSaleActualAMountO2
+	
+	Local	: Field	: Short Prompt : Set as:"Total Amount:"
+	
+	[Field	: EiSaleActualAMountO2]
+				Use				: Number  Field
+				Set as			: @MyVal
+				MyVal			: (($RSSaleQAmt1O2 + $RSSaleQAmt2O2 + $RSSaleQAmt3O2 + $RSSaleQAmt4O2 + $RSSaleQAmt5O2))
+				Set Always		: Yes
+				Storage			: RSSaleEffAmtO2
+				Style			: Small Bold
+				Format			: "NoZero,Decimal:2"
+				Align			: Right
+				Skip			: Yes
+
+[Part	: TruckGrossProfit]
+	Line	: TruckGrossProfit,TruckSaleVchDone
+	Border	: Thin Top
+	Horizontal Align	:Center
+	
+[Line	: TruckGrossProfit]
+	Field	: Short Prompt,EiGrossProfit,Simple Prompt,EIClearEntry ;;,RSClearEntry1
+	
+	Local	: Field	: Short Prompt : Set as:"Gross Profit:"
+	Local	: Field	: Simple Prompt	: Set as: "Entry Complete ?"
+	
+	[Field	: EiGrossProfit]
+					Use					: Number  Field
+					Set as				: @MyVal
+					MyVal				: @MySVal - @MyPVal
+					MySVal				: (($RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5 + $RSSaleQAmt1O2 + $RSSaleQAmt2O2 + $RSSaleQAmt3O2 + $RSSaleQAmt4O2 + $RSSaleQAmt5O2 + #RSSaleDiff)) - (#RSSaleDED+#RSSaleCD )
+					MyPVal				: (($RSPurcQAmt1 + $RSPurcQAmt2 + $RSPurcQAmt3 + $RSPurcQAmt4 + $RSPurcQAmt1O2 + $RSPurcQAmt2O2 + $RSPurcQAmt3O2 + $RSPurcQAmt4O2 + #RSPurcDiff)) - (#RSPurcDED+#RSPurcComm+#RSPurcCD)
+					Set Always			: Yes
+					Style				: Large Bold
+					Format				: "NoZero,Decimal:2"
+					Skip				: Yes
+					Width				: 15
+					Background			:MnuNormalFGClr
+					Color				: White
+					
+	[Field	: EIClearEntry]
+				Use		: Logical Field
+				Storage	: RSClearEntry		
+				;;Skip	: $$Value = Yes
+				
+;	[Field	: RSClearEntry1]
+;				Use				: Name Field
+;				Set as		: if $$IsFieldEdited:EIClearEntry then Yes else No
+;				Modifies	: RsClesrEntryVar
+
+;		Set Always	: Yes
+;		Skip	: Yes
+	[Line	: TruckSaleVchDone]
+		Field	: Short Prompt,EiSaleEntryDone,Simple Prompt,EIPurcEntryDone,Long Prompt,VoucherPaymentclear
+		
+		Local	: Field	: Short Prompt 	: Set as: "Sale Entry Done ?"
+		Local	: Field	: Short Prompt 	: Width	: 15
+		Local	: Field	: Simple Prompt	: Set as: "Purchase Entry ?"
+		Local	: Field	: long Prompt 	: info	: "Payment Done ?"
+		Local	: Field	: Long Prompt	: Width	: 15
+		
+		[Field	: EiSaleEntryDone]
+						Use		: Logical Field
+						Storage	: VchSaleDone
+						Skip	: Yes
+						
+		[Field	: EIPurcEntryDone]
+					Use			: Logical Field    
+					Storage		: VchPurcDone
+					Skip		: Yes
+				
+				
+			[Field	: VoucherPaymentclear]
+						Use		: Logical Field
+						Storage	: VchpaymentstatusDone
+					;		Skip: Yes
+						
+
+
+
+
+[Collection			: InvLPurcOrders]
+			Type      		: Ledger Purchase Orders
+			ChildOf   		: #EiConsignee
+			Sub Title		: $$LocaleString:"Order No",$$LocaleString:"Date",$$LocaleString:"Item Name",$$LocaleString:"Rate",$$LocaleString:"Bal. Qty"
+			Title			: $$LocaleString:"List of Orders"
+			Compute			: SaleQty1	: $$FilterNumTotal:MaterialInVchAllPurc1Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 + $$FilterNumTotal:MaterialInVchAllPurc2Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 ;;$$FilterValue:$RSSaleActualWeightUDF1:MaterialInVchAllSale1Summ:1:SaleOrderFormula ;;$$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ ;;+ $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale2Summ
+			Compute			: TruckBalance : $OpeningBalance - $$AsQty:$SaleQty1
+			Compute			: TuckBalanceYN : ($$Number:$OpeningBalance - $$Number:$SaleQty1) > 0
+			Format     		: $Name, 13
+			Format     		: $Date, 8 		  : Universal Date
+			Format			: $Parent,20
+			Format			: $Rate,15
+		;	Format			: $OpeningBalance,10
+			Format			: $TruckBalance,10
+		;	Format			: $TruckBalanceYN,10
+		;	Format			: $MyVal,10
+			Filter			: OrderPendingBalanceOnly,IsOrderComplete,IsOrderType
+
+[Collection		: InvLPurcOrdersO2]
+	Type       			: Ledger Purchase Orders
+	ChildOf    			: #EiConsignee
+	Sub Title			: $$LocaleString:"Order No",$$LocaleString:"Date",$$LocaleString:"Item Name",$$LocaleString:"Rate",$$LocaleString:"Bal. Qty"
+	Title				: $$LocaleString:"List of Orders"
+	Compute				: SaleQty1	: $$FilterNumTotal:MaterialInVchAllPurc1Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 + $$FilterNumTotal:MaterialInVchAllPurc2Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 ;;$$FilterValue:$RSSaleActualWeightUDF1:MaterialInVchAllSale1Summ:1:SaleOrderFormula ;;$$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ ;;+ $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale2Summ
+	Compute				: TruckBalance : $OpeningBalance - $$AsQty:$SaleQty1
+	Compute				: TruckBalanceYN : ($$Number:$OpeningBalance - $$Number:$SaleQty1) > 0
+	Format     			: $Name, 13
+	Format     			: $Date, 8 		  : Universal Date
+	Format				: $Parent,20
+	Format				: $Rate,15
+;	Format				: $OpeningBalance,10
+	Format				: $TruckBalance,10
+;	Format				: $TruckBalanceYN,10
+;	Format				: $MyVal,10
+	Filter				: OrderPendingBalanceOnly,IsOrderComplete,IsOrderType
+
+[#Object	: Order]
+			MyValFilter	: $Parent
+			MyVal		: $$Number:$OpeningBalance - ($$OrderQtyTotal:$Parent:$Name:$TrackLedger + $$OrderQtyTotal2:$Parent:$Name:$TrackLedger) ;;$$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula1:$RSSaleActualWeightUDF1
+			MyValP	    : $$Number:$OpeningBalance - ($$OrderQtyTotalP:$Parent:$Name:$TrackLedger + $$OrderQtyTotalP2:$Parent:$Name:$TrackLedger) ;;$$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula1:$RSSaleActualWeightUDF1
+
+[System	: Formula]	
+	
+	IsOrderType		:	 #vchOrderType = $Description:Stockitem:$Parent
+	AmountExecss 	:	"More then 10000 not allowed"
+
+[Collection	: InvLSaleOrders]
+	Sub Title	: $$LocaleString:"Order No",$$LocaleString:"Date",$$LocaleString:"Item Name",$$LocaleString:"Rate",$$LocaleString:"Bal. Qty"
+;	Type       	: Sales Orders
+	Type      	: Ledger Sales Orders
+	ChildOf     : #EiSaleConsignee
+	Title		: $$LocaleString:"List of Orders"
+;	Compute		: 	MyVal	: $$Number:$OpeningBalance - ($$OrderQtyTotal:$Parent:$Name:$TrackLedger + $$OrderQtyTotal2:$Parent:$Name:$TrackLedger) ;;$$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula1:$RSSaleActualWeightUDF1
+
+	Compute		: SaleQty1	: $$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 + $$FilterNumTotal:MaterialInVchAllSale2Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 ;;$$FilterValue:$RSSaleActualWeightUDF1:MaterialInVchAllSale1Summ:1:SaleOrderFormula ;;$$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ ;;+ $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale2Summ
+	Compute		: TruckBalance : $OpeningBalance - $$AsQty:$SaleQty1
+	Compute		: TruckBalanceYN : ($$Number:$OpeningBalance - $$Number:$SaleQty1) > 0
+	Format     	: $Name, 13
+	Format     	: $Date, 8 		  : Universal Date
+	Format		: $Parent,20
+	Format		: $Rate,15
+;	Format		: $TrackLedger
+;	Format		: $OpeningBalance,10
+	Format		: $TruckBalance,10
+;	Format		: $TruckBalanceYN,10
+	;Format		: $MyVal,10
+	Filter		: OrderPendingBalanceOnly,IsOrderComplete,IsOrderType
+	
+; Select $Name,$Date,$PartyLedgerName1,$Parent,$Rate,$TruckBalance from InvLSaleOrders
+
+[Collection	: InvLSaleOrdersO2]
+	Sub Title		: $$LocaleString:"Order No",$$LocaleString:"Date",$$LocaleString:"Item Name",$$LocaleString:"Rate",$$LocaleString:"Bal. Qty"
+	Type       		: Ledger Sales Orders
+	ChildOf     	: #EiSaleConsignee
+	Title			: $$LocaleString:"List of Orders"
+	Compute			: SaleQty1	: $$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 + $$FilterNumTotal:MaterialInVchAllSale2Summ:SaleOrderFormula:$RSSaleActualWeightUDF1 ;;$$FilterValue:$RSSaleActualWeightUDF1:MaterialInVchAllSale1Summ:1:SaleOrderFormula ;;$$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ ;;+ $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale2Summ
+	Compute			: TruckBalance : $OpeningBalance - $$AsQty:$SaleQty1
+	Compute			: TruckBalanceYN : ($$Number:$OpeningBalance - $$Number:$SaleQty1) > 0
+	Format     		: $Name, 13
+	Format     		: $Date, 8 		  : Universal Date
+	Format			: $Parent,20
+	Format			: $Rate,15
+;	Format			: $OpeningBalance,10
+	Format			: $TruckBalance,10
+;	Format			: $TruckBalanceYN,10
+;	Format			: $MyVal,10
+	Filter			: OrderPendingBalanceOnly,IsOrderComplete,IsOrderType
+
+[Function		: OrderQtyTotal]
+	Parameter	: MyItemName	: String
+	Parameter	: MyOrderNumber : String
+	Parameter	: MyPartyName	: String
+	Variable	: MyQty			: Number
+	Variable	: Counter		: Number
+	
+	Return		: Number
+	01	: Set	: MyQty	 	 : 0
+	02	: Set	: Counter	 : 0
+	10	:Walk Collection	 : MaterialInVchAllSale1Summ
+	11	:If		: $RsSaleItemNameUDF1 = ##MyItemName and $RSSaleordernoUDF1  = ##MyOrderNumber and  $RSSalePartyUDF1 = ##MyPartyName
+	20	:Set		: MyQty	: ##MyQty + $RSSaleActualWeightUDF1
+	21	:End If
+	02A	: Set		: Counter : ##Counter + 1
+	20a	: Log	: ##Counter
+	30	:End Walk
+	40	:Return: ##MyQty
+
+[Function		: OrderQtyTotal2]
+	Parameter	: MyItemName	: String
+	Parameter	: MyOrderNumber : String
+	Parameter	: MyPartyName	: String
+	Variable		: MyQty		: Number
+	Return			: Number
+	01	: Set			: MyQty	 : 0
+	10	:Walk Collection	: MaterialInVchAllSale2Summ
+	11	:If			: $RsSaleItemNameUDF1 = ##MyItemName and $RSSaleordernoUDF1  = ##MyOrderNumber and  $RSSalePartyUDF1 = ##MyPartyName
+	20	:Set			: MyQty	: ##MyQty + $RSSaleActualWeightUDF1
+	21	:End If
+	30	:End Walk
+	40	: Return	: ##MyQty
+	
+[Function		: OrderQtyTotalP]
+	Parameter	: MyItemName	: String
+	Parameter	: MyOrderNumber : String
+	Parameter	: MyPartyName	: String
+	Variable		: MyQty		: Number
+	Return			: Number
+	01	: Set			: MyQty    : 0
+	10	:Walk Collection 	: MaterialInVchAllPurc1Summ
+	11	:If	: $RsSaleItemNameUDF1 = ##MyItemName and $RSSaleordernoUDF1  = ##MyOrderNumber and  $RSSalePartyUDF1 = ##MyPartyName
+	20	:Set	: MyQty	: ##MyQty + $RSSaleActualWeightUDF1
+	21	:End If
+	30	:End Walk
+	40	: Return	: ##MyQty
+
+[Function		: OrderQtyTotalP2]
+	Parameter	: MyItemName	: String
+	Parameter	: MyOrderNumber : String
+	Parameter	: MyPartyName	: String
+	Variable	: MyQty	: Number
+	Return		: Number
+	01	: Set			: MyQty 	: 0
+	10	:Walk Collection	: MaterialInVchAllPurc2Summ
+	11	:If			: $RsSaleItemNameUDF1 = ##MyItemName and $RSSaleordernoUDF1  = ##MyOrderNumber and  $RSSalePartyUDF1 = ##MyPartyName
+	20	:Set			: MyQty	: ##MyQty + $RSSaleActualWeightUDF1
+	21	:End If
+	30	:End Walk
+	40	: Return	: ##MyQty
+
+[System	: Formula]
+	MyPartyOrdersInv 	: $PartyLedgerName1 = #EiSaleConsignee
+	
+	MyPartyOrders		: $TrackLedger = #EiSaleConsignee
+	MyPartyPOrders 		: $TrackLedger = #EiConsignee
+	IsOrderComplete		: $MyVal > 0  ;;$$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula1:$RSSaleActualWeightUDF1 ;; > 0
+	IsOrderCompleteP	: $MyValP > 0  ;;$$FilterNumTotal:MaterialInVchAllSale1Summ:SaleOrderFormula1:$RSSaleActualWeightUDF1 ;; > 0
+
+;;	IsOrderComplete	: ($$Number:$BilledQty - $$Number:@@SaleOrderQty1) <= 0 ;;or $$IsEmpty:$TruckBalance ;;$$Number:$TruckBalance > 0
+	SaleOrderFormula1 				: $RsSaleItemNameUDF1 = $$ReqObject:$Parent ;;and $RSSaleordernoUDF1 = $$ReqObject:$Name and $RSSalePartyUDF1 = $$ReqObject:$TrackLedger
+	OrderPendingBalanceOnly : $ClosingBalance > 0
+	
+[#Form		: Daybook]
+	
+[Variable	: ShowClearedEntries]
+	Type	: Logical
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;TRUCK REPORT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;******************************************************************************************************************
+
+	
+[#Menu	: Display Menu]
+		Add	: Key Item	: After	: @@locInternationalAnalysisAudit : Truck Report :: Display	: Truck Report
+
+;DSP Form Template
+[Report	: Truck Report]
+					Use			: DSP Template
+					Form		: TruckEntry
+					Variable	: ShowClearedEntries
+					Set			: ShowClearedEntries : Yes
+					variable	: PurcLedVar,SaleLedVar,UDVar
+					Set			: PurcLedVar	: "Not Applicable"
+					Set			: SaleLedVar	: "Not Applicable"
+					Set			: UDVar			: "Not Applicable"
+
+
+	
+[Form		: TruckEntry]
+			Use		: DSP Voucher Report Keys
+			Use		: DSP Template
+			Part	: TruckEntryTitle,TruckEntryDetails
+			Button	: BTNPendingEntries,BtnOrderType,BtnSaleLedgerFilter,BTNPurchaseLedgerFilter
+			Width	: 100% Screen
+			Height	: 100% Screen
+			
+[Button		: BTNPendingEntries]
+			Key			 : F5
+			Title  		 : If ##ShowClearedEntries Then $$LocaleString:"Hide Cleared" Else $$LocaleString:"Show Cleared"
+			Action 		 : Set : ShowClearedEntries : NOT ##ShowClearedEntries
+
+
+[Part	: TruckEntryTitle]
+	Line	: TruckEntryTitle1,TruckEntryTitle
+	
+[Line	: TruckEntryTitle1]
+			Field	: Short Prompt,TruckReportOrderType
+			Field	: Long Prompt,TruckReportPurcFilter
+			Field	: Medium Prompt,TruckReportSaleFilter
+
+	Local	: Field	: Short Prompt	: Set as	: "Order Type :"
+	Local	: Field	: Medium Prompt	: Set as	: "Sale Party Name :"
+	Local	: Field	: Medium Prompt	: Width		: 15
+	Local	: Field	: Long Prompt	: Set as	: "Purchase Party Name :"
+	Local	: Field	: Long Prompt	: Width		: 15
+	
+[Field	: TruckReportOrderType]
+	Use		: Name Field
+	Set as	: ##UDVar
+	Width	: 10
+	
+[Field	: TruckReportSaleFilter]
+	Use		: Name Field
+	Set as	: ##SaleLedVar
+	Width	: 20
+	
+[Field	: TruckReportPurcFilter]	
+	Use		: Name Field
+	Set as	: ##PurcLedVar
+	Width	: 20
+
+
+[Line	: TruckEntryTitle]
+	Use		: TruckEntryDetails
+	
+	Local	: Field	: Default			: Type		: String
+	Local	: Field	: Default			: Style		: Small Bold
+	Local	: Field	: Default			: Lines		: 2
+	Local	: Field	: RSTESno			: Set as	: "S. No."
+	Local	: Field	: RSTEDate			: Set as	: "Date"
+	Local	: Field	: RSTEOrderType		: Set as	: "Order Type"
+	Local	: Field	: RSTETruck			: Set as	: "Truck No."
+	Local	: Field	: RSTEActualWeight	: Set as	:"Actual Weight"
+	Local	: Field	: RSTEBillWeight	: Set as	: "Bill Weight"
+	Local	: Field	: RSTEPurcParty		: Set as	: "Purchase Party"
+	Local	: Field	: RSTESaleParty		: Set as	: "Sale Party"
+	Local	: Field	: RSTEPurcCost		: Set as	: "Purchase Cost"
+	Local	: Field	: RSTESaleCost		: Set as	: "Sale Cost"
+	Local	: Field	: RSTEGrossProfit	: Set as	: "Gross Profit"
+	Local	: Field	: RSTEClearedYN		: Set as	: "Entry Cleared"
+	Border	: Column Titles
+	
+[Part	: TruckEntryDetails]
+	Line	: TruckEntryDetails
+	
+				Repeat				: TruckEntryDetails : TruckVouchers
+				Bottom Line			: TruckEntryTotal
+				Total				: 	RSTEBillWeight,RSTEPurcCost,RSTESaleCost,RSTEGrossProfit
+				Scroll				: Vertical
+	
+[Line	: TruckEntryDetails]
+			Field		: RSTESno,RSTEDate,RSTEOrderType,RSTETruck,RSTEActualWeight,RSTEBillWeight,RSTEPurcParty,RSTESaleParty,RSTEPurcCost,RSTESaleCost,RSTEGrossProfit,RSTEClearedYN
+			Option      : AlterOnEnter
+	
+[Field	: RSTESno]
+			Use		: Number Field
+			Set as	: $$Line
+			Width	: 5
+			Style	: Small
+			Format	: "Nozero"
+			
+[Field		: RSTEDate]
+			Use		: Uni Date Field
+			Set as	: $Date
+			Width	: 10
+			Style	: Small
+			Alter	: Voucher
+			Align	: Left
+			
+[Field	: RSTEOrderType]
+			Use		: Name Field
+			Set as	: $RSVchOrderType
+			Width	: 8
+			Style	: Small
+	
+[Field	: RSTETruck]
+		Use		: Name Field
+		Set as	: $RSvchTruckNo
+		Width	: 12
+		Style	: Small
+		
+[Field	: RSTEActualWeight]
+			Use		: Number Field
+			Set as	: $RSSaleActualWeightUDF	
+			Width	: 8
+			Style	: Small
+			Align	: Right
+			Format	: "Nozero,Decimal:3"
+			
+[Field	: RSTEBillWeight]
+			Use		: Number Field
+			Set as	: $RSvchBillwt	
+			Width	: 8
+			Style	: Small
+			Align	: Right
+			Format	: "Nozero,Decimal:3"
+			
+[Field	: RSTEPurcParty]
+			Use		: Name Field
+			Set as	: $PartyLedgerName
+			Width	: 20
+			Style	: Small
+			
+[Field	: RSTESaleParty]
+			Use		: Name Field
+			Set as	: $RSSalePartyUDF
+			Width	: 20
+			Style	: Small
+			
+[Field	: RSTEPurcCost]
+			Use		: Number Field
+			Set as	: $RSPurcCost	
+			Width	: 10
+			Style	: Small
+			Align	: Right
+			Format	: "Nozero,Decimal:3"
+			
+[Field	: RSTESaleCost]
+			Use		: Number Field
+			Set as	: $RSSaleCost	
+			Width	: 10
+			Style	: Small
+			Align	: Right
+			Format	: "Nozero,Decimal:3"
+			
+[Field	: RSTEGrossProfit]
+			Use		: Number Field
+			Set as	: $RSSaleCost - $RSPurcCost
+			Width	: 10
+			Style	: Small
+			Align	: Right
+			Format	: "Nozero,Decimal:3"
+	
+[Field	: RSTEClearedYN]
+	Use		: Logical Field
+	Set as	: $RSClearEntry
+	Width	: 7
+	Style	: Small
+	
+
+[Line	: TruckEntryTotal]
+	Use	: TruckEntryDetails
+	Local	: Field		: Default			: Style		: Small Bold
+	Local	: Field		: RSTEDate			: Set as	: " "
+	Local	: Field		: RSTETruck			: Set as	: "Total"
+	Local	: Field		: RSTEBillWeight	: Set as	: $$Total:RSTEBillWeight
+	Local	: Field		: RSTEPurcParty		: Set as	: ""
+	Local	: Field		: RSTESaleParty		: Set as	: ""
+	Local	: Field		: RSTEPurcCost		: Set as	: $$Total:RSTEPurcCost
+	Local	: Field		: RSTESaleCost		: Set as	: $$Total:RSTESaleCost
+	Local	: Field		: RSTEGrossProfit	: Set as	: $$Total:RSTEGrossProfit
+	Local	: Field		: RSTEClearedYN		: Set as	: ""
+	Border	: Totals
+
+[Collection	: TruckVouchers]
+				Type		: Vouchers : VoucherType
+				Child Of	: $$VchTypeJobMaterialReceive
+				Belongs To	: Yes
+				Fetch		: *.*
+				Fetch		: Masterid
+	
+;	Compute	: RSPurcCost : (($RSPurcQAmt1 + $RSPurcQAmt2 + $RSPurcQAmt3 + $RSPurcQAmt4)) - ($RSPurcDecuctionUDF+$RSPurcCDUDF )
+;	Compute	: RSSaleCost : (($RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5)) - ($RSSaleDecuctionUDF+$RSSaleCDUDF )
+
+;		MyVal	: @MySVal - @MyPVal
+	Compute	: RSSaleCost : (($RSSaleQAmt1 + $RSSaleQAmt2 + $RSSaleQAmt3 + $RSSaleQAmt4 + $RSSaleQAmt5 + $RSSaleQAmt1O2 + $RSSaleQAmt2O2 + $RSSaleQAmt3O2 + $RSSaleQAmt4O2 + $RSSaleQAmt5O2 + $RSSaleDiffUDF)) - ($RSSaleDecuctionUDF+$RSSaleCDUDF )
+	Compute	: RSPurcCost :(($RSPurcQAmt1 + $RSPurcQAmt2 + $RSPurcQAmt3 + $RSPurcQAmt4 + $RSPurcQAmt1O2 + $RSPurcQAmt2O2 + $RSPurcQAmt3O2 + $RSPurcQAmt4O2 + $RSPurcDiffUDF)) - ($RSPurcDecuctionUDF+$RSPurcCommUDF+$RSPurcCDUDF)
+	
+			Option	: OnlyClearedEntries	 : ##ShowClearedEntries
+			Option	: OrderTypeFilter		 : Not ##UDVar contains "Not Applicable"	
+			Option	: PurcLedFilter			 : Not ##PurcLedVar contains "Not Applicable"	
+			Option	: SaleLedFilter			 : Not ##SaleLedVar contains "Not Applicable"	
+
+[!Collection		: OnlyClearedEntries]
+	Filter	: ShowClearEntry
+	
+[!Collection	: OrderTypeFilter]
+	Filter	: MyOrderTypeFilter
+	
+[!Collection	: PurcLedFilter]
+	Filter	: MyPurcLedFilter
+	
+[!Collection	: SaleLedFilter]
+	Filter	: MySaleLedFilter
+	
+
+
+[System	: Formula]
+	ShowClearEntry		: Not $RSClearEntry
+	MyOrderTypeFilter	: ##UDVar = $RSVchOrderType
+	MyPurcLedFilter		: ##PurcLedVar = $PArtyLedgerName
+	MySaleLedFilter		: ##SaleLedVar = $RSSalePartyUDF
+	
+[Table	 : MySaleType]
+	Object	: OrderB,orderW
+	Title 	: "Order Type"
+	Format 	: $Name , 20
+
+[Object	 : OrderB]
+		Name: "B"	
+[Object 	: orderW]
+		Name : "W"
+
+[#Form	: Voucher]
+[#Form	: Payment Color]
+	Add		: Part	: PymtTruckDate
+	
+[Part	: PymtTruckDate]
+	Line	: PymtTruckDate
+[Line	: PymtTruckDate]
+	Field	: Medium Prompt,PymtTruckDate
+	
+	Local	: Field	: Medium Prompt : Set as:"Truck Voucher Date : "
+	
+	[Field		: PymtTruckDate]
+					Use		: UNi Date Field
+					Storage	: VchTrkDate
+					
+[Collection	: MyLedgerPymtVoucher]
+	Type		: Vouchers : Ledger
+	Child Of	: #EIConsignee
+	Fetch		: *.*,VchTrkDate
+	Filter		: OnlyPayment
+	
+[Collection	: MyLedgerPymtVoucherSumm]
+	Title						: $$LocaleString:"Freight Vouchers"
+	Source Collection			: MyLedgerPymtVoucher
+	Walk						: LedgerEntries,BillAllocations
+	Compute						: Name : $Name
+	Compute						: Dated	: $...DAte
+	Compute						: Amount	: $AMount
+	Compute						: PartyLedgerName : $...PartyLedgerName
+	Compute						: VchTrkDate1	  : $...VchTrkDate
+	Format						: $Name,15
+	Format						: $Dated,15
+	Format						: $AMount,15
+	Format						: $VchTrkDate1,10
+	Filter						: EmptyRef,TruckFilter,MyCurDate
+	
+; Select $Name,$Date,$Amount from MyLedgerPymtVoucherSumm
+[System		: Formula]
+	OnlyPayment 	: $$IsPayment:$VoucherTypeName
+	EmptyRef		: Not $$IsEmpty:$Name
+	MyCurDate		: $$BaseOwner:$Date = $VchTrkDate1
+
+[#Collection: Pending Bills SRC]
+[Collection	: Pending Bills SRC Freight]
+
+    Type        : Bills
+;   Child of    : ##pvLedgerName    
+;	ParmVar		: pvLedgerName		: String 	: #EiConsignee
+	ParmVar		: SVToDate			: Date		: ##SVToDate
+
+	Fetch		: Name, BillDate, BillCreditPeriod, BaseClosing, FinalBalance,Parent
+	Fetch		: ClosingBalance, ForexClosing	 ;;For Forex gain/loss
+
+;;sELECT $NAME,$BILLDATE FROM PendingBillsSRCFreight
+
+[Collection: Pending Bills Freight]
+
+	Title					: $$LocaleString:"Pending Bills"
+	Sub Title  				: $$LocaleString:"Name", $$LocaleString:"Date", $$LocaleString:"Balance"
+	Source Collection		: Pending Bills SRC Freight
+	Fetch					: Name, BillDate, BillCreditPeriod, BaseClosing, FinalBalance,Parent
+    Format     				: $Name, 14
+    Format     				: $BillDate, 8      : Universal Date
+    Format     				: $BaseClosing	  : "AllSymbols, DrCr"
+    Format     				: $Parent,15
+    Column Align   			: Left, Left, Right							
+	Client Only 			: Yes
+	;;Keep Source	: ...   ;; Keep the source at Bill allocations subform Level
+	;;Filter	: TruckFilter
+	
+[System			: Formula]
+	TruckFilter	: #VchTruckVehicleNO = $Name 
+	
+[Button		: 	BtnOrderType]
+					Key			: F6
+					Title   	: $$LocaleString:"Order Type"
+					Action  	: Modify Variable : UDES
+					
+[Button		:	BtnSaleLedgerFilter]
+					Key			: F7
+					Title   	: $$LocaleString:"Sale Filter"
+					Action  	: Modify Variable : USaleLed
+[Button		:	BTNPurchaseLedgerFilter]
+				Key			 : Alt + F7
+				Title  		 : $$LocaleString:"Purchase Filter"
+				Action 	 	 : Modify Variable : UPurcLed
+
+;;;;;;;;;;;;;;;;Report for Desc 
+[System	 : Variable]
+	UDVar	 :"Not Applicable"
+	
+[Variable : UDVar]
+				Type	: string
+	
+[Report : UDes]
+			Form 		: Description
+			variable	: UDVar 
+	
+[Form	 : Description]
+			Part : UDesc
+			
+[Part : udesc]
+	Line 	: UDLine
+	
+[Line : UDLine]
+			Field	 : medium Prompt , Ufld
+			Local : Field : Medium Prompt	 :Info :"Order Type"
+[Field 	: Ufld]
+			use 		: name field
+			Table		: MySaleType,NotApplicable
+			Show Table	: Always
+			Modifies	: UDVar
+;;;;;;;;;;;;;;;;
+[System 		: Variable]
+	SaleLedVar 	:"Not Applicable"
+	
+[Variable : SaleLedVar]
+	Type 	: string
+	
+[Report   	: USaleLed]
+	Form  		: USaleLed
+	variable	: SaleLedVar
+	
+[Form : UsaleLed]
+	Part : USaleLed
+[Part : uSaleLed]
+	Line : USaleLed
+	
+[Line	 : USaleLed]
+	Field 	: medium Prompt , USaleLed
+	Local : Field : Medium Prompt :Info :"Ledger Filter"
+	
+[Field	 : USaleLed]
+				use 		: name field
+				Table		: Ledger,NotApplicable
+				Show Table	: Always
+				Modifies	: SaleLedVar
+				
+;;;;;;;;;;;;;;;;;;;;;Purchase
+[System		 : Variable]
+	PurcLedVar :"Not Applicable"
+	
+[Variable : PurcLedVar]
+	Type : string
+	
+[Report : UPurcLed]
+	Form 	: UPurcLed
+	variable: PurcLedVar
+	
+[Form : UPurcLed]
+	Part : UPurcLed
+	
+[Part : uPurcLed]
+	Line : UPurcLed
+	
+[Line	 : UPurcLed]
+			Field	 : medium Prompt , UPurcLed
+			Local	 : Field : Medium Prompt :Info :"Ledger Filter"
+			
+[Field		 : UPurcLed]
+				use 			: name field
+				Table			: Ledger,NotApplicable
+				Show Table		: Always
+				Modifies		: PurcLedVar
+
+[Collection	: MaterialInVchAll]
+	Type				: Vouchers : VoucherType
+	Child Of			: $$VchTypeJobMaterialReceive
+	Belongs To			: Yes
+	Fetch				: *.*,RSvchTruckNo
+	Fetch				: RsPurcItemPriceUDF,RSPurcDustUDF,RSPurcQQty1,RSPurcQRate1,RSPurcQAmt1,RSPurcQQty2,RSPurcQRate2,RSPurcQAmt2,RSPurcQQty3,RSPurcQRate3,RSPurcQAmt3,RSPurcQQty4,RSPurcQRate4,RSPurcQAmt4
+	Compute				: Amount	: $Amount
+	Fetch				: RsPurcFreightUDF,RSPurcDalaUDF,RSPurcGSTUDF,RSPurcTCSUDF,RSPurcTDSUDF,RSPurcDecuctionUDF,RSPurcCommUDF,RSPurcCDUDF
+	Fetch				: RSPurcQP1O2,RSPurcQRate1O2,RSPurcQAmt1O2,RSPurcQP2O2,RSPurcQRate2O2,RSPurcQAmt2O2,RSPurcQP3O2,RSPurcQRate3O2
+	Fetch				: RsPurcItemPriceUDFO2,RSPurcQAmt3O2,RSPurcQP4O2,RSPurcQRate4O2,RSPurcQAmt4O2
+	Fetch				: RSPurcQQty1O2,RSPurcQQty2O2,RSPurcQQty3O2,RSPurcQQty4O2
+	Fetch				: Masterid
+	Fetch				: RsSaleItemNameUDF,RSSaleordernoUDF,RSSalePartyUDF,RSSaleActualWeightUDF,RSSaleActualWeightUDFO1
+
+[Collection	: MaterialInVchAllSale1Summ]
+	Source Collection	: MaterialInVchAll
+	By					: RsSaleItemNameUDF1 : $RsSaleItemNameUDF
+	By					: RSSaleordernoUDF1	 : $RSSaleordernoUDF
+	By					: RSSalePartyUDF1	 : $RSSalePartyUDF
+	Aggr Compute		: RSSaleActualWeightUDF1 : Sum	: if $AdditionalUnits:StockItem:$RsSaleItemNameUDF  contains "Not Applicable" then $$Number:$RSSaleActualWeightUDFO1 else $$Number:1
+;;Select $RsSaleItemNameUDF1,$RSSaleordernoUDF1,$RSSalePartyUDF1 from  MaterialInVchAllSale1Summ
+						
+[Collection	: MaterialInVchAllSale2Summ]
+	Source Collection	: MaterialInVchAll
+	By					: RsSaleItemNameUDF1 : $RsSaleItemNameUDFO2
+	By					: RSSaleordernoUDF1	 : $RSSaleordernoUDFO2
+	By					: RSSalePartyUDF1	 : $RSSalePartyUDF
+	Aggr Compute		: RSSaleActualWeightUDF1 : Sum	: if $AdditionalUnits:StockItem:$RsSaleItemNameUDFO2  contains "Not Applicable" then $$Number:$RSSaleActualWeightUDFO2 else $$Number:0 ;;$$Number:1
+
+[Collection	: MaterialInVchAllPurc1Summ]
+	Source Collection	: MaterialInVchAll
+	By					: RsSaleItemNameUDF1 : $RsPurcItemNameUDF
+	By					: RSSaleordernoUDF1	 : $RSPurcordernoUDF
+	By					: RSSalePartyUDF1	 : $PartyledgerName
+	Aggr Compute		: RSSaleActualWeightUDF1 : Sum	: if $AdditionalUnits:StockItem:$RsPurcItemNameUDF  contains "Not Applicable" then $$Number:$RSPurcActualWeightUDFO1 else $$Number:1
+
+[Collection	: MaterialInVchAllPurc2Summ]
+	Source Collection	: MaterialInVchAll
+	By					: RsSaleItemNameUDF1 : $RsPurcItemNameUDFO2
+	By					: RSSaleordernoUDF1	 : $RSPurcordernoUDFO2
+	By					: RSSalePartyUDF1	 : $PartyledgerName
+	Aggr Compute		: RSSaleActualWeightUDF1 : Sum	: if $AdditionalUnits:StockItem:$RsPurcItemNameUDFO2  contains "Not Applicable" then $$Number:$RSPurcActualWeightUDFO2 else $$Number:0
+
+
+[System	: Formula]
+	;SaleOrderFormula 	: $RsSaleItemNameUDF1 = "Scrap" and $RSSaleordernoUDF1 = "2" and $RSSalePartyUDF1 = "Akhil Ji- Agra" ;;$TrackLedger
+	SaleOrderFormula : $RsSaleItemNameUDF1 = $$ReqObject:$Parent and $RSSaleordernoUDF1 = $$ReqObject:$Name and $RSSalePartyUDF1 = $$ReqObject:$TrackLedger
+	;;SaleOrderQty1			: $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ
+	SaleOrderQty1    		: $$ReportObject:$$CollectionFieldByKey:$RSSaleActualWeightUDF1:@@SaleOrderFormula:MaterialInVchAllSale1Summ
+		
+	;MaterialInVchAllSale2Summ
+
+;;Select $RsSaleItemNameUDF1,$RSSaleordernoUDF1,$RSSalePartyUDF1,$RSSaleActualWeightUDF1 from MaterialInVchAllSale1Summ
+;;Select $RsSaleItemNameUDF1,$RSSaleActualWeightUDF1 from MaterialInVchAllSale1Summ
+
+
+;;;;;;;;;;;;;;;;;;;;;;Truck No in Ledger
+;;;;;;;;;;;;;;;Display in Ledger
+[#Line	: DSP VchAccTitles]
+		Add	: Right Field	: At Beginning: RSDSPTruckTitle
+		
+[Field	 : RSDSPTruckTitle]
+				Use		: Name Field
+				Set as	: "Vehicle No."
+				Width	: 10
+				Style	: Small
+	
+
+[#Line	: DSP VchDetail]
+		Add	: Right Field	: At Beginning: RSDSPTruckN
+
+[Field 	: RSDSPTruckN]
+				Use		: Name Field
+				Set as	: $BasicShippedBy
+				Width	: 10
+				Style	: Small
+				
+[#Collection	: Ledger Vouchers Coll]
+	Add	: Fetch	: BasicShippedBy
+	
+;******************************UDFS in F6 Features********************************************************
+;------------------------------------*********************-----------------------------------------------------------
+
+	[#Part: CMP TallyShopFeatures Left]
+		Add	: Line: At End: purchasereportshow,Showtruckdtlreport
+		
+			[Line:	purchasereportshow]
+				Field	:Long Prompt, purchasereportshow	
+				
+			Local : Field : Long Prompt :Set as	:"Show Purchase Payment Report"
+			Local : Field : Long Prompt :Width	: 20% page
+				
+				[Field	: purchasereportshow]
+				Use		: Logical Field
+				Storage	: Showppreport
+				
+
+[System	:Formula]
+	paymentrep	:$Showppreport:Company:##SVcurrentcompany
+	
+
+
+		[Line:	Showtruckdtlreport]
+				Field	:Long Prompt, Showtruckdtlreport	
+				
+			Local : Field : Long Prompt :Set as	:"Show Truck Detail Report"
+			Local : Field : Long Prompt :Width	: 20% page
+				
+				[Field	: Showtruckdtlreport]
+				Use		: Logical Field
+				Storage	: Showppreportsss
+				
+	[System	:Formula]
+	Truckdtlsrep	:$Showppreportsss:Company:##SVcurrentcompany
+			
+			
+					
+
+
+;***********************---------------------------------****************************************
+;******************************

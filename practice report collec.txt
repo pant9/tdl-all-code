@@ -1,0 +1,245 @@
+[#Menu	: Default]
+	Add	: Button	: RefreshTdlButton
+
+[#Form	: Default]
+	Add	: Button	: RefreshTdlButton
+
+	[Button	: RefreshTdlButton]
+		Title	: "Refresh"
+		Key		: CTRL + 8
+		Action	: Refresh TDL
+	
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Sample REPORT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[#Menu	: Display Menu]
+	Add	: Key Item	: After	: @@locStatementsofAccounts	: SAMPLE REPORT	: L : Display	: SampleReport
+	
+[Report		: SampleReport]
+		Use			: DSP Template
+		Title		: $$LocaleString:"Sample Report"
+		Print Set	: Report Title	: $$LocaleString:"Sample Report"
+		Set			: Report Title	: $$LocaleString:"Sample Report"
+		Form		: SampleDtlRep
+		
+		[Form		: SampleDtlRep]
+			Use		: DSP Template
+			Parts	: DSP ReportTime, DSP CompanyName, DSP CompanyAddress, DSP ReportTitle, DSP PageNo, +
+						SampleRepTOp, SampleTitleRep, SampleDtlRepList,SampleDtlRepListtotal
+						
+			Option	: Small Size Form
+			Local	: Part	: DSP PageNo2	: Space Bottom	: 0.25
+			Delete	: Page Break
+			Add		: Page Break	: DSP ClPageBreak2, DB1Open2
+
+			
+		[Part	: DB1Close2]
+			Line	: DB1Close2
+				[Line	: DB1Close2]
+					Field	: Name Field
+					Local	: Field	: Name field :	Set as	   : "Continue"
+					Local	: Field	: Name field :	Align 	   : Right 
+					Local	: Field	: Name field :	Border	   : thin top
+					Local	: Field	: Name field :	Full Width : Yes 
+					
+		[Part	:DB1Open2]
+			Part	: SampleRepTOp
+				
+			[Part	: SampleRepTOp]
+				Space Top		: 1 Mms
+				Space Bottom	: 1 Mms
+				Width			: 100% Page
+				Invisible		: ($$InPrintMode OR ($$InExportMode AND @@IsExcelFormat)) OR NOT $$IsCommon:SVCurrentCompany OR NOT ##PrintWithCompanyName
+				Line			: SampleRepTOp
+						
+
+				[Line	: SampleRepTOp]
+					Space Bottom : 0.5
+					Right Field	 : DSP MainDateTitle
+					
+		[Part	: SampleTitleRep ]
+			Vertical : Yes
+			Border	 : Column Titles
+			Line	 : SampleTitleRep
+			
+			
+	
+	[Line		: SampleTitleRep ]
+			Use		: 	SampleDtlRepList
+			Local	: Field: Default			: Lines		: 0
+			Local	: Field	: Default			: Type		: String
+			Local	: Field	: Default			: Style		: Small Bold
+			Local	: Field	: Default			: Align		: Center
+			Local	: Field	: RSDcpartyname		: Full Width: Yes
+			Local	: Field	: RSDcSno			: Set as	: "SR No"
+			Local	: Field	: RSDcDate			: Set as	: "Date"
+			Local	: Field	: RSDcVouchtype		: Set as	: "Vch Type"
+			Local	: Field	: RSDcVoucherNo		: Set as	: "Vch No"
+			Local	: Field	: RSDcpartyname		: Set as	: "Party Name"
+			Local	: Field	: RSDcitemname		: Set as	: "Item Name"
+			Local	: Field	: RSDcUnit			: Set as	: "Unit"
+			Local	: Field	: RSDcQty			: Set as	: "Qty"
+			Local	: Field	: RSDcAmount		: Set as	: "Amount"
+			
+
+		[Part	: SampleDtlRepList]
+			Scroll			: Vertical	
+			Line			: SampleDtlRepList
+			Repeat			: SampleDtlRepList:sampleReportDetails
+			Total			: RSDcQty ,RSDcAmount
+			Common Border	: yes
+			
+				
+				
+			[Line	: 	SampleDtlRepList]
+				Field		:RSdcmasterid, RSDcSno,RSDcDate,RSDcVouchtype,RSDcVoucherNo,RSDcpartyname
+				Right Field	: RSDcitemname,RSDcUnit,RSDcQty,RSDcAmount
+				Border 		: Thin top bottom
+				
+				Local	: Field	: Default : Style	: Normal 
+				Option	:AlteronEnter
+				
+;					Option	: ObjectAlterOnEnter
+;				
+;					[!Line	: ObjectAlterOnEnter]
+;						Key	: ObjectAlterOnEnter
+;
+;						[Key   : ObjectAlterOnEnter]
+;							Key     : Enter
+;							Action  : Alter : ObjectAlterOnEnterRep
+;							Mode    : Display
+;
+;						[Report	: ObjectAlterOnEnterRep]
+;							Use 	: Voucher 
+;							Object  : Voucher : #VchMasterID
+;							Form 	: Voucher	
+			
+
+					[Field	: RSdcmasterid]
+						Use			: Name Field
+						Set as		: $MasterId
+						Variable	: BankingVchMasterId
+						Alter		: BankingVoucher
+						;Modifies	:BankingVchMasterId
+;						Set as	    : $$Sprintf:@@VchMasterid:$MasterId
+;						Variable	: VchMasterId
+						Invisible	: yes
+
+					[Field	: RSDcSno ]
+						Use		: Number Field
+						Set as	: $$Line
+						Border	: ThinLeft 
+						Width	: 5% page
+						Style	: Small
+						
+						
+
+					
+					[Field	: RSDcDate]
+						Use		: Short Date Field
+						Set as	: $Date
+						Border	: Thin Left
+						Width	: 8% page
+						Style	: Small
+						Alter	: Voucher
+							
+					
+
+					[Field	: RSDcVouchtype ]
+						Use		: Name Field
+						Set as	: $VoucherTypeName
+						Border	: Thin left
+						Width	: 8% page
+						Style	: Small
+						
+						
+							
+					[Field	: RSDcVoucherNo ]
+						Use		: Name Field
+						Set as	: $VoucherNumber
+						Border	: Thin left
+						Width	: 8% page
+						Style	: Small
+							
+							
+					[Field	: RSDcpartyname  ]
+						Use			: Name Field
+						Set as		: $PartyName
+						Border		: Thin left
+						Full Width	: yes
+						Style		: Small
+						
+						
+								
+					[Field	:	RSDcitemname ]
+						Use		: Name Field
+						Set as	: $StockitemName
+						Border	: Thin left
+						Width	: 20% page
+						Style	: Small
+							
+					[Field	: RSDcUnit]
+						Use		: Rate Units FIELD
+						Set as	: $Rate
+						Border	: Thin left
+						Width	: 8% page
+					
+						
+					[Field	: RSDcQty ]
+						Use		: Number FIELD
+						Set as	: $$Number:$billedqty
+						Format	: "NoZero"
+						Border	:Thin left
+						Width	: 8% page
+							
+							
+
+					[Field	: RSDcAmount]
+						Use		: Amount FIELD
+						Set as	: $Amount
+						Style	: Small Bold
+						Width	: 10% page
+						Border	: Thin leftright
+						
+			
+		[Part	: SampleDtlRepListtotal]	
+			Line	: SampleDtlRepListtotal
+					
+					
+			 [Line	: SampleDtlRepListtotal]
+				use		: SampleDtlRepList
+				Local	: Field	: Default				: Type		: String
+				Local	: Field	: Default				: Style		: Small Bold
+				Local	: Field	: RSDcSno				: Set as	: ""
+				Local	: Field	: RSDcDate				: Set as	: ""
+				Local	: Field	: RSDcVouchtype			: Set as	: ""
+				Local	: Field	: RSDcVoucherNo			: Set as	: ""
+				Local	: Field	: RSDcpartyname			: Set as	: ""
+				Local	: Field	: RSDcitemname			: Set as	: ""
+				Local	: Field	: RSDcUnit				: Set as	: "Total"
+				Local	: Field	: RSDcQty				: Set as	: $$Total:RSDcQty
+				Local	: Field	: RSDcAmount			: Set as	: $$Total:RSDcAmount
+				Border	: Totals
+					
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Collection;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		
+		
+[Collection	: sampleReportcollec ]
+	Type		: VOucher
+	Fetch		: masterid
+			
+	[Collection	: sampleReportDetails]		
+		Source Collection : sampleReportcollec
+		Fetch			  : Masterid
+		Walk			  : Inventory Entries 
+		Compute 		  : StockItemNAme		: $StockItemNAme
+		Compute			  : Rate				: $Rate
+		Compute 		  : VoucherNumber		: $VoucherNumber
+		Compute 		  : PartyName			: $PartyName
+		Compute 		  : Date				: $Date
+		Compute 		  : Rate				: $Rate
+		Compute 		  : Amount				: $Amount
+		Compute 		  : VoucherTypeName		: $VoucherTypeName
+		Compute			  : BilledQty			: $BilledQty
+		
+	

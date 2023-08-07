@@ -1,0 +1,886 @@
+[Include: D:\pooja tdl\demo data.txt]
+
+
+[Variable	: MyLedgerName]
+	Type	: String
+	
+[#Menu: Display Menu]
+	Add	: Key Item	: Ledger Report : L: Display Collection	: RSLedgerReportCollection
+[Collection	: RSLedgerReportCollection]
+	title 		: $$localestring:"List of Ledger"
+	type 		: Ledger
+	format 		: $name,25
+;	collection	:all items
+	variable 	: MyLedgerName
+	report 		: Ledger Truck Report
+	trigger 	: MyLedgerNameVariable
+
+[Report : MyLedgerNameVariable] ;; This report is a Trigger report
+	Use     : Collection Variable
+	Local   : Line : Collection Variable : Field : MyLedgerNameVariable
+	Local   : Field: MV Title            : Info  : "Select Ledger"
+[Field: MyLedgerNameVariable]
+            Use         	: Name Field
+             Table       	: RSLedgerReportCollection
+             Show Table 	: Always
+             Modifies    	: MyLedgerName
+			 
+[Report : Ledger Truck Report]
+	Title	: $$LocaleString:"Ledger Report"
+	Use : DSP Template
+	Form : Ledger Truck Report
+	variable: UDVarFrom,UDVarTo 
+	variable: UDVarTruckFrom,UDTruckVarTo
+	variable: UDVarOthersFrom,UDVarOthersTo 	
+	Set         : UDVarFrom : $$MonthStart:##SVCurrentDate  ;;if $$InPrintMode then $$MonthStart:##SVCurrentDate else ##SVCurrentDate
+	Set         : UDVarTo	: $$MonthEnd:##SVCurrentDate  ;;;if $$InPrintMode then $$MonthEnd:##SVCurrentDate else ##SVCurrentDate
+	Set         : UDVarTruckFrom 	: $$MonthStart:##SVCurrentDate  ;;if $$InPrintMode then $$MonthStart:##SVCurrentDate else ##SVCurrentDate
+	Set         : UDTruckVarTo		: $$MonthEnd:##SVCurrentDate  ;;;if $$InPrintMode then $$MonthEnd:##SVCurrentDate else ##SVCurrentDate
+	Set         : UDVarOthersFrom 	: $$MonthStart:##SVCurrentDate  ;;if $$InPrintMode then $$MonthStart:##SVCurrentDate else ##SVCurrentDate
+	Set         : UDVarOthersTo		: $$MonthEnd:##SVCurrentDate  ;;;if $$InPrintMode then $$MonthEnd:##SVCurrentDate else ##SVCurrentDate
+	Variable	: DispRBFlag
+	Set			: DispRBFlag	: No
+
+[Form : Ledger Truck Report]
+	Use : DSP Template
+	Use			: DSP Voucher Report Keys
+	Part : DSP CompanyName, DSP CompanyAddress,RSTLedgerTruckReportTitle,RSTLedgerTruckReportDetails
+	Use	: DSP Template
+	Delete : Page Break
+	Button	: BtnPeriodFilter,BtnTruckPeriodFilter
+;	Add	: Page Break	: DSP ClPageBreak, DSP OpPageBreakStockSale
+
+[Part: RSTLedgerTruckReportTitle]
+	Line	: RSTLedgerTruckReportLedgerName
+	Line	: RSTLedgerTruckReportTitle
+[Line	: RSTLedgerTruckReportLedgerName]
+	Field	: Name Field
+	Right Field	: LedRptPeriod
+	Local	: Field	: Name Field : Set as	: ##MyLedgerName
+	Local	: Field	: Name Field : Full Width	: Yes
+;	Local	: Field	: Name Field : Align	: Center
+	Space Bottom: 1
+	Space Top	: 1
+[Field	: LedRptPeriod]
+	Use	: Name Field
+	Set as	: "From	: " + $$String:##UDVarFrom + " To " + $$String:##UDVarTo
+	Style	: Small Bold
+	
+[Line	: RSTLedgerTruckReportTitle]
+	Use		: RSTLedgerTruckReportDetails
+	Local	: Field	: Default	: Type	: String
+	Local	: Field	: Default	: Style: Small Bold
+	Local	: Field	: RSTLTRSno			: Set as	: "S No."
+	Local	: Field	: RSTLTRDate		: Set as	: "Date"
+	Local	: Field	: RSTLTRParticulars	: Set as	: "Vch Type"
+	Local	: Field	: RSTLTRTruckNo		: Set as	: "Truck No."
+	Local	: Field	: RSTLTRPCost		: Set as	: "Purchase Cost"
+	Local	: Field	: RSTLTRRTGS		: Set as	: "RTGS Amt."
+	Local	: Field	: RSTLTRDR			: Set as	: "Debit"
+	Local	: Field	: RSTLTRCR			: Set as	: "Credit"
+	Local	: Field	: RSTLTRBal			: Set as	: "Balance"
+	Local	: Line	: RSTLedgerTruckReportDetails : Delete	: Empty
+	Border	: Column Titles
+	
+[Part: RSTLedgerTruckReportDetails]
+	Line	: RSTLedgerTruckReportOpening,RSTLedgerTruckReportDetails
+	Repeat	: RSTLedgerTruckReportDetails : MyLedgerAllvouchers
+	Scroll	: Vertical
+
+[Line	: RSTLedgerTruckReportOpening]
+	Use		: RSTLedgerTruckReportDetails
+	Local	: Field	: Default	: Style: Small Bold
+	Local	: Field	: RSTLTRSno			: Set as	: ""
+	Local	: Field	: RSTLTRDate		: Set as	: ""
+	Local	: Field	: RSTLTRParticulars	: Set as	: "Opening"
+	Local	: Field	: RSTLTRTruckNo		: Set as	: ""
+	Local	: Field	: RSTLTRPCost		: Set as	: ""; $$AsAmount:@@MyBeforeDateDR
+	Local	: Field	: RSTLTRRTGS		: Set as	: "" ;$$AsAmount:@@MyBeforeDateDR1
+	Local	: Field	: RSTLTRDR			: Set as	: if $$IsDr:@@RsParchiOpBal then @@RsParchiOpBal else 0
+	Local	: Field	: RSTLTRCR			: Set as	: if Not $$IsDr:@@RsParchiOpBal then @@RsParchiOpBal else 0
+	Local	: Field	: RSTLTRBal			: Set as	: "" ;@@MyBeforeDateAmt
+;	Local	: Line	: RSTLedgerTruckReportDetails : Local: Field	: RSTLTRPCost	: Invisible	: No
+;	Local	: Line	: RSTLedgerTruckReportDetails :Local: Field	: RSTLTRRTGS	: Invisible	: No
+;	Local	: Line	: RSTLedgerTruckReportDetails :Local: Field	: RSTLTRDR		: Invisible	: No
+;	Local	: Line	: RSTLedgerTruckReportDetails :Local: Field	: RSTLTRCR		: Invisible	: No
+;	Local	: Line	: RSTLedgerTruckReportDetails :Local: Field	: RSTLTRBal		: Invisible	: No
+	Space Top	: .5
+	Local	: Line	: RSTLedgerTruckReportDetails : Delete	: Empty
+;MyBeforeDateDR	: $$FilterAmtTotal:MyLedgerAllvouchers:MyBeforeDate:$MyLedDRCRAmt
+;	MyBeforeDateDR1	: $$FilterAmtTotal:MyLedgerAllvouchers:MyBeforeDate:$LedDRCRAmt
+;	MyBeforeDateAmt	: $$NettAmount:@@MyBeforeDateDR:@@MyBeforeDateDR1
+	
+
+[Line	: RSTLedgerTruckReportDetails]
+	Field		: RSTLTRSno,RSTLTRDate,RSTLTRParticulars,RSTLTRTruckNo
+	Right Field	: RSTLTRPCost,RSTLTRRTGS,RSTLTRDR,RSTLTRCR,RSTLTRBal
+	Option      : AlterOnEnter
+	Explode	: Vchotherdetails : $$IsJobMaterialReceive:$VoucherTypeName and ( $$KeyExplode or ##ExplodeFlag)
+	Border	: Thin Top
+	Local: Field	: Default	: Style:Small bold
+;	Local: Field	: RSTLTRRTGS	: Invisible	: Yes
+;	Local: Field	: RSTLTRDR		: Invisible	: Yes
+;	Local: Field	: RSTLTRCR		: Invisible	: Yes
+;	Local: Field	: RSTLTRBal		: Invisible	: Yes
+	;Empty	: $Date < ##UDVarFrom and $Date > ##UDVarTo ;; @@MyDateVouchers
+[Field	: RSTLTRSno]
+	Use	: Number Field
+	Set as	: $$Line
+	Format	: "NoZero"
+	Width	: 5
+	Style	: Small
+[Field	: RSTLTRDate]
+	Use		: Uni Date Field
+	Set as	: $Date
+	Width	: 12
+	Style	: Small
+	Alter	: Voucher
+[Field	: RSTLTRParticulars]
+	Use		: Name Field
+	Set as	: $VoucherTypeName
+	Width	: 15
+	Style	: Small
+
+[Field	: RSTLTRTruckNo]
+	Use		: Name Field
+	Set as	: $RSvchTruckNo1
+	Format	: "NoZero"
+	Width	: 8
+	Style	: Small
+[Field	: RSTLTRPCost]
+	Use		: Amount Field
+	Set as	: $$AsCrAmt:$LedPurAmt1
+	Format	: "NoZero"
+	Width	: 12
+	Style	: Small
+[Field	: RSTLTRRTGS]
+	Use		: Amount Field
+	Set as	: $LedRTGSAmt1
+	Format	: "NoZero"
+	Width	: 12
+	Style	: Small
+[Field	: RSTLTRDR]
+	Use		: Amount Field
+	Set as	: if not $$IsJobMaterialReceive:$VoucherTypeName then @pymt else @Matvch
+	pymt	: if $$IsDr:$MyLedDRCRAmt then $MyLedDRCRAmt else 0
+	Matvch	: if $$IsDr:$LedDRCRAmt then $LedDRCRAmt else 0
+	Format	: "NoZero"
+	Width	: 12
+	Style	: Small
+[Field	: RSTLTRCR]
+	Use		: Amount Field
+	Set as	: if not $$IsJobMaterialReceive:$VoucherTypeName then @pymt else @Matvch
+	pymt	: if Not $$IsDr:$MyLedDRCRAmt then $MyLedDRCRAmt else 0
+	Matvch	: if Not $$IsDr:$LedDRCRAmt then $LedDRCRAmt else 0
+
+;	Set as	: if $$IsEmpty:$MyLedDRCRAmt then if not $$IsDr:$LedDRCRAmt then $LedDRCRAmt else +
+;				if not $$IsDr:$MyLedDRCRAmt then $MyLedDRCRAmt else 0 else 0
+	Format	: "NoZero"
+	Width	: 12
+	Style	: Small
+[Field	: RSTLTRBal]
+	Use		: Amount Field
+	Set as	: if $$Line = 1 then @OPbal else +
+				if $$isempty:#RSTLTRCR and $$isempty:#RSTLTRDR then @Preval else  @RunningBal
+	OpBal	: if $$isempty:#RSTLTRCR then $$NettAmount:@@RsParchiOpBal:#RSTLTRDR else $$NettAmount:@@RsParchiOpBal:#RSTLTRCR
+	RunningBal	: if $$isempty:#RSTLTRCR then $$NettAmount:@Preval:#RSTLTRDR else $$NettAmount:@Preval:#RSTLTRCR
+	Preval	: $$PrevLineField:#RSTLTRBal
+	Format	: "NoZero,DRCR"
+	Width	: 15
+	Style	: Small
+	Invisible	: ##DispRBFlag
+
+[Part	: Vchotherdetails]
+	Local	: Line	: Default : Indent	: 2
+	Line	: VchOtherDust,VchOtherQ1,VchOtherQ2,VchOtherQ3,VchOtherQ4,VchOtherQtTotal,VchOtherfreight,VchOtherDala,VchOtherGST,VchOtherTCS,VchOtherTDS,VchOtherDed,VchOtherComm,VchOtherCD,VchOtherDiff
+	Local	: Line	: Default : Local	: Field	: Default : Style	: Small
+[Line	: VchOtherDust]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Dust (Kgs.)"
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcDustUDFX
+	Local	: Field	: VchOrherBasicRate :Set as	: "Basic Rate"
+	Local	: Field	: VchOrherBasicRate : Type	: String
+	Local	: Field	: VchOrherRate	: Set as	: $RsPurcItemPriceUDF1X
+	Local	: Field	: VchOtheramt	: Set as	: ""
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: "Basic Rate"
+	Local	: Field	: VchOtherqt2	: Set as	: $RsPurcItemPriceUDFO2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: ""
+	Field	: VCHOtherNugTitle,VchOtherNugValue
+[Field	: VCHOtherNugTitle]
+	Use		: Name Field
+	Set as	: "Nug : "
+	Style	: Small Bold
+	Width	: 5
+[Field	: VchOtherNugValue]
+	Use		: Name Field
+	Set as	: $RSSaleNugX
+	Style	: Small Bold
+	Width	: 15
+
+[Line	: VchOtherQ1]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Details 1"
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP1X
+	Local	: Field	: VchOrherBasicRate :Set as	: $RSPurcQRate1X ;$RsPurcItemPriceUDF1X
+	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate1XAdd
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt1X
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: "Details 2"
+	Local	: Field	: VchOtherqt2	: Set as	: $RSPurcQP1O2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: $RSPurcQRate1O2X ;$RsPurcItemPriceUDFO2X
+	Local	: Field	: VchOrherRate2	: Set as	: $RSPurcQRate1O2XADD
+	Local	: Field	: VchOtheramt2	: Set as	: $RSPurcQAmt1O2X
+	Invisible	: $$IsEmpty:$RSPurcQP1X and $$IsEmpty:$RSPurcQP1O2X
+[Line	: VchOtherQ2]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: ""
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP2X
+	Local	: Field	: VchOrherBasicRate :Set as	: $RSPurcQRate2X ;$RsPurcItemPriceUDF1X
+	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate2XAdd
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt2X
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: ""
+	Local	: Field	: VchOtherqt2	: Set as	: $RSPurcQP2O2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: $RSPurcQRate2O2X ;$RsPurcItemPriceUDFO2X
+	Local	: Field	: VchOrherRate2	: Set as	: $RSPurcQRate2O2XADD
+	Local	: Field	: VchOtheramt2	: Set as	: $RSPurcQAmt2O2X
+	Invisible	: $$IsEmpty:$RSPurcQP2X and $$IsEmpty:$RSPurcQP2O2X
+	
+[Line	: VchOtherQ3]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: ""
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP3X
+	Local	: Field	: VchOrherBasicRate :Set as	: $RSPurcQRate3X ;$RsPurcItemPriceUDF1X
+	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate3XAdd
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt3X
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: ""
+	Local	: Field	: VchOtherqt2	: Set as	: $RSPurcQP3O2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: $RSPurcQRate3O2X ;$RsPurcItemPriceUDFO2X
+	Local	: Field	: VchOrherRate2	: Set as	: $RSPurcQRate3O2XADD
+	Local	: Field	: VchOtheramt2	: Set as	: $RSPurcQAmt3O2X
+	Invisible	: $$IsEmpty:$RSPurcQP3X and $$IsEmpty:$RSPurcQP3O2X
+
+[Line	: VchOtherQ4]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: ""
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP4X
+	Local	: Field	: VchOrherBasicRate :Set as	: $RSPurcQRate4X ;$RsPurcItemPriceUDF1X
+	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate4XAdd
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt4X
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: ""
+	Local	: Field	: VchOtherqt2	: Set as	: $RSPurcQP4O2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: $RSPurcQRate4O2X ;$RsPurcItemPriceUDFO2X
+	Local	: Field	: VchOrherRate2	: Set as	: $RSPurcQRate4O2XADD
+	Local	: Field	: VchOtheramt2	: Set as	: $RSPurcQAmt4O2X
+	Invisible	: $$IsEmpty:$RSPurcQP4X and $$IsEmpty:$RSPurcQP4O2X
+
+[Line	: VchOtherQtTotal]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Total Qty"
+	Local	: Field	: VchOtherqt	: Set as	: $RSPurcDustUDFX+ $RSPurcQP1X + $RSPurcQP2X + $RSPurcQP3X + $RSPurcQP4X
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: ""
+	Field	: VchOtherDesc2,VchOtherqt2,VchOrherBasicRate2,VchOrherRate2,VchOtheramt2
+	Local	: Field	: VchOtherDesc2	: Set as	: ""
+	Local	: Field	: VchOtherqt2	: Set as	: $RSPurcQP1O2X + $RSPurcQP2O2X + $RSPurcQP3O2X +$RSPurcQP4O2X
+	Local	: Field	: VchOrherBasicRate2	: Set as	: ""
+	Local	: Field	: VchOrherRate2	: Set as	: ""
+	Local	: Field	: VchOtheramt2	: Set as	: ""
+
+[Line	: VchOtherfreight]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Freight "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RsPurcFreightUDFX
+	Invisible	: $$IsEmpty:$RsPurcFreightUDFX
+
+[Line	: VchOtherDala]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Dala(-)"
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcDalaUDFX
+	Invisible	: $$IsEmpty:$RSPurcDalaUDFX
+[Line	: VchOtherGST]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "GST "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcGSTUDFX
+	Invisible	: $$IsEmpty:$RSPurcGSTUDFX
+[Line	: VchOtherTCS]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "TCS "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcTCSUDFX
+	Invisible	: $$IsEmpty:$RSPurcTCSUDFX
+[Line	: VchOtherTDS]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "TDS "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcTDSUDFX
+	Invisible	: $$IsEmpty:$RSPurcTDSUDFX
+
+[Line	: VchOtherDed]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Deduction(-) "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcDecuctionUDFX
+	Invisible	: $$IsEmpty:$RSPurcDecuctionUDFX
+[Line	: VchOtherComm]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Commission(-) "
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcCommUDFX
+	Invisible	: $$IsEmpty:$RSPurcCommUDFX
+[Line	: VchOtherCD]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "CD (-)"
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcCDUDFX
+	Invisible	: $$IsEmpty:$RSPurcCDUDFX
+[Line	: VchOtherDiff]
+	Field	: VchOtherDesc,VchOtherqt,VchOrherBasicRate,VchOrherRate,VchOtheramt
+	Local	: Field	: VchOtherDesc	: Set as	: "Difference"
+	Local	: Field	: VchOtherqt	: Set as	: ""
+	Local	: Field	: VchOrherBasicRate :Set as	: ""
+	Local	: Field	: VchOrherRate	: Set as	: ""
+	Local	: Field	: VchOtheramt	: Set as	: $RSPurcDiffUDFX
+	Invisible	: $$IsEmpty:$RSPurcDiffUDFX
+	
+;[Part:VchotherdetailsRight]	
+;	Line	: VchOtherQ1A,VchOtherQ2A,VchOtherQ3A,VchOtherQ4A
+;[Line	: VchOtherQ1A]
+;	Field	: VchOtherDesc,VchOtherqt,VchOrherRate,VchOtheramt
+;	Local	: Field	: VchOtherDesc	: Set as	: ""
+;	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP1O2X
+;	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate1O2X
+;	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt1O2X
+;[Line	: VchOtherQ2A]
+;	Field	: VchOtherDesc,VchOtherqt,VchOrherRate,VchOtheramt
+;	Local	: Field	: VchOtherDesc	: Set as	: ""
+;	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP2O2X
+;	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate2O2X
+;	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt2O2X
+;[Line	: VchOtherQ3A]
+;	Field	: VchOtherDesc,VchOtherqt,VchOrherRate,VchOtheramt
+;	Local	: Field	: VchOtherDesc	: Set as	: ""
+;	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP3O2X
+;	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate3O2X
+;	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt3O2X
+;[Line	: VchOtherQ4A]
+;	Field	: VchOtherDesc,VchOtherqt,VchOrherRate,VchOtheramt
+;	Local	: Field	: VchOtherDesc	: Set as	: ""
+;	Local	: Field	: VchOtherqt	: Set as	: $RSPurcQP4O2X
+;	Local	: Field	: VchOrherRate	: Set as	: $RSPurcQRate4O2X
+;	Local	: Field	: VchOtheramt	: Set as	: $RSPurcQAmt4O2X
+;	
+	
+
+[Field	: VchOtherDesc]
+	Use	: Name Field
+	Style	: Small
+	Width	: 10
+	
+[Field	: VchOtherqt]
+	Use		: Number Field
+	Style	: Small
+	Width	: 7
+	Format	: "NoZero,Decimal:3"
+	Align	: Right
+[Field	: VchOrherRate]
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+
+[Field	: VchOrherBasicRate]
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+
+[Field	: VchOtheramt]
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+	
+[Field	: VchOtherDesc2]
+	Use	: Name Field
+	Style	: Small
+	Width	: 10
+	Align	: Right
+[Field	: VchOtherqt2]
+	Use		: Number Field
+	Style	: Small
+	Width	: 7
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+[Field	: VchOrherRate2]
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+[Field	: VchOrherBasicRate2]	
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+
+[Field	: VchOtheramt2]
+	Use		: Number Field
+	Style	: Small
+	Width	: 10
+	Format	: "NoZero,Decimal:2"
+	Align	: Right
+
+[Collection	: MyLedRPTVOUCHERS]
+	Type	: Vouchers : Ledger
+	Child Of	: ##MyLedgerName
+	Fetch	: *.*
+	Fetch	: Masterid
+	Filter	: IsParchiVoucher
+	Compute	: LAmount	: $$FilterAmtTotal:LedgerEntries:IsMyLedger:$Amount
+	Filter	: MyOthersDateVouchers
+[Collection	: MyLedRPTVouchersSumm]
+	Source Collection	: MyLedRPTVOUCHERS
+	Compute	: MyLedDRCRAmt	: $LAmount
+	Fetch	: Masterid
+
+[Collection	: MaterialInVchRPT]
+	Type	: Vouchers : VoucherType
+	Child Of: $$VchTypeJobMaterialReceive
+	Belongs To	: Yes
+	Filter	: IsParchiVoucher,IsCurParty1
+	Fetch	: *.*,RSvchTruckNo
+	Fetch	: RsPurcItemPriceUDF,RSPurcDustUDF,RSPurcQQty1,RSPurcQRate1,RSPurcQAmt1,RSPurcQQty2,RSPurcQRate2,RSPurcQAmt2,RSPurcQQty3,RSPurcQRate3,RSPurcQAmt3,RSPurcQQty4,RSPurcQRate4,RSPurcQAmt4
+	Compute	: Amount	: $Amount
+	Fetch	: RsPurcFreightUDF,RSPurcDalaUDF,RSPurcGSTUDF,RSPurcTCSUDF,RSPurcDecuctionUDF,RSPurcCommUDF,RSPurcCDUDF
+	Fetch	: RSPurcQP1O2,RSPurcQRate1O2,RSPurcQAmt1O2,RSPurcQP2O2,RSPurcQRate2O2,RSPurcQAmt2O2,RSPurcQP3O2,RSPurcQRate3O2
+	Fetch	: RsPurcItemPriceUDFO2,RSPurcQAmt3O2,RSPurcQP4O2,RSPurcQRate4O2,RSPurcQAmt4O2
+	Fetch	: RSPurcQQty1O2,RSPurcQQty2O2,RSPurcQQty3O2,RSPurcQQty4O2
+	Fetch	: Masterid
+	Filter	: MyTruckDateVouchers
+
+
+[Collection	: MaterialInVchSummRPT]
+	Source Collection	: MaterialInVchRPT
+	Compute	: RSvchTruckNo1 	: $RSvchTruckNo
+	Compute	: RSPurcDustUDFX	: $RSPurcDustUDF
+	Compute	: RsPurcItemPriceUDF1X: $RsPurcItemPriceUDF
+	Compute	: RSPurcQP1X		: $RSPurcQQty1
+	Compute	: RSPurcQRate1X		: $RsPurcItemPriceUDF + $RSPurcQRate1
+	Compute	: RSPurcQAmt1X		: $RSPurcQAmt1
+	Compute	: RSPurcQP2X		: $RSPurcQQty2	
+	Compute	: RSPurcQRate2X		: $RsPurcItemPriceUDF + $RSPurcQRate2
+	Compute	: RSPurcQAmt2X		: $RSPurcQAmt2
+	Compute	: RSPurcQP3X		: $RSPurcQQty3
+	Compute	: RSPurcQRate3X		: $RsPurcItemPriceUDF + $RSPurcQRate3
+	Compute	: RSPurcQAmt3X		: $RSPurcQAmt3
+	Compute	: RSPurcQP4X		: $RSPurcQQty4
+	Compute	: RSPurcQRate4X		: $RsPurcItemPriceUDF + $RSPurcQRate4
+	Compute	: RSPurcQAmt4X		: $RSPurcQAmt4
+
+	Compute	: RSPurcQRate1XAdd	: $RSPurcQRate1
+	Compute	: RSPurcQRate2XAdd	: $RSPurcQRate2
+	Compute	: RSPurcQRate3XAdd	: $RSPurcQRate3
+	Compute	: RSPurcQRate4XAdd	: $RSPurcQRate4
+
+
+	Compute	: RsPurcFreightUDFX	: $RsPurcFreightUDF
+	Compute	: RSPurcDalaUDFX		: $RSPurcDalaUDF
+	Compute	: RSPurcGSTUDFX		: $RSPurcGSTUDF
+	Compute	: RSPurcTCSUDFX		: $RSPurcTCSUDF
+	Compute	: RSPurcTDSUDFX		: $RSPurcTDSUDF
+
+	Compute	: RSPurcDecuctionUDFX: $RSPurcDecuctionUDF
+	Compute	: RSPurcCommUDFX	: $RSPurcCommUDF
+	Compute	: RSPurcCDUDFX		: $RSPurcCDUDF
+	Compute	: RSPurcDiffUDFX	: $RSPurcDiffUDF
+
+	Compute	: RSPurcQP1O2X 		: $RSPurcQQty1O2
+	Compute	: RsPurcItemPriceUDFO2X: $RsPurcItemPriceUDFO2
+	Compute	: RSPurcQRate1O2X 	: $RsPurcItemPriceUDFO2+$RSPurcQRate1O2
+	Compute	: RSPurcQAmt1O2X	: $RSPurcQAmt1O2
+	Compute	: RSPurcQP2O2X		: $RSPurcQQty2O2
+	Compute	: RSPurcQRate2O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate2O2
+	Compute	: RSPurcQAmt2O2X	: $RSPurcQAmt2O2
+	Compute	: RSPurcQP3O2X		: $RSPurcQQty3O2
+	Compute	: RSPurcQRate3O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate3O2
+	Compute	: RSPurcQAmt3O2X	: $RSPurcQAmt3O2
+	Compute	: RSPurcQP4O2X		: $RSPurcQQty4O2
+	Compute	: RSPurcQRate4O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate4O2
+	Compute	: RSPurcQAmt4O2X	: $RSPurcQAmt4O2
+
+	Compute	: RSPurcQRate1O2XADD 	: $RSPurcQRate1O2
+	Compute	: RSPurcQRate2O2XADD	: $RSPurcQRate2O2
+	Compute	: RSPurcQRate3O2XADD	: $RSPurcQRate3O2
+	Compute	: RSPurcQRate4O2XADD	: $RSPurcQRate4O2
+
+
+	Compute	: LedRTGSAmt: $RSPurcRTGSAmt 
+	Compute	: LedPurAmt	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+	Compute	: LedDRCRAmt: $$NettAmount:($$AsCrAmt:$$AsAmount:$RSPurcEffAmt):$RSPurcRTGSAmt 
+	Compute	: RSSaleNugX		: $RSSaleNug
+	Format	: $Dated , 30
+
+[Collection	: MaterialInVchRPTdEMO]
+	Type	: Vouchers : VoucherType
+	Child Of: $$VchTypeJobMaterialReceive
+	Belongs To	: Yes
+	Fetch	: *.*,RSvchTruckNo
+	
+;;sELECT $VOUCHERNUMBER, $DATE ,$RSSalePartyUDF,$RSSaleordernoUDF,$RSSaleordernoUDFO2,$RSSaleActualWeightUDF FROM  MaterialInVchRPTdEMO WHERE $RSSaleordernoUDF = '5' OR $RSSaleordernoUDFO2 = '5'
+		
+[Collection	: MyLedgerAllvouchers]
+	Use		: MyLedRPTVouchersSumm,MaterialInVchSummRPT
+	Compute	: VoucherNumber	: $VoucherNumber
+	Compute	: VoucherTypeName	: $VoucherTypeName
+	Compute	: Date			: $Date
+	Compute	: MyLedAmt		: $MyLedDRCRAmt ;;if $$IsEmpty:$MyLedDRCRAmt then $LedDRCRAmt else $MyLedDRCRAmt
+	Compute	: LedRTGSAmt1	: $RSPurcRTGSAmt 
+	Compute	: LedPurAmt1	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+	Filter	: MyDateVouchers
+
+
+[Collection	: MyLedRPTVOUCHERSOP]
+	Type	: Vouchers : Ledger
+	Child Of	: ##MyLedgerName
+	Fetch	: *.*
+	Fetch	: Masterid
+	Filter	: IsParchiVoucher
+	Compute	: LAmount	: $$FilterAmtTotal:LedgerEntries:IsMyLedger:$Amount
+[Collection	: MyLedRPTVouchersSummOP]
+	Source Collection	: MyLedRPTVOUCHERSOP
+	Compute	: Date	: $Date
+	Compute	: MyLedDRCRAmt	: $LAmount
+	Fetch	: Masterid
+
+[Collection	: MaterialInVchRPTOP]
+	Type	: Vouchers : VoucherType
+	Child Of: $$VchTypeJobMaterialReceive
+	Belongs To	: Yes
+	Filter	: IsParchiVoucher,IsCurParty1
+	Fetch	: *.*,RSvchTruckNo
+	Fetch	: RsPurcItemPriceUDF,RSPurcDustUDF,RSPurcQQty1,RSPurcQRate1,RSPurcQAmt1,RSPurcQQty2,RSPurcQRate2,RSPurcQAmt2,RSPurcQQty3,RSPurcQRate3,RSPurcQAmt3,RSPurcQQty4,RSPurcQRate4,RSPurcQAmt4
+	Compute	: Amount	: $Amount
+	Fetch	: RsPurcFreightUDF,RSPurcDalaUDF,RSPurcGSTUDF,RSPurcTCSUDF,RSPurcDecuctionUDF,RSPurcCommUDF,RSPurcCDUDF
+	Fetch	: RSPurcQP1O2,RSPurcQRate1O2,RSPurcQAmt1O2,RSPurcQP2O2,RSPurcQRate2O2,RSPurcQAmt2O2,RSPurcQP3O2,RSPurcQRate3O2
+	Fetch	: RsPurcItemPriceUDFO2,RSPurcQAmt3O2,RSPurcQP4O2,RSPurcQRate4O2,RSPurcQAmt4O2
+	Fetch	: RSPurcQQty1O2,RSPurcQQty2O2,RSPurcQQty3O2,RSPurcQQty4O2
+	Fetch	: Masterid
+
+
+[Collection	: MaterialInVchSummRPTOP]
+	Source Collection	: MaterialInVchRPTOP
+	Compute	: RSvchTruckNo1 	: $RSvchTruckNo
+	Compute	: RSPurcDustUDFX	: $RSPurcDustUDF
+	Compute	: RsPurcItemPriceUDF1X: $RsPurcItemPriceUDF
+	Compute	: RSPurcQP1X		: $RSPurcQQty1
+	Compute	: RSPurcQRate1X		: $RsPurcItemPriceUDF + $RSPurcQRate1
+	Compute	: RSPurcQAmt1X		: $RSPurcQAmt1
+	Compute	: RSPurcQP2X		: $RSPurcQQty2	
+	Compute	: RSPurcQRate2X		: $RsPurcItemPriceUDF + $RSPurcQRate2
+	Compute	: RSPurcQAmt2X		: $RSPurcQAmt2
+	Compute	: RSPurcQP3X		: $RSPurcQQty3
+	Compute	: RSPurcQRate3X		: $RsPurcItemPriceUDF + $RSPurcQRate3
+	Compute	: RSPurcQAmt3X		: $RSPurcQAmt3
+	Compute	: RSPurcQP4X		: $RSPurcQQty4
+	Compute	: RSPurcQRate4X		: $RsPurcItemPriceUDF + $RSPurcQRate4
+	Compute	: RSPurcQAmt4X		: $RSPurcQAmt4
+
+	Compute	: RSPurcQRate1XAdd	: $RSPurcQRate1
+	Compute	: RSPurcQRate2XAdd	: $RSPurcQRate2
+	Compute	: RSPurcQRate3XAdd	: $RSPurcQRate3
+	Compute	: RSPurcQRate4XAdd	: $RSPurcQRate4
+
+
+	Compute	: RsPurcFreightUDFX	: $RsPurcFreightUDF
+	Compute	: RSPurcDalaUDFX		: $RSPurcDalaUDF
+	Compute	: RSPurcGSTUDFX		: $RSPurcGSTUDF
+	Compute	: RSPurcTCSUDFX		: $RSPurcTCSUDF
+	Compute	: RSPurcTDSUDFX		: $RSPurcTDSUDF
+
+	Compute	: RSPurcDecuctionUDFX: $RSPurcDecuctionUDF
+	Compute	: RSPurcCommUDFX	: $RSPurcCommUDF
+	Compute	: RSPurcCDUDFX		: $RSPurcCDUDF
+	Compute	: RSPurcDiffUDFX	: $RSPurcDiffUDF
+
+	Compute	: RSPurcQP1O2X 		: $RSPurcQQty1O2
+	Compute	: RsPurcItemPriceUDFO2X: $RsPurcItemPriceUDFO2
+	Compute	: RSPurcQRate1O2X 	: $RsPurcItemPriceUDFO2+$RSPurcQRate1O2
+	Compute	: RSPurcQAmt1O2X	: $RSPurcQAmt1O2
+	Compute	: RSPurcQP2O2X		: $RSPurcQQty2O2
+	Compute	: RSPurcQRate2O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate2O2
+	Compute	: RSPurcQAmt2O2X	: $RSPurcQAmt2O2
+	Compute	: RSPurcQP3O2X		: $RSPurcQQty3O2
+	Compute	: RSPurcQRate3O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate3O2
+	Compute	: RSPurcQAmt3O2X	: $RSPurcQAmt3O2
+	Compute	: RSPurcQP4O2X		: $RSPurcQQty4O2
+	Compute	: RSPurcQRate4O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate4O2
+	Compute	: RSPurcQAmt4O2X	: $RSPurcQAmt4O2
+
+	Compute	: RSPurcQRate1O2XADD 	: $RSPurcQRate1O2
+	Compute	: RSPurcQRate2O2XADD	: $RSPurcQRate2O2
+	Compute	: RSPurcQRate3O2XADD	: $RSPurcQRate3O2
+	Compute	: RSPurcQRate4O2XADD	: $RSPurcQRate4O2
+
+
+	Compute	: LedRTGSAmt: $RSPurcRTGSAmt 
+	Compute	: LedPurAmt	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+	Compute	: LedDRCRAmt: $$NettAmount:($$AsCrAmt:$$AsAmount:$RSPurcEffAmt):$RSPurcRTGSAmt 
+	Compute	: RSSaleNugX		: $RSSaleNug
+	Format	: $Dated , 30
+	
+[Collection	: MyLedgerAllvouchersOP]
+	Use		: MyLedRPTVouchersSummOP,MaterialInVchSummRPTOP
+	Compute	: VoucherNumber	: $VoucherNumber
+	Compute	: VoucherTypeName	: $VoucherTypeName
+	Compute	: Date			: $Date
+	Compute	: MyLedAmt		: $MyLedDRCRAmt ;;if $$IsEmpty:$MyLedDRCRAmt then $LedDRCRAmt else $MyLedDRCRAmt
+	Compute	: LedRTGSAmt1	: $RSPurcRTGSAmt 
+	Compute	: LedPurAmt1	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+
+[System	: Formula]	
+	IsCurParty1		: $Partyledgername = ##MyLedgerName
+	IsMyLedger		: $LedgerName	=  ##MyLedgerName
+	RsParchiOpBalOrg: $RSLedOpBal:Ledger:##MyLedgerName
+	RsParchiOpBal	: $$NettAmount:@@RsParchiOpBalOrg:@@MyBeforeDateAmt
+	
+	MyDateVouchers	: $Date <= ##UDVarTo and $Date >= ##UDVarFrom
+
+	MyTruckDateVouchers	: $Date <= ##UDTruckVarTo and $Date >= ##UDVarTruckFrom
+	MyOthersDateVouchers: $Date <= ##UDVarOthersTo and $Date >= ##UDVarOthersFrom
+
+	MyBeforeDate: $Date < ##UDVarFrom
+	MyBeforeDateDR	: $$FilterAmtTotal:MyLedgerAllvouchersOP:MyBeforeDate:$MyLedDRCRAmt
+	MyBeforeDateDR1	: $$FilterAmtTotal:MyLedgerAllvouchersOP:MyBeforeDate:$LedDRCRAmt
+
+	MyOpBalAmount1	: $$NettAmount:@@MyBeforeDateDR:@@MyOpTruckother
+	
+	MyBeforeDateAmt	:  $$NettAmount:@@MyOpBalAmount1:@@MyBeforeDateDR1
+
+	MyOpBalAmountdate	: $Date < ##UDVarOthersFrom and $Date >= ##UDVarTruckFrom
+	MyOpTruckother	:  $$FilterAmtTotal:MyLedRPTVouchersSummOP:MyOpBalAmountdate:$MyLedDRCRAmt
+
+	
+
+[Button	: BtnPeriodFilter]
+	Key		: F7
+	Title   : $$LocaleString:"Period"
+	Action  : Modify Variable : ULedPeriod
+
+;;;;;;;;;;;;;;;;Report for Desc 
+[Variable : UDVarFrom]
+	Type : Date
+[Variable : UDVarTo]
+	Type : Date
+
+[Report : ULedPeriod]
+	Form 	: ULedPeriod
+	variable: UDVarFrom,UDVarTo 
+[Form : ULedPeriod]
+	Part : ULedPeriod
+[Part : ULedPeriod]
+	Line : ULedPeriodFrom,ULedPeriodTo
+	Line : ULedPeriodTruckFrom,ULedPeriodTruckTo
+	Line : ULedPeriodOthersFrom,ULedPeriodOthersTo
+[Line : ULedPeriodFrom]
+	Field : Short Prompt , ULedPeriodFrom
+	Local : Field : Short Prompt :Info :"From"
+[Field : ULedPeriodFrom]
+	use 	: Uni Date field
+	Modifies: UDVarfrom
+	Width	: 12
+	Align	: Center
+	Style	: Small Bold
+
+[Line : ULedPeriodTo]
+	Field : Short Prompt , ULedPeriodTo
+	Local : Field : Short Prompt :Info :"To"
+[Field : ULedPeriodTo]
+	use 	: Uni Date field
+	Modifies: UDVarTo
+		Width	: 12
+	Align	: Center
+	Style	: Small Bold
+
+
+[Button	: BtnTruckPeriodFilter]
+	Key		: Alt + F7
+	Title           : If ##DispRBFlag Then $$LocaleString:"Show Balance" Else $$LocaleString:"Hide Balance"
+	Action          : Set : DispRBFlag : NOT ##DispRBFlag
+
+
+;;;;;;;;;;;;;;;;Report for Desc
+[Variable	: DispRBFlag]
+	Type	: Logical
+[Variable : UDVarTruckFrom]
+	Type : Date
+[Variable : UDTruckVarTo]
+	Type : Date
+[Variable : UDVarOthersFrom]
+	Type : Date
+[Variable : UDVarOthersTo]
+	Type : Date
+
+[Report : ULedTruckPeriod]
+	Form 	: ULedTruckPeriod
+	variable: UDVarTruckFrom,UDTruckVarTo
+	variable: UDVarOthersFrom,UDVarOthersTo
+	
+[Form : ULedTruckPeriod]
+	Part : ULedTruckPeriod
+[Part : ULedTruckPeriod]
+	Line : ULedPeriodTruckFrom,ULedPeriodTruckTo
+	Line : ULedPeriodOthersFrom,ULedPeriodOthersTo
+	
+[Line : ULedPeriodTruckFrom]
+	Field : Medium Prompt , ULedPeriodTruckFrom
+	Local : Field : Medium Prompt :Info :"Truck Vouchers From :"
+[Field : ULedPeriodTruckFrom]
+	use 	: Uni Date field
+	Modifies: UDVarTruckfrom
+	Width	: 12
+	Align	: Center
+	Style	: Small Bold
+[Line : ULedPeriodTruckTo]
+	Field : Medium Prompt , ULedPeriodTruckTo
+	Local : Field : Medium Prompt :Info :"Truck Vouchers To :"
+[Field : ULedPeriodTruckTo]
+	use 	: Uni Date field
+	Modifies: UDTruckVarTo
+	Width	: 12
+	Align	: Center
+	Style	: Small Bold
+
+[Line : ULedPeriodOthersFrom]
+	Field : Medium Prompt , ULedPeriodOthersFrom
+	Local : Field : Medium Prompt :Info :"Other Vouchers From :"
+	Space Top	: 1
+[Field : ULedPeriodOthersFrom]
+	use 	: Uni Date field
+	Modifies: UDVarOthersfrom
+	Width	: 12
+	Align	: Center
+	Style	: Small Bold
+[Line : ULedPeriodOthersTo]
+	Field : Medium Prompt , ULedPeriodOthersTo
+	Local : Field : Medium Prompt :Info :"Other Vouchers To :"
+[Field : ULedPeriodOthersTo]
+	use 	: Uni Date field
+	Modifies: UDVarOthersTo
+	Width	: 12
+	Align	: Center
+	Style	: Small Bold
+
+;;;;;;;;;;;;;;;;;;;;;;;;New Collections
+;[Collection	: MyLedgerAllvouchers]
+;	Type	: Voucher
+;;	Child Of	: ##MyLedgerName
+;	Fetch	: *.*
+;	Fetch	: Masterid
+;;	Filter	: IsParchiVoucher
+;;	Compute	: LAmount	: $$FilterAmtTotal:LedgerEntries:IsMyLedger:$Amount
+;;[Collection	: MyLedRPTVouchersSumm]
+;;	Source Collection	: MyLedRPTVOUCHERS
+;	Compute	: MyLedDRCRAmt	:$$FilterAmtTotal:LedgerEntries:IsMyLedger:$Amount
+;	Fetch	: Masterid
+;
+;	Filter	: IsParchiVoucher,IsCurParty1
+;	Fetch	: *.*,RSvchTruckNo
+;	Fetch	: RsPurcItemPriceUDF,RSPurcDustUDF,RSPurcQQty1,RSPurcQRate1,RSPurcQAmt1,RSPurcQQty2,RSPurcQRate2,RSPurcQAmt2,RSPurcQQty3,RSPurcQRate3,RSPurcQAmt3,RSPurcQQty4,RSPurcQRate4,RSPurcQAmt4
+;	Compute	: Amount	: $Amount
+;	Fetch	: RsPurcFreightUDF,RSPurcDalaUDF,RSPurcGSTUDF,RSPurcTCSUDF,RSPurcDecuctionUDF,RSPurcCommUDF,RSPurcCDUDF
+;	Fetch	: RSPurcQP1O2,RSPurcQRate1O2,RSPurcQAmt1O2,RSPurcQP2O2,RSPurcQRate2O2,RSPurcQAmt2O2,RSPurcQP3O2,RSPurcQRate3O2
+;	Fetch	: RsPurcItemPriceUDFO2,RSPurcQAmt3O2,RSPurcQP4O2,RSPurcQRate4O2,RSPurcQAmt4O2
+;	Fetch	: RSPurcQQty1O2,RSPurcQQty2O2,RSPurcQQty3O2,RSPurcQQty4O2
+;	Fetch	: Masterid
+;
+;	Compute	: RSvchTruckNo1 	: $RSvchTruckNo
+;	Compute	: RSPurcDustUDFX		: $RSPurcDustUDF
+;	Compute	: RsPurcItemPriceUDF1X: $RsPurcItemPriceUDF
+;	Compute	: RSPurcQP1X		: $RSPurcQQty1
+;	Compute	: RSPurcQRate1X		: $RsPurcItemPriceUDF + $RSPurcQRate1
+;	Compute	: RSPurcQAmt1X		: $RSPurcQAmt1
+;	Compute	: RSPurcQP2X		: $RSPurcQQty2	
+;	Compute	: RSPurcQRate2X		: $RsPurcItemPriceUDF + $RSPurcQRate2
+;	Compute	: RSPurcQAmt2X		: $RSPurcQAmt2
+;	Compute	: RSPurcQP3X		: $RSPurcQQty3
+;	Compute	: RSPurcQRate3X		: $RsPurcItemPriceUDF + $RSPurcQRate3
+;	Compute	: RSPurcQAmt3X		: $RSPurcQAmt3
+;	Compute	: RSPurcQP4X		: $RSPurcQQty4
+;	Compute	: RSPurcQRate4X		: $RsPurcItemPriceUDF + $RSPurcQRate4
+;	Compute	: RSPurcQAmt4X		: $RSPurcQAmt4
+;
+;	Compute	: RSPurcQRate1XAdd	: $RSPurcQRate1
+;	Compute	: RSPurcQRate2XAdd	: $RSPurcQRate2
+;	Compute	: RSPurcQRate3XAdd	: $RSPurcQRate3
+;	Compute	: RSPurcQRate4XAdd	: $RSPurcQRate4
+;
+;
+;	Compute	: RsPurcFreightUDFX	: $RsPurcFreightUDF
+;	Compute	: RSPurcDalaUDFX		: $RSPurcDalaUDF
+;	Compute	: RSPurcGSTUDFX		: $RSPurcGSTUDF
+;	Compute	: RSPurcTCSUDFX		: $RSPurcTCSUDF
+;
+;	Compute	: RSPurcDecuctionUDFX: $RSPurcDecuctionUDF
+;	Compute	: RSPurcCommUDFX	: $RSPurcCommUDF
+;	Compute	: RSPurcCDUDFX		: $RSPurcCDUDF
+;
+;	Compute	: RSPurcQP1O2X 		: $RSPurcQQty1O2
+;	Compute	: RsPurcItemPriceUDFO2X: $RsPurcItemPriceUDFO2
+;	Compute	: RSPurcQRate1O2X 	: $RsPurcItemPriceUDFO2+$RSPurcQRate1O2
+;	Compute	: RSPurcQAmt1O2X	: $RSPurcQAmt1O2
+;	Compute	: RSPurcQP2O2X		: $RSPurcQQty2O2
+;	Compute	: RSPurcQRate2O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate2O2
+;	Compute	: RSPurcQAmt2O2X	: $RSPurcQAmt2O2
+;	Compute	: RSPurcQP3O2X		: $RSPurcQQty3O2
+;	Compute	: RSPurcQRate3O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate3O2
+;	Compute	: RSPurcQAmt3O2X	: $RSPurcQAmt3O2
+;	Compute	: RSPurcQP4O2X		: $RSPurcQQty4O2
+;	Compute	: RSPurcQRate4O2X	: $RsPurcItemPriceUDFO2+$RSPurcQRate4O2
+;	Compute	: RSPurcQAmt4O2X	: $RSPurcQAmt4O2
+;
+;	Compute	: RSPurcQRate1O2XADD 	: $RSPurcQRate1O2
+;	Compute	: RSPurcQRate2O2XADD	: $RSPurcQRate2O2
+;	Compute	: RSPurcQRate3O2XADD	: $RSPurcQRate3O2
+;	Compute	: RSPurcQRate4O2XADD	: $RSPurcQRate4O2
+;
+;
+;	Compute	: LedRTGSAmt: $RSPurcRTGSAmt 
+;	Compute	: LedPurAmt	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+;	Compute	: LedDRCRAmt: $$NettAmount:($$AsCrAmt:$$AsAmount:$RSPurcEffAmt):$RSPurcRTGSAmt 
+;	Format	: $Dated , 30
+;
+;	Compute	: VoucherNumber	: $VoucherNumber
+;	Compute	: VoucherTypeName	: $VoucherTypeName
+;	Compute	: Date			: $Date
+;	Compute	: MyLedAmt		: $MyLedDRCRAmt ;;if $$IsEmpty:$MyLedDRCRAmt then $LedDRCRAmt else $MyLedDRCRAmt
+;	Compute	: LedRTGSAmt1	: $RSPurcRTGSAmt 
+;	Compute	: LedPurAmt1	: $$AsCrAmt:$$AsAmount:$RSPurcEffAmt
+;	Filter	: MyDateVouchers

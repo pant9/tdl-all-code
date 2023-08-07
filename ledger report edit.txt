@@ -1,0 +1,162 @@
+
+
+
+[#Menu: Gateway of Tally]
+	Add	: Button	: Refresh TDL
+[#Form: Voucher]
+	Add	: Button	: Refresh TDL
+
+[Key: Refresh TDL]
+	Title	: $$LocaleString:"Refresh"
+	Action	: Refresh TDL
+	Key		: Alt + 7
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;[#Line: DSP VchAccTitles]
+;	Add	: Right Field	: At Beginning	: dspdispatchthrgh
+		
+
+[#Line: Db TItle1]
+	Add	: Right Field	: At Beginning	: dspdispatchthrgh
+
+	
+			
+	[Field	: dspdispatchthrgh]
+		Use		: Name Field
+		Set as	: "Dispatch Through"
+		Width	: 15% page
+		Align	: Center
+		Style   : Normal 
+		Invisible	: $$IsEmpty:#dspdispatchthrgh1
+;		
+;		
+
+	
+	
+;[#Line: DSP VchAccDetail]
+;	Add	: Right Field	: At Beginning	: dspdispatchthrgh
+	
+[#Line: DSP VchDetail]
+	Add	: Right Field	: At Beginning	: dspdispatchthrgh1
+	
+		
+		[Field	: dspdispatchthrgh1]
+			Use		: Name Field
+			Width	: 15% page
+			Align	: Center
+			Set as	: If $$IsSales:$VouchertypeName Then $BasicShippedBy Else ""
+			Inactive: Not $$IsSales:$VouchertypeName
+			
+
+[#Collection	: Filtered Vouchers of Company]
+		
+		;Add	: Compute	: BasicShippedBy:$BasicShippedBy
+		Fetch	:  BasicShippedBy
+	
+		
+
+;[#Collection	: Specific Vouchers of Company ]
+;		Add	: Compute	: BasicShippedBy:$BasicShippedBy
+;	
+	
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UDF'S ADD IN Invoice;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;		
+
+
+
+;[#Form	: Comprehensive Invoice]
+;	
+;   [#Part	: EXPINV LeftSign]
+;		Add	: Bottom Part:  Before: EXPINV Narration :INVMObno
+;		
+;				[Part	: INVMObno]
+;					Line	:INVMObno
+;					
+;					[Line	: INVMObno]
+;					Field	: SHort prompt ,INVMObno
+;				
+;					Local	: Field: SHort prompt : Set as	: "Mobile NO."
+;					Local	: Field: SHort prompt : Style	: Normal BOld
+;
+;
+;
+;					[Field	: INVMObno]
+;						Use		: Name Field
+;						Style	: Normal
+;						Set as	: $mobileno:company:##svcurrentcompany
+;						Width	: 13% Page
+;				
+;	
+          [#Part: EXPINV OtherRef]
+			Local       : Field : EXPINV SubTitle : Info    : If @@IsGCCCountries Then $$LocaleString:"Narrations" Else $$LocaleString:"Narrations"
+	
+			 [#Line: EXPINV OtherRef]
+
+                        Field   : Name Field
+                        Local   : Field : Name Field : Set as : $Narration
+						
+	[#Part: EXPINV TopRight]
+		Add : Part	: Before	: EXPINV Terms : expinvpincode
+		
+	[Part	: expinvpincode]
+		Border	: thin bottom
+		Line	: expinvpincode
+			[Line	: expinvpincode]
+				Field	:Short prompt , expinvpincode
+				Local	: Field	: Short prompt :Set as	:"Vendor Code"
+				Local	: Field	: Short prompt :style	:Normal 
+				Local	: Field	: Short prompt :Width	: 15% page
+				
+				
+			[Field	: expinvpincode ]
+				Use		: Name Field
+				Width	: 10% page
+				Set as  : $$WeekEnd:$Date;$OnlyAlias:ledger:$PartyLedgerName
+				
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;invoice ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+						
+
+;[#Part	: EXPINV Consignee]
+;	Add	: Line	: At End : EXpinvVendor
+;		
+;		 [Line	: EXpinvVendor]
+;			 Border	: Thin top
+;			 Field	: Long Prompt,EXpinvVendor
+;						 
+;			 Local	: Field	: Long Prompt : Set as	: "Vendor Code"
+;			 Local	: Field	: Long prompt : style	: Normal 
+;			 Local	: Field	: Long prompt : Width	: 15% page
+;			 
+;														
+;						[Field	: EXpinvVendor ]
+;							Use		: Name Field
+;							Width	: 10% page
+;							Set as  : $OnlyAlias:ledger:$ConsigneeMailingName 
+;							
+;
+;	[#Part	: EXPINV Buyer]
+;		
+;		Add	: Line	: At End: EXpinvVendor1
+;		
+;		
+;			 [Line	: EXpinvVendor1]
+;				 Border	: Thin top
+;				 Field	: Long Prompt,EXpinvVendor1
+;				 
+;				Local	: Field	: Long Prompt : Set as  : "Vendor Code"
+;				Local	: Field	: long prompt : style	: Normal 
+;				Local	: Field	: long prompt : Width	: 15% page
+;				
+;									[Field	: EXpinvVendor1 ]
+;										Use		: Name Field
+;										Width	:10% page
+;										Set as  : $OnlyAlias:ledger:$PartyLedgerName
+;									
+[#Field	: VchBatchBilledQty]		
+		On	: Accept	: Yes	: Call	:SetRateFunc
+		On	: Accept	: Yes	: Field Accept
+		
+[Function	: SetRateFunc]
+	1:Set Value	: Tracking Number : "378asscav"
+									
